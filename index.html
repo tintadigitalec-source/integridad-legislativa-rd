@@ -1,0 +1,1408 @@
+<!doctype html>
+<html lang="es">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8">
+<title>Integridad Legislativa RD</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Presentación interactiva de Tinta Digital para sociedad civil y periodistas, Santo Domingo, 4 de noviembre de 2026">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600;700;800&family=Special+Elite&display=swap">
+<style>/* Layout: a 1920×1080 stage scaled to the window (--u = one design pixel). Portrait screens reflow and scroll.
+   Identity: Tinta Digital — crumpled paper in red, cream and black; Bebas Neue headlines with a marker on the key words;
+   typewriter stickers on red tape; taped polaroids; purple retro illustrations. */
+@font-face{font-family:"Bebas Neue";src:url("assets/fonts/bebas-neue.woff2") format("woff2");font-display:swap}
+@font-face{font-family:"Open Sans";src:url("assets/fonts/open-sans-400.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Open Sans";src:url("assets/fonts/open-sans-600.woff2") format("woff2");font-weight:500 600;font-display:swap}
+@font-face{font-family:"Open Sans";src:url("assets/fonts/open-sans-700.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Open Sans";src:url("assets/fonts/open-sans-800.woff2") format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"Special Elite";src:url("assets/fonts/special-elite.woff2") format("woff2");font-display:swap}
+:root{
+  --red:#EB332A; --red-hi:#FF4B3E; --red-deep:#B8231B; --ink:#111012; --ink-2:#1E1C20; --cream:#F6F1E6; --paper:#FFFDF7;
+  --purple:#7352C7; --lilac:#DFC7F9; --yellow:#FFD522; --green:#1E8A4A;
+  --muted:#ECE6DA; --dim:#CFC8BC; --soft:#2A2623;
+  --f-display:"Bebas Neue","Arial Narrow",Impact,sans-serif;
+  --f-body:"Open Sans","Helvetica Neue",Arial,sans-serif;
+  --f-type:"Special Elite","Courier New",monospace;
+  --bar:60px; --ease:cubic-bezier(.2,.9,.25,1.15);
+  color-scheme:dark;
+}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:var(--ink);color:var(--cream);font-family:var(--f-body);overflow:hidden;
+  padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
+#app{position:relative;height:100%;display:flex;flex-direction:column}
+#viewport{flex:1;min-height:0;container-type:size;container-name:vp;display:grid;place-items:center;background:#000}
+.stage{position:relative;width:min(100cqw,calc(100cqh*16/9));height:min(100cqh,calc(100cqw*9/16));
+  --u:min(calc(100cqw/1920),calc(100cqh/1080));overflow:hidden;background:var(--ink)}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;gap:calc(var(--u)*30);
+  padding:calc(var(--u)*84) calc(var(--u)*120) calc(var(--u)*112);background-size:cover;background-position:center;
+  visibility:hidden;overflow:hidden}
+.slide.active{visibility:visible}
+.slide > *{position:relative;z-index:1}
+.paper-black{background-color:var(--ink);background-image:url("assets/img/paper_black.jpg");color:var(--cream)}
+.paper-cream{background-color:var(--cream);background-image:url("assets/img/paper_cream.jpg");color:var(--ink)}
+.paper-red{background-color:var(--red);background-image:url("assets/img/paper_red.jpg");color:var(--cream)}
+.center-v{justify-content:center}
+h1,h2,h3,p,figure,ul{margin:0}
+/* ── type hierarchy: sticker › headline › lead › body › caption ── */
+.t-hero{font-family:var(--f-display);font-weight:400;font-size:calc(var(--u)*176);line-height:.9;text-transform:uppercase;max-width:calc(var(--u)*1420);margin-top:auto}
+.t-xxl{font-family:var(--f-display);font-weight:400;font-size:calc(var(--u)*184);line-height:.9;text-transform:uppercase;text-wrap:balance}
+.t-xl{font-family:var(--f-display);font-weight:400;font-size:calc(var(--u)*150);line-height:.92;text-transform:uppercase;text-wrap:balance}
+.t-lg{font-family:var(--f-display);font-weight:400;font-size:calc(var(--u)*118);line-height:.94;text-transform:uppercase;text-wrap:balance;max-width:calc(var(--u)*1600)}
+.t-md2{font-family:var(--f-display);font-weight:400;font-size:calc(var(--u)*96);line-height:.95;text-transform:uppercase;text-wrap:balance}
+.t-md{font-family:var(--f-display);font-weight:400;font-size:calc(var(--u)*76);line-height:1;text-transform:uppercase;text-wrap:balance}
+.t-sm{font-family:var(--f-display);font-weight:400;font-size:calc(var(--u)*56);line-height:1;text-transform:uppercase}
+.t-sm2{font-family:var(--f-body);font-weight:800;font-size:calc(var(--u)*34);line-height:1.15}
+.t-xlead{font-size:calc(var(--u)*46);line-height:1.3;font-weight:500}
+.t-lead{font-size:calc(var(--u)*36);line-height:1.35;font-weight:500}
+.t-body{font-size:calc(var(--u)*29);line-height:1.42}
+.t-cap{font-size:calc(var(--u)*23);line-height:1.4}
+.kicker{font-family:var(--f-type);font-size:calc(var(--u)*26);letter-spacing:calc(var(--u)*1.5);text-transform:uppercase}
+.b{font-weight:700}.right{text-align:right}
+.red{color:var(--red)} .paper-black .red{color:var(--red-hi)} .yellow{color:var(--yellow)} .lilac{color:var(--lilac)} .purple{color:var(--purple)}
+.ink{color:var(--ink)} .cream{color:var(--cream)} .cream-soft{color:var(--muted)} .muted{color:var(--muted)} .paper-cream .muted{color:var(--soft)} .dim{color:var(--dim)} .soft{color:var(--soft)}
+.foot{position:absolute;left:calc(var(--u)*120);right:calc(var(--u)*120);bottom:calc(var(--u)*40);font-size:calc(var(--u)*21);line-height:1.4;opacity:.78;font-family:var(--f-body)}
+/* sticker on red tape (typewriter) */
+.sticker{align-self:flex-start;font-family:var(--f-type);font-size:calc(var(--u)*28);letter-spacing:calc(var(--u)*1.5);text-transform:uppercase;line-height:1.2;
+  background:var(--red);color:var(--cream);padding:calc(var(--u)*10) calc(var(--u)*26);transform:rotate(-2deg);
+  clip-path:polygon(0 8%,3% 0,22% 6%,40% 0,61% 7%,80% 0,97% 5%,100% 0,99% 52%,100% 100%,78% 93%,56% 100%,35% 94%,14% 100%,2% 93%,0 100%,1% 50%)}
+.sticker.inv{background:var(--ink);color:var(--yellow)}
+/* marker sweep on key words */
+.mark{--mk:var(--yellow);background-image:linear-gradient(transparent 52%,var(--mk) 52%,var(--mk) 90%,transparent 90%);
+  background-repeat:no-repeat;background-size:0% 100%;box-decoration-break:clone;-webkit-box-decoration-break:clone;padding:0 calc(var(--u)*6)}
+.mark-red{--mk:var(--red)} .mark-yel{--mk:rgba(255,213,34,.35)} .mark-ink{--mk:var(--ink);color:var(--cream)} .mark-cream{--mk:var(--cream);color:var(--ink)}
+.slide.in .mark{animation:sweep .9s .55s cubic-bezier(.6,0,.2,1) forwards}
+.slide.in [data-step] .mark,.slide.in [data-step].mark{animation:none}
+.slide.in [data-step].shown .mark,.slide.in .shown.mark{animation:sweep .8s .25s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes sweep{to{background-size:100% 100%}}
+/* polaroids, tape, screens */
+.polaroid{background:var(--paper);padding:calc(var(--u)*16) calc(var(--u)*16) calc(var(--u)*12);box-shadow:0 calc(var(--u)*18) calc(var(--u)*40) rgba(0,0,0,.45);--rot:-2deg;transform:rotate(var(--rot))}
+.polaroid.tilt-r{--rot:2.2deg}
+.polaroid img,.screen img{display:block;width:100%;height:100%;object-fit:cover}
+.polaroid figcaption{font-family:var(--f-type);font-size:calc(var(--u)*20);color:var(--ink);padding-top:calc(var(--u)*10);line-height:1.3}
+.tape{position:absolute;top:calc(var(--u)*-18);left:50%;width:calc(var(--u)*180);height:calc(var(--u)*46);transform:translateX(-50%) rotate(-3deg);
+  background:rgba(255,236,170,.72);box-shadow:0 1px 2px rgba(0,0,0,.15);z-index:2}
+.screen{position:relative;border:calc(var(--u)*6) solid var(--cream);box-shadow:0 calc(var(--u)*14) calc(var(--u)*30) rgba(0,0,0,.5);transform:rotate(-1.2deg)}
+.zoomable{cursor:zoom-in}
+/* illustrations */
+.slide .ill{position:absolute;z-index:0;pointer-events:none}
+.ill-cover{right:calc(var(--u)*40);top:calc(var(--u)*30);width:calc(var(--u)*600);transform:scaleX(-1) rotate(-8deg)}
+.ill-dedo{right:calc(var(--u)*70);bottom:calc(var(--u)*30);width:calc(var(--u)*430)}
+.ill-escucha{right:calc(var(--u)*30);top:calc(var(--u)*10);width:calc(var(--u)*430)}
+.ill-pc{right:calc(var(--u)*40);bottom:calc(var(--u)*70);width:calc(var(--u)*300);opacity:.95}
+.ill-pluma{right:calc(var(--u)*20);top:calc(var(--u)*20);width:calc(var(--u)*330);opacity:.9}
+.ill-ojo{right:calc(var(--u)*40);bottom:0;width:calc(var(--u)*560);mix-blend-mode:multiply;opacity:.9}
+.ill-q{right:calc(var(--u)*50);bottom:calc(var(--u)*40);width:calc(var(--u)*300);opacity:.85}
+.slide.in .wiggle{animation:wiggle 2.4s 1.4s ease-in-out infinite}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-6deg)}75%{transform:rotate(5deg)}}
+.star{width:100%;height:100%;fill:var(--yellow)}
+.corner-star{position:absolute!important;right:calc(var(--u)*140);top:calc(var(--u)*110);width:calc(var(--u)*120);height:calc(var(--u)*120)}
+.slide.in .corner-star .star{animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* ── entrance animations ── */
+[data-a]{opacity:0}
+.slide.in [data-a]{animation-duration:.75s;animation-fill-mode:both;animation-timing-function:var(--ease);animation-delay:calc(var(--d,0)*110ms + 120ms)}
+.slide.in [data-a="up"]{animation-name:a-up} .slide.in [data-a="left"]{animation-name:a-left} .slide.in [data-a="right"]{animation-name:a-right}
+.slide.in [data-a="pop"]{animation-name:a-pop} .slide.in [data-a="stamp"]{animation-name:a-stamp;animation-duration:.55s} .slide.in [data-a="drop"]{animation-name:a-drop;animation-duration:.9s}
+.slide.in [data-a="fade"]{animation-name:a-fade}
+@keyframes a-up{from{opacity:0;translate:0 calc(var(--u)*60)}to{opacity:1;translate:0 0}}
+@keyframes a-left{from{opacity:0;translate:calc(var(--u)*-120) 0}to{opacity:1;translate:0 0}}
+@keyframes a-right{from{opacity:0;translate:calc(var(--u)*160) 0}to{opacity:1;translate:0 0}}
+@keyframes a-pop{from{opacity:0;scale:.6}to{opacity:1;scale:1}}
+@keyframes a-stamp{0%{opacity:0;scale:1.9}70%{opacity:1;scale:.94}100%{opacity:1;scale:1}}
+@keyframes a-drop{0%{opacity:0;translate:0 calc(var(--u)*-160);rotate:10deg}70%{opacity:1;rotate:-1deg}100%{opacity:1;translate:0 0;rotate:0deg}}
+@keyframes a-fade{from{opacity:0}to{opacity:1}}
+/* step reveals (Siguiente reveals the next one before moving on) */
+[data-step]{opacity:0;translate:0 calc(var(--u)*34);transition:opacity .45s ease,translate .55s var(--ease),scale .45s var(--ease)}
+[data-step].shown{opacity:1;translate:0 0}
+tr[data-step]{translate:none}
+.w[data-step]{display:inline-block;translate:0 calc(var(--u)*50)}
+.w.shown{translate:0 0}
+.stamp-red{color:var(--red-hi)}
+.stamp-red[data-step]{scale:1.6;translate:0 0}
+.stamp-red.shown{scale:1}
+/* cover */
+.logos-ti{width:calc(var(--u)*430);height:auto;align-self:flex-start}
+.cover-foot{display:flex;justify-content:space-between;align-items:flex-end;color:var(--muted);gap:calc(var(--u)*40)}
+/* problema */
+.stat-row{display:flex;gap:calc(var(--u)*80)}
+.stat-big{flex:1;display:flex;flex-direction:column;gap:calc(var(--u)*14)}
+.num{font-family:var(--f-display);font-size:calc(var(--u)*176);line-height:.85;font-variant-numeric:tabular-nums}
+.num-m{font-family:var(--f-display);font-size:calc(var(--u)*104);line-height:.85}
+.num-s{font-family:var(--f-display);font-weight:400;font-size:calc(var(--u)*72);line-height:1}
+.gauge{position:relative;height:calc(var(--u)*22);background:rgba(17,16,18,.15);margin-bottom:calc(var(--u)*22)}
+.gauge i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--red)}
+.slide.in .gauge i{animation:grow 1.4s .9s cubic-bezier(.3,0,.2,1) forwards}
+@keyframes grow{to{width:calc(var(--v)*100%)}}
+.gauge b{position:absolute;top:calc(var(--u)*26);font-family:var(--f-type);font-weight:400;font-size:calc(var(--u)*20)} .gauge b:last-child{right:0}
+.ticks-viz{display:flex;flex-wrap:wrap;gap:calc(var(--u)*3);height:calc(var(--u)*46);align-content:flex-start}
+.ticks-viz i{width:calc(var(--u)*5);height:calc(var(--u)*20);background:var(--red);opacity:0}
+.slide.in .ticks-viz i{animation:a-fade .2s forwards;animation-delay:calc(var(--k)*12ms + 900ms)}
+.pull{border-left:calc(var(--u)*12) solid var(--red);padding-left:calc(var(--u)*28);max-width:calc(var(--u)*1500)}
+/* red: network */
+.red-layout{display:flex;gap:calc(var(--u)*56);flex:1;min-height:0;align-items:center}
+.net-box{width:calc(var(--u)*720);flex:none;display:flex;flex-direction:column;gap:calc(var(--u)*14);align-items:flex-start}
+.net{width:100%;height:auto;background:rgba(246,241,230,.04);border:calc(var(--u)*2) dashed rgba(246,241,230,.25)}
+.net line{stroke:rgba(246,241,230,.45);stroke-width:2;transition:opacity .4s}
+.net circle{fill:var(--cream);transition:r .3s,fill .3s,opacity .5s}
+.net circle.hub{fill:var(--red-hi)}
+.net circle.hit{fill:var(--yellow)}
+.net circle.gone{opacity:0}
+.net .x{stroke:var(--red-hi);stroke-width:5;opacity:0;transition:opacity .3s}
+.net .x.on{opacity:1}
+.red-cards{flex:1;display:flex;flex-direction:column;gap:calc(var(--u)*26)}
+.rc{border-left:calc(var(--u)*8) solid var(--red);padding-left:calc(var(--u)*24);display:flex;flex-direction:column;gap:calc(var(--u)*6)}
+/* buttons */
+.ui-btn{font-family:var(--f-body);font-weight:800;font-size:calc(var(--u)*26);min-height:44px;padding:calc(var(--u)*14) calc(var(--u)*30);cursor:pointer;
+  background:var(--yellow);color:var(--ink);border:0;box-shadow:calc(var(--u)*6) calc(var(--u)*6) 0 var(--red-deep);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;
+  transition:translate .15s,box-shadow .15s}
+.ui-btn:hover{translate:calc(var(--u)*-2) calc(var(--u)*-2);box-shadow:calc(var(--u)*9) calc(var(--u)*9) 0 var(--red-deep)}
+.ui-btn:active{translate:calc(var(--u)*4) calc(var(--u)*4);box-shadow:0 0 0 var(--red-deep)}
+.ui-btn.small{font-size:calc(var(--u)*22);padding:calc(var(--u)*8) calc(var(--u)*20)}
+:focus-visible{outline:3px solid var(--lilac);outline-offset:3px}
+/* giro */
+.split{flex-direction:row;align-items:center;gap:calc(var(--u)*70)}
+.split-text{flex:1;display:flex;flex-direction:column;gap:calc(var(--u)*36);min-width:0}
+.split .polaroid{width:calc(var(--u)*600);flex:none}
+.split .polaroid img{aspect-ratio:4/5;height:auto}
+/* alianzas */
+.logos-band{background:rgba(0,0,0,.35);padding:calc(var(--u)*22) calc(var(--u)*30);border-top:calc(var(--u)*3) solid var(--red);border-bottom:calc(var(--u)*3) solid var(--red)}
+.logos-band img{width:100%;height:auto;display:block}
+.al-row{display:flex;gap:calc(var(--u)*56);align-items:flex-start}
+.al-text{flex:1;min-width:0}
+.video-box{width:calc(var(--u)*860);flex:none;display:flex;flex-direction:column;gap:calc(var(--u)*10)}
+.video-cap{font-size:calc(var(--u)*26);line-height:1.3}
+.tv{background:#000;padding:calc(var(--u)*8);border:calc(var(--u)*4) solid var(--cream);transform:rotate(-1deg);box-shadow:0 calc(var(--u)*16) calc(var(--u)*30) rgba(0,0,0,.6)}
+.tv video{width:100%;aspect-ratio:16/9;display:block;background:#000}
+.link-small{font-size:calc(var(--u)*22);color:var(--lilac)}
+/* somos */
+.somos{display:flex;gap:calc(var(--u)*80);flex:1}
+.somos .col{flex:1;display:flex;flex-direction:column;gap:calc(var(--u)*28);min-width:0}
+.somos .side,.social .side{flex:none;width:calc(var(--u)*600)}
+.do{font-family:var(--f-display);font-size:calc(var(--u)*58);line-height:1.02;text-transform:uppercase;border-bottom:calc(var(--u)*3) solid var(--ink);padding-bottom:calc(var(--u)*12)}
+.do.last{border-bottom:0}
+.ink-box{background:var(--ink);color:var(--cream);padding:calc(var(--u)*24) calc(var(--u)*28);display:flex;flex-direction:column;gap:calc(var(--u)*8);box-shadow:calc(var(--u)*10) calc(var(--u)*10) 0 var(--red)}
+.ink-box.two{flex-direction:row;gap:calc(var(--u)*56);width:max-content}
+.outline-box{border:calc(var(--u)*4) solid var(--red);background:var(--paper);padding:calc(var(--u)*22) calc(var(--u)*26);display:flex;flex-direction:column;gap:calc(var(--u)*8)}
+/* escuchamos */
+.lead-w{max-width:calc(var(--u)*1250)}
+.notes-wall{display:grid;grid-template-columns:repeat(4,1fr);gap:calc(var(--u)*30);margin:calc(var(--u)*10) 0}
+.postit{font-family:var(--f-type);font-size:calc(var(--u)*32);line-height:1.3;color:var(--ink);background:var(--yellow) url("assets/img/paper_yellow.jpg") center/cover;padding:calc(var(--u)*30) calc(var(--u)*28) calc(var(--u)*40);
+  box-shadow:0 calc(var(--u)*14) calc(var(--u)*24) rgba(0,0,0,.45);min-height:calc(var(--u)*230)}
+.postit.p1{rotate:-3deg}.postit.p2{rotate:2deg;background-color:var(--lilac);background-image:none}.postit.p3{rotate:-1.5deg;background-color:var(--cream);background-image:url("assets/img/paper_cream.jpg")}.postit.p4{rotate:2.5deg}
+.postit[data-step]{translate:0 calc(var(--u)*-60);scale:1.15}
+.postit.shown{translate:0 0;scale:1}
+/* vimos */
+.vd-head{display:grid;grid-template-columns:1fr calc(var(--u)*110) 1fr;font-family:var(--f-type);font-size:calc(var(--u)*24);text-transform:uppercase;letter-spacing:calc(var(--u)*1.5);color:var(--red)}
+.vd{display:flex;flex-direction:column}
+.vd-row{display:grid;grid-template-columns:1fr calc(var(--u)*110) 1fr;align-items:center;border-top:calc(var(--u)*3) solid var(--ink);padding:calc(var(--u)*28) 0}
+.vd-row:last-child{border-bottom:calc(var(--u)*3) solid var(--ink)}
+.arrow{font-family:var(--f-display);font-size:calc(var(--u)*90);text-align:center;line-height:1}
+.vd-row.shown .arrow{animation:nudge 1.2s .3s ease-in-out 2}
+@keyframes nudge{50%{translate:calc(var(--u)*16) 0}}
+/* metodo */
+.timeline{position:relative;height:calc(var(--u)*70);margin:calc(var(--u)*10) calc(var(--u)*30) 0}
+.tl-line{position:absolute;left:0;right:0;top:calc(var(--u)*16);height:calc(var(--u)*4);background:rgba(246,241,230,.3)}
+.slide.in .tl-line{background:linear-gradient(90deg,var(--yellow),var(--red-hi)) no-repeat;background-size:0 100%;animation:sweep 1.6s .6s ease-out forwards}
+.tl-dot{position:absolute;left:calc(var(--x)*100%);top:0;translate:-50% 0;padding-top:calc(var(--u)*44);font-family:var(--f-type);font-size:calc(var(--u)*22);white-space:nowrap;color:var(--muted)}
+.tl-dot::before{content:"";position:absolute;left:50%;top:calc(var(--u)*6);width:calc(var(--u)*24);height:calc(var(--u)*24);translate:-50% 0;border-radius:50%;background:var(--cream);border:calc(var(--u)*4) solid var(--red-hi)}
+.tl-dot.end::before{background:var(--yellow)}
+.m-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--u)*40);margin-top:auto;margin-bottom:auto}
+.m-step{border-top:calc(var(--u)*8) solid var(--red-hi);padding-top:calc(var(--u)*24);display:flex;flex-direction:column;gap:calc(var(--u)*12)}
+.m-step.yel{border-top-color:var(--yellow)}
+.m-n{font-family:var(--f-display);font-size:calc(var(--u)*110);line-height:.85}
+/* apuesta lenses */
+.lenses{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--u)*30);margin-top:auto;margin-bottom:auto}
+.lens{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:calc(var(--u)*16);padding:calc(var(--u)*38);background:rgba(246,241,230,.06);border:calc(var(--u)*3) solid rgba(246,241,230,.2);
+  transition:opacity .45s,translate .55s var(--ease),scale .35s var(--ease),background .3s,border-color .3s}
+.lens:hover{border-color:var(--cream)}
+.lens.focus{background:var(--cream);color:var(--ink);scale:1.04;border-color:var(--cream)}
+.lens.focus .lens-p{color:var(--soft)} .lens.focus .lens-a{color:var(--soft)}
+.lenses.has-focus .lens:not(.focus){opacity:.35}
+.lens-k{font-family:var(--f-type);font-size:calc(var(--u)*26);text-transform:uppercase;letter-spacing:calc(var(--u)*1.5)}
+.lens.focus .lens-k.lilac{color:var(--purple)} .lens.focus .lens-k.yellow{color:#9a7600}
+.lens-h{font-family:var(--f-display);font-size:calc(var(--u)*64);line-height:.95;text-transform:uppercase}
+.lens-p{font-size:calc(var(--u)*30);line-height:1.4;color:var(--muted)}
+.lens-a{font-size:calc(var(--u)*23);color:var(--dim)}
+/* voices */
+.voices{display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--u)*44);margin-top:auto;margin-bottom:auto}
+.voice{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:calc(var(--u)*20);background:var(--paper);padding:calc(var(--u)*48);border-top:calc(var(--u)*14) solid var(--red);
+  box-shadow:calc(var(--u)*12) calc(var(--u)*12) 0 var(--ink);transition:opacity .45s,translate .55s var(--ease),scale .35s var(--ease),box-shadow .3s}
+.voice:nth-child(1){rotate:-1deg}.voice:nth-child(2){rotate:1deg}
+.voice:hover,.voice.focus{scale:1.03;box-shadow:calc(var(--u)*18) calc(var(--u)*18) 0 var(--red)}
+.voices.has-focus .voice:not(.focus){opacity:.45}
+.v-name{font-weight:700;font-size:calc(var(--u)*25);color:var(--red-deep)}
+.v-h{font-family:var(--f-display);font-size:calc(var(--u)*70);line-height:.95;text-transform:uppercase;color:var(--ink)}
+.v-q{font-size:calc(var(--u)*38);line-height:1.3;font-weight:700;color:var(--ink)}
+/* social */
+.social{display:flex;gap:calc(var(--u)*70);flex:1;min-height:0}
+.social .col{flex:1;min-width:0;display:flex;flex-direction:column;gap:calc(var(--u)*24)}
+.screen img{aspect-ratio:2.42/1;height:auto}
+.offer{font-size:calc(var(--u)*34);font-weight:700;border-bottom:calc(var(--u)*2) solid rgba(246,241,230,.25);padding-bottom:calc(var(--u)*12)}
+.offer::before{content:"+ ";color:var(--red-hi)}
+.offer.last{border-bottom:0}
+.red-box{background:var(--red);color:var(--ink);font-weight:800;font-size:calc(var(--u)*30);line-height:1.38;padding:calc(var(--u)*24) calc(var(--u)*28);rotate:-1deg}
+/* hicimos */
+.hic{display:flex;gap:calc(var(--u)*60);flex:1;min-height:0}
+.hic-left{flex:1;display:flex;flex-direction:column;gap:calc(var(--u)*30);min-width:0}
+.waffle-wrap{display:flex;gap:calc(var(--u)*36);align-items:center}
+.waffle{display:grid;grid-template-columns:repeat(12,calc(var(--u)*34));gap:calc(var(--u)*8)}
+.waffle i{width:calc(var(--u)*34);height:calc(var(--u)*34);border-radius:50%;background:var(--red);opacity:0;scale:.3}
+.waffle i.m{background:var(--ink)}
+.slide.in .waffle i{animation:dot .4s var(--ease) forwards;animation-delay:calc(var(--k)*22ms + 500ms)}
+@keyframes dot{to{opacity:1;scale:1}}
+.stat-inline{display:flex;flex-direction:column;gap:calc(var(--u)*6);max-width:calc(var(--u)*330)}
+.wlegend{display:flex;gap:calc(var(--u)*20);font-family:var(--f-type);font-size:calc(var(--u)*21)}
+.wlegend span::before{content:"";display:inline-block;width:calc(var(--u)*18);height:calc(var(--u)*18);border-radius:50%;margin-right:calc(var(--u)*8);vertical-align:middle;background:var(--red)}
+.wlegend span.m::before{background:var(--ink)}
+.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--u)*30)}
+.mini-stats > div{border-top:calc(var(--u)*5) solid var(--ink);padding-top:calc(var(--u)*14);display:flex;flex-direction:column;gap:calc(var(--u)*6)}
+.hic-photo{width:calc(var(--u)*640);flex:none;align-self:center}
+.hic-photo img{aspect-ratio:3/2;height:auto}
+/* momentos board */
+.board{position:relative;flex:1;min-height:0}
+.board .polaroid{position:absolute}
+.board .b1{left:0;top:calc(var(--u)*10);width:calc(var(--u)*900);--rot:-2.5deg}
+.board .b1 img{aspect-ratio:1.92/1;height:auto}
+.board .b2{right:calc(var(--u)*40);top:0;width:calc(var(--u)*640);--rot:3deg}
+.board .b2 img{aspect-ratio:1.78/1;height:auto}
+.board .b3{right:calc(var(--u)*220);bottom:calc(var(--u)*-10);width:calc(var(--u)*600);--rot:-1.5deg}
+.board .b3 img{aspect-ratio:1.75/1;height:auto}
+.board .polaroid[data-step]{translate:0 calc(var(--u)*-120);rotate:12deg}
+.board .polaroid.shown{translate:0 0;rotate:0deg}
+/* tables */
+.table-wrap{overflow-x:auto}
+.tbl{color:inherit;border-collapse:collapse;width:100%;font-size:calc(var(--u)*27);line-height:1.35}
+.tbl th{font-family:var(--f-type);font-weight:400;text-transform:uppercase;letter-spacing:calc(var(--u)*1);text-align:left;padding:calc(var(--u)*12) calc(var(--u)*18);font-size:calc(var(--u)*22)}
+.tbl td{padding:calc(var(--u)*14) calc(var(--u)*18);vertical-align:top}
+.tbl td:first-child{font-weight:800;white-space:nowrap}
+.tbl.dark th{background:var(--red);color:var(--cream)} .tbl.dark td{border-bottom:calc(var(--u)*2) solid rgba(246,241,230,.2)}
+.tbl.light th{background:var(--ink);color:var(--cream)} .tbl.light td{border-bottom:calc(var(--u)*2) solid rgba(17,16,18,.22)} .tbl.light{background:rgba(255,253,247,.88)}
+tr.shown td{animation:rowflash 1.2s ease-out}
+@keyframes rowflash{0%{background:rgba(255,213,34,.45)}100%{background:transparent}}
+.meter{position:relative;height:calc(var(--u)*60);margin:calc(var(--u)*10) 0 calc(var(--u)*20)}
+.m-bands{position:absolute;left:0;right:0;top:calc(var(--u)*20);height:calc(var(--u)*18);display:flex}
+.m-bands i{flex:calc(var(--b) - var(--a));opacity:.85}
+.m-bands i:nth-child(1){background:#5b1a16}.m-bands i:nth-child(2){background:var(--red)}.m-bands i:nth-child(3){background:#d9a400}.m-bands i:nth-child(4){background:var(--green)}
+.m-pin{position:absolute;top:calc(var(--u)*-8);left:0;translate:-50% 0;font-family:var(--f-display);font-weight:400;font-size:calc(var(--u)*44);background:var(--yellow);color:var(--ink);padding:0 calc(var(--u)*12);transition:left 1.4s cubic-bezier(.3,0,.2,1) .2s}
+.meter.shown .m-pin{left:calc(var(--v)/30*100%)}
+.m-0,.m-30{position:absolute;top:calc(var(--u)*42);font-family:var(--f-type);font-size:calc(var(--u)*20);color:var(--dim)} .m-30{right:0}
+/* debate chat */
+.chat-row{display:flex;gap:calc(var(--u)*50);flex:1;min-height:0}
+.chat{flex:1;display:flex;flex-direction:column;gap:calc(var(--u)*18);min-width:0}
+.bubble{max-width:72%;padding:calc(var(--u)*22) calc(var(--u)*28);background:var(--paper);border:calc(var(--u)*3) solid var(--ink);position:relative;box-shadow:calc(var(--u)*8) calc(var(--u)*8) 0 var(--ink)}
+.bubble.right{align-self:flex-end;background:var(--ink);color:var(--cream);box-shadow:calc(var(--u)*8) calc(var(--u)*8) 0 var(--red)}
+.bubble.center{align-self:center;background:var(--red);color:var(--cream);border-color:var(--red);max-width:85%}
+.b-h{font-family:var(--f-type);font-weight:400;font-size:calc(var(--u)*22);text-transform:uppercase;letter-spacing:calc(var(--u)*1);margin-bottom:calc(var(--u)*6);color:var(--red-deep)}
+.bubble.right .b-h{color:var(--yellow)} .bubble.center .b-h{color:var(--ink)}
+.bubble.left[data-step]{translate:calc(var(--u)*-60) 0} .bubble.right[data-step]{translate:calc(var(--u)*60) 0} .bubble.shown{translate:0 0}
+.screen.square{width:calc(var(--u)*480);flex:none;align-self:flex-start}
+.screen.square img{aspect-ratio:.977/1}
+/* dijeron */
+.quotes3{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--u)*44);margin-top:auto;margin-bottom:auto}
+.qt{display:flex;flex-direction:column;gap:calc(var(--u)*18);border-top:calc(var(--u)*6) solid var(--red-hi);padding-top:calc(var(--u)*6)}
+.qt-mark{font-family:var(--f-display);font-size:calc(var(--u)*180);line-height:.6;color:var(--red-hi);height:calc(var(--u)*80)}
+.qt-t{font-size:calc(var(--u)*40);line-height:1.28;font-weight:700}
+/* honesto */
+.hon{display:flex;gap:calc(var(--u)*56);flex:1;min-height:0;align-items:center}
+.hon-rows{flex:1;display:flex;flex-direction:column;min-width:0}
+.hon-row{display:grid;grid-template-columns:calc(var(--u)*380) 1fr;gap:calc(var(--u)*30);border-top:calc(var(--u)*3) solid var(--ink);padding:calc(var(--u)*22) 0}
+.hon-row:last-child{border-bottom:calc(var(--u)*3) solid var(--ink)}
+.hon-photo{width:calc(var(--u)*640);flex:none}
+.hon-photo img{aspect-ratio:2.38/1;height:auto}
+/* herramientas */
+.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:calc(var(--u)*40);flex:1;min-height:0;align-items:end;padding-bottom:calc(var(--u)*20)}
+.tool{display:flex;flex-direction:column;gap:calc(var(--u)*12)}
+.tool .cover{width:calc(var(--u)*300);height:calc(var(--u)*410);object-fit:cover;object-position:top;box-shadow:calc(var(--u)*12) calc(var(--u)*12) 0 rgba(0,0,0,.55);transition:rotate .3s,scale .3s}
+.tool:nth-child(odd) .cover{rotate:-3deg}.tool:nth-child(even) .cover{rotate:2.5deg}
+.tool .cover:hover{rotate:0deg;scale:1.05}
+.tool .cover.ai{background:var(--purple);display:grid;place-items:center}
+.tool .cover.ai img{width:85%}
+.tool[data-step]{translate:0 calc(var(--u)*120);rotate:-6deg} .tool.shown{translate:0 0;rotate:0deg}
+/* checklist */
+.ck{display:flex;gap:calc(var(--u)*80);align-items:center;flex:1;min-height:0}
+.ck-cover{width:calc(var(--u)*500);height:auto;flex:none;rotate:-3deg;box-shadow:calc(var(--u)*16) calc(var(--u)*16) 0 var(--ink)}
+.ck .col{flex:1;display:flex;flex-direction:column;gap:calc(var(--u)*20);min-width:0}
+.ck-q{background:var(--paper);border-left:calc(var(--u)*12) solid var(--red);padding:calc(var(--u)*16) calc(var(--u)*26);display:flex;flex-direction:column;gap:calc(var(--u)*4)}
+.red-edge{border-left-color:var(--red)!important}.purple-edge{border-left-color:var(--purple)!important}.ink-edge{border-left-color:var(--ink)!important}
+/* matriz */
+.mx{display:flex;gap:calc(var(--u)*36);flex:1;min-height:0;align-items:flex-start}
+.mx-cover{width:calc(var(--u)*260);height:auto;flex:none;rotate:-2deg;box-shadow:calc(var(--u)*10) calc(var(--u)*10) 0 var(--ink)}
+.mx-table{flex:1;min-width:0}
+.mx-side{width:calc(var(--u)*420);flex:none;display:flex;flex-direction:column;gap:calc(var(--u)*22)}
+.seg30{display:grid;grid-template-columns:repeat(30,1fr);gap:calc(var(--u)*2);height:calc(var(--u)*20);margin-top:calc(var(--u)*8)}
+.seg30 i{background:rgba(246,241,230,.25)} .seg30 i:nth-child(6n){margin-right:calc(var(--u)*5)}
+.outline-box .seg30 i{background:rgba(17,16,18,.15)}
+.seg30.fill12 i.on{background:var(--red)}
+.shown .seg30 i{animation:a-fade .25s both;animation-delay:calc(var(--k)*35ms)}
+/* guia */
+.gd{display:flex;gap:calc(var(--u)*48);flex:1;min-height:0;align-items:flex-start}
+.gd-cover{width:calc(var(--u)*320);height:auto;flex:none;rotate:2deg;box-shadow:calc(var(--u)*12) calc(var(--u)*12) 0 var(--ink)}
+.gsteps{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:calc(var(--u)*18) calc(var(--u)*50)}
+.gs{display:flex;gap:calc(var(--u)*22);align-items:flex-start;border-top:calc(var(--u)*3) solid var(--ink);padding-top:calc(var(--u)*16)}
+.gs-n{font-family:var(--f-display);font-size:calc(var(--u)*92);line-height:.8;color:var(--red);min-width:calc(var(--u)*56)}
+.gs-h{font-weight:800;font-size:calc(var(--u)*33);line-height:1.15}
+/* rol, cierre */
+.rol-p,.close-p{max-width:calc(var(--u)*1300)}
+.logo-close{position:absolute!important;right:calc(var(--u)*120);top:calc(var(--u)*84);width:calc(var(--u)*150);height:auto}
+/* doblevia */
+.dv{display:grid;grid-template-columns:1fr calc(var(--u)*140) 1fr;gap:calc(var(--u)*20);align-items:center;margin-top:auto;margin-bottom:auto}
+.dv-card{background:rgba(246,241,230,.06);border:calc(var(--u)*3) solid rgba(246,241,230,.2);padding:calc(var(--u)*44);display:flex;flex-direction:column;gap:calc(var(--u)*18)}
+.dv-arrows{display:flex;flex-direction:column;align-items:center;font-family:var(--f-display);font-size:calc(var(--u)*110);line-height:.9}
+.dv-arrows .a1{color:var(--red-hi)} .dv-arrows .a2{color:var(--yellow)}
+.slide.in .dv-arrows .a1{animation:nudge 1.4s 1s ease-in-out infinite} .slide.in .dv-arrows .a2{animation:nudgeb 1.4s 1.7s ease-in-out infinite}
+@keyframes nudgeb{50%{translate:calc(var(--u)*-16) 0}}
+.ticks{list-style:none;padding:0;display:flex;flex-direction:column;gap:calc(var(--u)*14);font-size:calc(var(--u)*33);line-height:1.38;color:var(--muted)}
+.ticks li{padding-left:calc(var(--u)*54);position:relative}
+.ticks li::before{content:"→";position:absolute;left:0;color:var(--red-hi);font-weight:800}
+/* tarjetas */
+.tj{display:flex;gap:calc(var(--u)*44);align-items:stretch;flex:1;min-height:0;margin-top:calc(var(--u)*10)}
+.tcard{width:calc(var(--u)*380);flex:none;display:flex;flex-direction:column;gap:calc(var(--u)*12);padding:calc(var(--u)*36);color:#fff;box-shadow:calc(var(--u)*12) calc(var(--u)*12) 0 var(--ink)}
+.tcard.green{background:var(--green);--rot:-3deg;rotate:-3deg} .tcard.redc{background:var(--red-deep);rotate:2.5deg}
+.tc-sym{font-size:calc(var(--u)*150);line-height:1;font-weight:800}
+.tc-w{font-family:var(--f-display);font-size:calc(var(--u)*72);line-height:1;text-transform:uppercase}
+.tcard .t-body{color:#fff}
+.tj-how{flex:1;display:flex;flex-direction:column;gap:calc(var(--u)*20);min-width:0}
+.qhead{display:flex;align-items:center;justify-content:space-between}
+.qdots{display:flex;gap:calc(var(--u)*10)}
+.qdots i{width:calc(var(--u)*22);height:calc(var(--u)*22);border-radius:50%;border:calc(var(--u)*3) solid var(--cream)}
+.qdots i.on{background:var(--yellow);border-color:var(--yellow)}
+.q-text{max-width:calc(var(--u)*1450);margin-top:calc(var(--u)*20)}
+.q-ui{display:flex;gap:calc(var(--u)*20);align-items:center;flex-wrap:wrap}
+.chip{font-family:var(--f-display);font-size:calc(var(--u)*48);line-height:1;padding:calc(var(--u)*14) calc(var(--u)*26);color:#fff;text-transform:uppercase}
+.chip.green{background:var(--green)} .chip.redc{background:var(--red-deep)}
+.reveal-btn{margin-left:calc(var(--u)*30)}
+.reveal-btn[aria-expanded="true"]{background:var(--cream)}
+.flip{background:var(--cream) url("assets/img/paper_cream.jpg") center/cover;color:var(--ink);padding:calc(var(--u)*34) calc(var(--u)*44);border-left:calc(var(--u)*16) solid var(--yellow);
+  display:flex;flex-direction:column;gap:calc(var(--u)*12);max-width:calc(var(--u)*1350);transform-origin:top center;animation:flipin .6s var(--ease)}
+@keyframes flipin{from{transform:perspective(900px) rotateX(-80deg);opacity:0}to{transform:none;opacity:1}}
+/* materiales */
+.mats{display:grid;grid-template-columns:repeat(5,1fr);gap:calc(var(--u)*24);flex:1;min-height:0;align-items:start;margin-top:calc(var(--u)*10)}
+.mat{background:rgba(0,0,0,.35);border:calc(var(--u)*2) solid rgba(246,241,230,.2);padding:calc(var(--u)*22);display:flex;flex-direction:column;gap:calc(var(--u)*10);align-items:center;text-align:center}
+.qr-btn{all:unset;cursor:zoom-in;display:block;width:100%}
+.qr{width:100%;max-width:calc(var(--u)*250);height:auto;background:#fff;display:block;margin:0 auto;image-rendering:pixelated;transition:scale .25s var(--ease)}
+.qr-btn:hover .qr{scale:1.05}
+.mat-h{font-weight:800;font-size:calc(var(--u)*28);line-height:1.15}
+.mat[data-step]{translate:0 0;scale:.7} .mat.shown{scale:1}
+/* lightbox */
+#lightbox{position:fixed;inset:0;z-index:50;background:rgba(10,9,10,.92);display:grid;place-items:center;padding:24px;cursor:zoom-out}
+#lightbox img{max-width:92vw;max-height:84vh;box-shadow:0 20px 60px rgba(0,0,0,.6);background:#fff;animation:a-pop .35s var(--ease)}
+#lightbox p{color:var(--cream);font-family:var(--f-type);font-size:16px;margin-top:12px;text-align:center}
+/* slide transition: red crumpled-paper wipe */
+#wipe{position:absolute;inset:0;z-index:20;pointer-events:none;background:var(--red) url("assets/img/paper_red.jpg") center/cover;translate:101% 0;display:grid;place-items:center}
+#wipe img{width:calc(var(--u)*170);opacity:.95}
+#wipe.run{animation:wipe .54s cubic-bezier(.7,0,.3,1) forwards}
+#wipe.back{animation:wipeb .54s cubic-bezier(.7,0,.3,1) forwards}
+@keyframes wipe{0%{translate:101% 0}45%,55%{translate:0 0}100%{translate:-101% 0}}
+@keyframes wipeb{0%{translate:-101% 0}45%,55%{translate:0 0}100%{translate:101% 0}}
+.slide.fadein{animation:a-fade .45s ease both}
+/* controls */
+#bar{height:var(--bar);flex:none;display:flex;align-items:center;gap:8px;background:#000;color:var(--cream);
+  padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));border-top:3px solid var(--red)}
+.ctl{font-family:var(--f-body);font-weight:700;font-size:15px;min-width:44px;min-height:44px;padding:0 14px;background:transparent;color:var(--cream);border:2px solid rgba(246,241,230,.35);cursor:pointer}
+.ctl:hover{border-color:var(--cream)} .ctl.primary{background:var(--red);border-color:var(--red)}
+#counter{font-variant-numeric:tabular-nums;font-weight:700;min-width:84px;text-align:center;font-size:15px}
+#steps{display:flex;gap:5px;align-items:center;min-width:0}
+#steps i{width:8px;height:8px;border-radius:50%;background:rgba(246,241,230,.3)} #steps i.on{background:var(--yellow)}
+#sectitle{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:var(--f-type);font-size:14px;color:var(--muted)}
+#progress{position:absolute;left:0;bottom:var(--bar);height:4px;background:var(--yellow);width:0;transition:width .3s ease;z-index:5}
+#notes{position:absolute;left:0;right:0;bottom:var(--bar);max-height:38%;overflow:auto;background:rgba(17,16,18,.97);border-top:3px solid var(--yellow);
+  padding:16px max(20px,env(safe-area-inset-left,0px)) 20px;z-index:30;font-size:17px;line-height:1.55;color:var(--cream)}
+#notes h2{font-family:var(--f-type);font-size:14px;font-weight:400;color:var(--yellow);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+@media (max-width:700px){#sectitle{visibility:hidden} .ctl .lbl{display:none} #counter{min-width:64px} #steps{display:none}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0ms!important;transition-duration:.01ms!important}
+  #wipe{display:none}
+}
+/* portrait / narrow: reflow and scroll inside each slide */
+@container vp (max-aspect-ratio: 23/20){
+  .stage{width:100cqw;height:100cqh;--u:calc(100cqw/1080)}
+  .slide{overflow-y:auto;padding:calc(var(--u)*64) calc(var(--u)*52) calc(var(--u)*140)}
+  .t-hero,.t-xxl{font-size:calc(var(--u)*124)} .t-xl{font-size:calc(var(--u)*110)} .t-lg{font-size:calc(var(--u)*92)} .t-md2{font-size:calc(var(--u)*80)}
+  .split,.somos,.social,.hic,.chat-row,.hon,.ck,.mx,.gd,.al-row,.red-layout,.tj,.stat-row,.waffle-wrap{flex-direction:column;align-items:stretch}
+  .lenses,.voices,.quotes3,.m-steps,.notes-wall,.tools,.mini-stats,.gsteps,.dv{grid-template-columns:1fr}
+  .mats{grid-template-columns:1fr 1fr}
+  .vd-row,.vd-head{grid-template-columns:1fr} .arrow{text-align:left}
+  .somos .side,.social .side,.split .polaroid,.hic-photo,.hon-photo,.video-box,.net-box,.tcard,.ck-cover,.screen.square,.mx-side{width:100%}
+  .mx-cover,.gd-cover{width:calc(var(--u)*420)}
+  .board{display:flex;flex-direction:column;gap:calc(var(--u)*30)} .board .polaroid{position:relative;inset:auto;width:100%}
+  .slide .ill{display:none}
+  .foot{position:static;margin-top:calc(var(--u)*20)}
+  .center-v{justify-content:flex-start}
+  .logo-close,.corner-star{position:static!important}
+  .dv-arrows{flex-direction:row;gap:calc(var(--u)*30)}
+  .hon-row{grid-template-columns:1fr}
+}
+/* comic illustrations (Tinta's retro library) */
+.ill-sobre{right:calc(var(--u)*120);bottom:calc(var(--u)*60);width:calc(var(--u)*360);rotate:-8deg}
+.ill-pensativa{right:0;bottom:0;width:calc(var(--u)*760);mix-blend-mode:multiply;opacity:.95}
+.paper-cream .ill-dedo{width:calc(var(--u)*260);right:calc(var(--u)*640);bottom:calc(var(--u)*40)}
+.card-img{position:absolute!important;background:var(--paper);padding:calc(var(--u)*10);box-shadow:0 calc(var(--u)*14) calc(var(--u)*30) rgba(0,0,0,.5)}
+.card-img img{display:block;width:100%;height:auto}
+.card-img.globo{right:calc(var(--u)*90);top:calc(var(--u)*60);width:calc(var(--u)*220);rotate:6deg}
+.ill-periodico{right:calc(var(--u)*30);bottom:calc(var(--u)*50);width:calc(var(--u)*380);rotate:4deg;opacity:.97}
+.somos .side{margin-bottom:calc(var(--u)*170)}
+.ill-reloj{right:calc(var(--u)*360);bottom:calc(var(--u)*40);width:calc(var(--u)*170);rotate:10deg}
+.soc-media{display:flex;gap:calc(var(--u)*24);align-items:flex-start}
+.soc-media .screen{flex:1;min-width:0}
+.soc-media .card-img.joven{position:relative!important;width:calc(var(--u)*170);flex:none;rotate:4deg}
+.ill-lapiz{right:calc(var(--u)*-40);bottom:calc(var(--u)*-80);width:calc(var(--u)*300);mix-blend-mode:multiply;rotate:-12deg;opacity:.9}
+.ill-pluma{right:calc(var(--u)*10);top:calc(var(--u)*30);width:calc(var(--u)*340)}
+.dv-sobre{width:calc(var(--u)*130);margin:calc(var(--u)*10) 0;rotate:-6deg}
+.ill-celular{right:calc(var(--u)*-30);bottom:calc(var(--u)*-20);width:calc(var(--u)*300);rotate:-10deg}
+.ill-sol{right:calc(var(--u)*-60);bottom:calc(var(--u)*-120);width:calc(var(--u)*640);opacity:.9}
+.slide.in .ill-sol{animation:a-pop .9s var(--ease) .3s both,spin 60s linear 1.2s infinite}
+@container vp (max-aspect-ratio: 23/20){ .card-img.globo,.soc-media .card-img.joven{display:none} .soc-media{flex-direction:column} }
+/* v2.1 fixes */
+.table-wrap{flex-shrink:0}
+#s-slytherin .t-body{font-size:calc(var(--u)*26)} #s-slytherin .tbl{font-size:calc(var(--u)*25)} #s-slytherin .tbl td{padding:calc(var(--u)*10) calc(var(--u)*16)}
+.q-narrow{max-width:calc(var(--u)*1180)}
+.ill-pensativa{width:calc(var(--u)*640)}
+.red-h{max-width:calc(var(--u)*1350)}
+.card-img.globo{top:auto;bottom:calc(var(--u)*120);right:calc(var(--u)*70);width:calc(var(--u)*190)}
+.net-box{width:calc(var(--u)*620)}
+.red-cards{padding-right:calc(var(--u)*220)}
+#s-alianzas .logos-band{padding:calc(var(--u)*14) calc(var(--u)*24)}
+#s-alianzas .video-box{width:calc(var(--u)*720)}
+#s-alianzas{gap:calc(var(--u)*24)}
+.social .t-md2{font-size:calc(var(--u)*82)}
+.soc-media .screen{flex:none;width:calc(var(--u)*520)}
+.soc-media .card-img.joven{width:calc(var(--u)*150)}
+.waffle{grid-template-columns:repeat(12,calc(var(--u)*28))} .waffle i{width:calc(var(--u)*28);height:calc(var(--u)*28)}
+.hic-photo{width:calc(var(--u)*560)}
+.num-m{font-size:calc(var(--u)*92)}
+.board .b1{left:0;top:calc(var(--u)*20);width:calc(var(--u)*860)}
+.board .b2{right:0;top:0;width:calc(var(--u)*640)}
+.board .b3{right:auto;left:calc(var(--u)*760);bottom:calc(var(--u)*-6);width:calc(var(--u)*520)}
+.bubble{padding:calc(var(--u)*16) calc(var(--u)*24)} .bubble .t-body{font-size:calc(var(--u)*26)}
+.chat{gap:calc(var(--u)*14)}
+.screen.square{width:calc(var(--u)*380)}
+.rol-p{max-width:calc(var(--u)*1080)}
+.ill-ojo{width:calc(var(--u)*500)}
+.ill-q{width:calc(var(--u)*420);bottom:calc(var(--u)*20)}
+.close-h{font-size:calc(var(--u)*140)}
+.lens-h{font-size:calc(var(--u)*72)} .lens-p{font-size:calc(var(--u)*33)} .lens{padding:calc(var(--u)*44)}
+.dv-card{padding:calc(var(--u)*50)} .dv-card .t-sm{font-size:calc(var(--u)*64)} .ticks{font-size:calc(var(--u)*36)}
+.m-step .t-body{font-size:calc(var(--u)*32)} .m-step .t-sm{font-size:calc(var(--u)*64)}
+.vd-row .t-lead{font-size:calc(var(--u)*38)}
+.do{font-size:calc(var(--u)*62)}
+#s-alianzas .video-box{width:calc(var(--u)*660)} #s-alianzas .logos-band img{width:88%;margin:0 auto}
+.q-text{font-size:calc(var(--u)*124)} .flip .t-lead{font-size:calc(var(--u)*34)} .flip{padding:calc(var(--u)*26) calc(var(--u)*40)}
+
+/* v3: identity handle, example stamp, timer, index, closing slide */
+.handle{position:absolute!important;left:calc(var(--u)*120);bottom:calc(var(--u)*38);font-family:var(--f-type);font-size:calc(var(--u)*24);letter-spacing:calc(var(--u)*1);z-index:3;opacity:.9}
+.paper-black .handle{color:var(--cream)} .paper-cream .handle{color:var(--ink)} .paper-red .handle{color:var(--cream)}
+.foot{left:calc(var(--u)*390)!important}
+.ex-stamp{position:absolute!important;right:calc(var(--u)*120);top:calc(var(--u)*80);font-family:var(--f-display);font-size:calc(var(--u)*64);letter-spacing:calc(var(--u)*4);
+  color:var(--yellow);border:calc(var(--u)*6) solid var(--yellow);padding:calc(var(--u)*4) calc(var(--u)*26);rotate:6deg;opacity:.95}
+.timer{display:flex;align-items:center;gap:calc(var(--u)*18);background:var(--ink);color:var(--cream);padding:calc(var(--u)*18) calc(var(--u)*24);align-self:flex-start;box-shadow:calc(var(--u)*10) calc(var(--u)*10) 0 var(--red)}
+.timer output{font-family:var(--f-display);font-size:calc(var(--u)*92);line-height:.9;font-variant-numeric:tabular-nums;min-width:calc(var(--u)*190)}
+.timer .ui-btn{font-size:calc(var(--u)*22);padding:calc(var(--u)*10) calc(var(--u)*18)}
+.timer.done output{color:var(--red-hi);animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:.3}}
+.tj-how .consigna{background:var(--yellow);padding:calc(var(--u)*6) calc(var(--u)*14);align-self:flex-start}
+#index{position:fixed;inset:0 0 var(--bar) 0;z-index:40;background:rgba(17,16,18,.97);overflow:auto;padding:24px max(24px,env(safe-area-inset-left,0px))}
+#index h2{font-family:var(--f-display);font-weight:400;font-size:40px;color:var(--cream);margin:0 0 16px;letter-spacing:1px}
+#index ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+#index button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:10px;align-items:baseline;width:100%;padding:12px 14px;background:#232026;color:var(--cream);border-left:4px solid var(--red);font-family:var(--f-body);font-size:15px;line-height:1.3;min-height:44px}
+#index button:hover,#index button:focus-visible{background:var(--cream);color:var(--ink)}
+#index button.cur{border-left-color:var(--yellow);background:#3a3540}
+#index .ix-n{font-family:var(--f-display);font-size:24px;color:var(--yellow);min-width:30px}
+#index button:hover .ix-n{color:var(--red)}
+#index .ix-close{position:absolute;right:max(24px,env(safe-area-inset-right,0px));top:20px}
+.final{align-items:center;justify-content:center;text-align:center;gap:calc(var(--u)*60)}
+.final .logos-final{width:calc(var(--u)*900);height:auto}
+.final .big-handle{font-family:var(--f-display);font-size:calc(var(--u)*120);line-height:1;color:var(--cream)}
+.final .big-handle span{color:var(--red-hi)}
+.final .handle{display:none}
+.final .social-row{display:flex;gap:calc(var(--u)*28);align-items:center;justify-content:center;font-family:var(--f-type);font-size:calc(var(--u)*28);color:var(--muted)}
+@container vp (max-aspect-ratio: 23/20){ .handle{position:static!important} .ex-stamp{position:static!important;align-self:flex-start} .final .logos-final{width:100%} }
+/* v3.1 cutouts without background */
+.ill-pensativa{mix-blend-mode:normal;opacity:1;width:calc(var(--u)*520);right:calc(var(--u)*40);bottom:0}
+.paper-cream .ill-dedo{right:calc(var(--u)*600)}
+.ill-globo{right:calc(var(--u)*60);bottom:calc(var(--u)*90);width:calc(var(--u)*190)}
+.red-cards{padding-right:calc(var(--u)*200)}
+.ill-lapiz{mix-blend-mode:normal;opacity:1;right:calc(var(--u)*-20);bottom:calc(var(--u)*-60);width:calc(var(--u)*260)}
+.ill-discman{left:calc(var(--u)*780);bottom:calc(var(--u)*70);width:calc(var(--u)*190)}
+.social .side{position:relative;z-index:2}
+/* v3.2 polish */
+.w[data-a]{display:inline-block}
+.slide.in [data-a="word"]{animation-name:a-up;animation-duration:.6s}
+.slide.in [data-a="stampw"]{animation-name:a-stamp;animation-duration:.6s}
+.net{max-height:calc(var(--u)*330)}
+.net-box{gap:calc(var(--u)*10)}
+.red-layout{margin-bottom:calc(var(--u)*30)}
+.ill-periodico{bottom:calc(var(--u)*90);width:calc(var(--u)*330)}
+.bubble.shown{translate:0 0!important}
+.tools{padding-bottom:calc(var(--u)*70)}
+.ill-ojo{right:calc(var(--u)*-20);width:calc(var(--u)*440)}
+.rol-p{max-width:calc(var(--u)*1020)}
+.ill-sol{right:calc(var(--u)*-90);bottom:calc(var(--u)*-170);width:calc(var(--u)*560)}
+.final .logos-final{width:calc(var(--u)*1100)}
+.final .big-handle{font-size:calc(var(--u)*150)}
+/* v4 legibility, fixed handle, logos */
+.t-body,.t-cap,.lens-p,.lens-a,.ticks,.video-cap,.mat-p,.gs-p{font-weight:600}
+.t-lead,.t-xlead{font-weight:600}
+.kicker,.sticker,.polaroid figcaption,.gauge b,.postit,.vd-head,.tl-dot,.lens-k,.wlegend,.tbl th,.m-0,.m-30,.b-h,.final .social-row{-webkit-text-stroke:calc(var(--u)*.8) currentColor;paint-order:stroke fill}
+.paper-cream .kicker{color:var(--red-deep)}
+/* nothing dark on red */
+.paper-red .ink,.paper-red .t-xlead,.paper-red .foot{color:var(--cream)}
+.paper-red .t-xlead{font-weight:700;text-shadow:0 calc(var(--u)*2) calc(var(--u)*6) rgba(80,0,0,.35)}
+.paper-red .t-xxl,.paper-red .t-xl{text-shadow:0 calc(var(--u)*3) 0 rgba(90,10,6,.35)}
+.paper-red .mark-ink{color:var(--cream)}
+#s-mesa h2.t-xl:first-of-type{color:var(--cream)}
+#s-cierre .close-h .ink{color:var(--yellow)}
+.red-box{color:var(--paper)!important;background:var(--red-deep)}
+/* footnotes smaller */
+.foot{font-size:calc(var(--u)*16)!important;opacity:.9;font-weight:600;line-height:1.35}
+/* permanent handle: lives on the stage, above slides and wipe */
+.slide .handle{display:none!important}
+#handle{position:absolute;left:calc(var(--u)*120);bottom:calc(var(--u)*34);z-index:30;margin:0;pointer-events:none;
+  font-family:var(--f-body);font-weight:800;font-size:calc(var(--u)*22);letter-spacing:calc(var(--u)*.5);line-height:1;
+  background:var(--ink);color:var(--cream);padding:calc(var(--u)*8) calc(var(--u)*14);box-shadow:calc(var(--u)*4) calc(var(--u)*4) 0 var(--red)}
+#handle.hide{visibility:hidden}
+.foot{left:calc(var(--u)*380)!important}
+/* logos */
+.logos-ti,.logos-final{display:flex;align-items:center;gap:calc(var(--u)*34)}
+.logos-ti{width:auto!important}
+.logos-ti .lg-tinta{height:calc(var(--u)*120);width:auto}
+.logos-ti .lg-iri{height:calc(var(--u)*92);width:auto}
+.lg-amp{font-family:var(--f-display);color:var(--red-hi);font-size:calc(var(--u)*70);line-height:1}
+.final .logos-final{width:auto!important;justify-content:center;gap:calc(var(--u)*70)}
+.final .logos-final .lg-tinta{height:calc(var(--u)*300);width:auto}
+.final .logos-final .lg-iri{height:calc(var(--u)*220);width:auto}
+.final .logos-final .lg-amp{font-size:calc(var(--u)*130)}
+#wipe img{width:calc(var(--u)*150)}
+.logo-close{width:calc(var(--u)*130)}
+@container vp (max-aspect-ratio: 23/20){ .logos-ti,.logos-final{flex-wrap:wrap} }
+.tv{transform:none;rotate:-1deg}
+.v-failed .link-small{background:var(--yellow);color:var(--ink);padding:calc(var(--u)*10) calc(var(--u)*16);font-weight:800}
+.tools{padding-bottom:calc(var(--u)*110)!important}
+.tool .cover{width:calc(var(--u)*270);height:calc(var(--u)*360)} #s-herramientas .tool .t-body{font-size:calc(var(--u)*27)}
+/* hicimos v5: stats left, two-photo collage right */
+#s-hicimos .hic{align-items:center}
+#s-hicimos .hic-left{flex:none;width:calc(var(--u)*560)}
+#s-hicimos .waffle-wrap{flex-direction:column;align-items:flex-start;gap:calc(var(--u)*24)}
+#s-hicimos .waffle{grid-template-columns:repeat(12,calc(var(--u)*38));gap:calc(var(--u)*9)}
+#s-hicimos .waffle i{width:calc(var(--u)*38);height:calc(var(--u)*38)}
+#s-hicimos .stat-inline{flex-direction:row;align-items:center;gap:calc(var(--u)*26);max-width:none}
+#s-hicimos .stat-inline .t-body{font-size:calc(var(--u)*32);max-width:calc(var(--u)*330)}
+.hic-stack{position:relative;flex:1;align-self:stretch;min-width:0}
+.hic-stack .polaroid{position:absolute;width:calc(var(--u)*600);margin:0}
+.hic-stack .polaroid img{width:100%;aspect-ratio:3/2;height:auto;object-fit:cover;display:block}
+.hic-a{left:0;top:0;z-index:1}
+.hic-b{right:0;bottom:calc(var(--u)*20);z-index:2}
+@container vp (max-aspect-ratio: 23/20){ #s-hicimos .hic-left{width:100%} .hic-stack{display:flex;flex-direction:column;gap:calc(var(--u)*30)} .hic-stack .polaroid{position:relative;width:100%;inset:auto} }
+#s-hicimos .stat-inline{flex-direction:column;align-items:flex-start;gap:calc(var(--u)*4)}
+#s-hicimos .stat-inline .num{line-height:.85}
+#s-hicimos .stat-inline .t-body{max-width:none}
+#s-hicimos .stat-inline .wlegend{margin-top:calc(var(--u)*6)}
+#s-hicimos .stat-inline .wlegend span{display:inline-flex;align-items:center;gap:calc(var(--u)*8)}
+.hic-stack .polaroid{width:calc(var(--u)*560)}
+.hic-a{left:0;top:calc(var(--u)*10)}
+.hic-b{left:auto;right:0;top:calc(var(--u)*150);bottom:auto}
+/* card reveal: question steps back so the reflection fits */
+.q-text{transition:font-size .35s ease}
+.slide:has(.flip:not([hidden])) .q-text{font-size:calc(var(--u)*84)}
+.slide:has(.flip:not([hidden])) .ill-q{opacity:0;transition:opacity .3s}
+.flip{max-width:calc(var(--u)*1560)!important;width:calc(var(--u)*1560)}
+.flip .t-lead{font-size:calc(var(--u)*34)}
+.slide:has(.flip:not([hidden])) .ill-q{visibility:hidden!important}
+.flip .t-lead{font-size:calc(var(--u)*40)!important;line-height:1.38}
+.q-ui,.flip{max-width:calc(var(--u)*1680)!important}
+/* v6 · matrix block */
+#s-matriz .mx{align-items:flex-start}
+#s-matriz .mx-what{width:calc(var(--u)*430)}
+#s-matriz .mx-what .t-body{font-size:calc(var(--u)*27)}
+#s-matriz .mx-table{flex:1;min-width:0}
+.sc{display:grid;grid-template-columns:1fr auto 1fr;gap:calc(var(--u)*26);align-items:stretch}
+.sc-card{background:var(--ink-2);border-top:calc(var(--u)*6) solid var(--yellow);padding:calc(var(--u)*24) calc(var(--u)*30);display:flex;flex-direction:column;gap:calc(var(--u)*12)}
+.sc-card .t-sm{margin-bottom:calc(var(--u)*6)}
+.sc-row{display:grid;grid-template-columns:calc(var(--u)*92) 1fr;gap:calc(var(--u)*16);align-items:baseline;border-top:calc(var(--u)*2) solid rgba(246,241,230,.18);padding-top:calc(var(--u)*10)}
+.sc-row .t-body{font-size:calc(var(--u)*27);line-height:1.35}
+.sc-n{font-family:var(--f-display);font-weight:400;font-size:calc(var(--u)*56);line-height:1;color:var(--red-hi)}
+.sc-op{font-family:var(--f-display);font-size:calc(var(--u)*120);color:var(--yellow);align-self:center;margin:0}
+.sc-sum{display:flex;align-items:center;gap:calc(var(--u)*40);margin-top:calc(var(--u)*6)}
+.sc-eq{font-family:var(--f-display);font-size:calc(var(--u)*64);line-height:1;white-space:nowrap;background:var(--yellow);color:var(--ink);padding:calc(var(--u)*10) calc(var(--u)*22);box-shadow:calc(var(--u)*8) calc(var(--u)*8) 0 var(--red)}
+.sc-eq b{font-weight:400;color:var(--red-deep)} .sc-eq span{opacity:.6;margin:0 calc(var(--u)*10)}
+.sc-sum .t-body{max-width:calc(var(--u)*760)}
+.bands{display:grid;grid-template-columns:repeat(4,1fr);gap:calc(var(--u)*22)}
+.band{background:var(--paper);padding:calc(var(--u)*22) calc(var(--u)*24);border-top:calc(var(--u)*14) solid var(--bc);box-shadow:0 calc(var(--u)*10) calc(var(--u)*24) rgba(0,0,0,.18);display:flex;flex-direction:column;gap:calc(var(--u)*8)}
+.band.b1{--bc:#5b1a16}.band.b2{--bc:var(--red)}.band.b3{--bc:#d9a400}.band.b4{--bc:var(--green)}
+.band-r{font-family:var(--f-display);font-size:calc(var(--u)*80);line-height:1;color:var(--bc)}
+.band.b3 .band-r{color:#9a7600}
+.band-h{font-weight:800;font-size:calc(var(--u)*31);line-height:1.15;color:var(--ink)}
+.band .t-body{font-size:calc(var(--u)*25);color:var(--soft)}
+.band-bar{display:flex;height:calc(var(--u)*16);margin-top:calc(var(--u)*-6)}
+.band-bar i{flex:calc(var(--b) - var(--a))}
+.band-bar i:nth-child(1){background:#5b1a16}.band-bar i:nth-child(2){background:var(--red)}.band-bar i:nth-child(3){background:#d9a400}.band-bar i:nth-child(4){background:var(--green)}
+.band-note{max-width:calc(var(--u)*1500);border-left:calc(var(--u)*10) solid var(--red);padding-left:calc(var(--u)*24)}
+.sly-read{margin-top:calc(var(--u)*-6)}
+.use-p{max-width:calc(var(--u)*1300)}
+.use-crit{display:flex;flex-wrap:wrap;gap:calc(var(--u)*14);max-width:calc(var(--u)*1400)}
+.use-crit span{font-weight:800;font-size:calc(var(--u)*28);background:var(--cream);color:var(--ink);padding:calc(var(--u)*10) calc(var(--u)*20);box-shadow:calc(var(--u)*6) calc(var(--u)*6) 0 var(--red)}
+.use-crit span:nth-child(even){rotate:-1.2deg}.use-crit span:nth-child(odd){rotate:1deg}
+.ill-usar{position:absolute;right:calc(var(--u)*60);bottom:calc(var(--u)*80);width:calc(var(--u)*300)}
+#s-usar .t-xl{max-width:calc(var(--u)*1450)}
+@container vp (max-aspect-ratio: 23/20){ .sc,.bands{grid-template-columns:1fr} .sc-op{display:none} .sc-sum{flex-direction:column;align-items:flex-start} .sc-eq{white-space:normal} .ill-usar{display:none} }
+#s-puntaje .sc-card{padding:calc(var(--u)*18) calc(var(--u)*28);gap:calc(var(--u)*8)}
+#s-puntaje .sc-row{padding-top:calc(var(--u)*8)}
+#s-puntaje .sc-row .t-body{font-size:calc(var(--u)*26)}
+#s-puntaje .sc-n{font-size:calc(var(--u)*50)}
+#s-puntaje .sc-card .t-sm{font-size:calc(var(--u)*46)}
+#s-puntaje .sc-sum{padding-left:calc(var(--u)*0);margin-bottom:calc(var(--u)*60)}
+#s-puntaje .sc-eq{font-size:calc(var(--u)*56)}
+#s-usar .t-lg{max-width:calc(var(--u)*1500)}
+#s-usar{gap:calc(var(--u)*24);padding-bottom:calc(var(--u)*120)}
+.sly-read{margin-top:calc(var(--u)*14)}
+.band .t-body{font-size:calc(var(--u)*27)}
+.band-h{font-size:calc(var(--u)*33)}
+#s-puntaje .sc-row .t-body{font-size:calc(var(--u)*28)}
+.meter{flex-shrink:0} #s-slytherin{gap:calc(var(--u)*20)} #s-slytherin .t-md2{font-size:calc(var(--u)*84)}
+#s-slytherin .t-md2{max-width:calc(var(--u)*1240)}
+</style>
+<div id="app">
+  <main id="viewport" aria-label="Presentación">
+    <div class="stage" id="stage">
+<section class="slide paper-black" id="s-cover" data-id="cover" data-title="Portada" data-tr="fade" aria-roledescription="diapositiva" aria-label="1 de 39">
+<div class="logos-ti" data-a="fade"><img class="lg-tinta" src="assets/img/logo_tinta_h_w.png" alt="Tinta Digital"><span class="lg-amp" aria-hidden="true">&amp;</span><img class="lg-iri" src="assets/img/logo_iri_w.png" alt="Instituto Republicano Internacional (IRI)"></div>
+<h1 class="t-hero">
+  <span class="w" data-a="word" style="--d:2">Investigaste,</span>
+  <span class="w" data-a="word" style="--d:6">denunciaste,</span>
+  <span class="w" data-a="word" style="--d:10">publicaste…</span>
+  <span class="w stamp-red" data-a="stampw" style="--d:15">y la ley salió igual</span>
+</h1>
+<div class="cover-foot" data-a="up" style="--d:2">
+  <p class="t-cap">Programa de Integridad Legislativa · lo que aprendimos en Ecuador</p>
+  <p class="t-cap right">María Rosa Zury<br>Santo Domingo · 4 de noviembre de 2026</p>
+</div>
+<img class="ill ill-cover" data-a="right" style="--d:1" src="assets/img/ill_mano_senala.png" alt="">
+<aside class="notes" hidden>No empieces con &quot;buenos días, gracias por la invitación&quot;. Deja la frase en pantalla y léela despacio, una parte por respiración, mirando a la sala. Después pregunta: &quot;¿A cuántos de ustedes les ha pasado? Meses en una investigación, en un informe, en una denuncia… y el día de la votación nadie lo había leído.&quot; Deja que asientan. Si alguien quiere contar su caso, dale 30 segundos, ese testimonio vale más que cualquier lámina. Y cierra: &quot;A nosotros también nos pasó, por eso estamos aquí.&quot;</aside></section>
+<section class="slide paper-red center-v" id="s-mesa" data-id="mesa" data-title="La mesa donde se vota" data-tr="wipe" aria-roledescription="diapositiva" aria-label="2 de 39">
+<h2 class="t-xl ink" data-a="up">Tenemos la evidencia, los datos y muchas veces la razón</h2>
+<h2 class="t-xl cream" data-step="1">pero casi nunca llegan a la <span class="mark mark-ink">mesa donde se vota</span></h2>
+<div class="corner-star" data-a="pop" style="--d:3"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 2 L58 36 L92 22 L66 48 L98 62 L62 64 L70 98 L50 70 L30 98 L38 64 L2 62 L34 48 L8 22 L42 36 Z"/></svg></div>
+<img class="ill ill-sobre" data-a="right" style="--d:2" src="assets/img/c_sobre.webp" alt="">
+<aside class="notes" hidden>Este es el diagnóstico que une a toda la sala: organizaciones, periodistas, jóvenes. El trabajo de la sociedad civil existe, es bueno y tiene evidencia. Lo que falla es el puente: llega tarde, llega en un formato que nadie usa o llega a quien no decide. Di: &quot;Esta hora es sobre ese puente. Sobre cómo lo construimos en Ecuador, y cómo ustedes pueden usarlo aquí.&quot;</aside></section>
+<section class="slide paper-cream center-v" id="s-pregunta" data-id="pregunta" data-title="Hagamos la prueba" data-tr="wipe" aria-roledescription="diapositiva" aria-label="3 de 39">
+<p class="sticker" data-a="stamp">Hagamos la prueba</p>
+<h2 class="t-lg q-narrow" data-a="up" style="--d:1">¿Cuántas leyes contra el crimen y la corrupción aprobadas en los últimos cinco años vinieron con un <span class="mark">análisis de si realmente se podían aplicar</span>?</h2>
+<p class="t-md red hand-up" data-step="1">Levanten la mano</p>
+<img class="ill ill-pensativa" data-a="up" style="--d:2" src="assets/img/c_mujer_pensativa.webp" alt="">
+<img class="ill ill-dedo wiggle" data-a="right" style="--d:3" src="assets/img/ill_dedo.png" alt="">
+<aside class="notes" hidden>Haz la pregunta y espera de verdad. Nadie va a levantar la mano, o muy pocos. Ese silencio es tu primer argumento. Di: &quot;Esta misma pregunta la hicimos en la Asamblea Nacional del Ecuador, frente a asambleístas. La respuesta fue la misma que acabo de ver aquí. Y ahí empieza nuestra historia.&quot;</aside></section>
+<section class="slide paper-cream" id="s-problema" data-id="problema" data-title="El problema en Ecuador" data-tr="wipe" aria-roledescription="diapositiva" aria-label="4 de 39">
+<p class="sticker" data-a="stamp">En Ecuador nos pasó lo mismo</p>
+<h2 class="t-lg" data-a="up" style="--d:1">Respondíamos a una red con <span class="mark">más años de cárcel</span></h2>
+<div class="stat-row">
+  <div class="stat-big" data-a="up" style="--d:3">
+    <p class="num red" data-count="7.48" data-dec="2">7,48</p>
+    <div class="gauge" aria-hidden="true"><i style="--v:.748"></i><b>0</b><b>10</b></div>
+    <p class="t-body">sobre 10 en criminalidad organizada, el 4.º del mundo</p>
+  </div>
+  <div class="stat-big" data-a="up" style="--d:5">
+    <p class="num red" data-count="9216" data-dec="0">9.216</p>
+    <div class="ticks-viz" aria-hidden="true"></div>
+    <p class="t-body">homicidios intencionales en 2025: el año más violento de su historia</p>
+  </div>
+</div>
+<p class="t-lead pull" data-step="1">Reforma penal tras reforma penal, más delitos tipificados y penas más altas, <b>mientras el crimen seguía creciendo</b></p>
+<p class="foot">Fuentes: Global Organized Crime Index 2025 (GI-TOC) · Ministerio del Interior del Ecuador, vía Primicias (2026)</p>
+<aside class="notes" hidden>Cuenta esto como una confesión, no como una estadística. &quot;En Ecuador hicimos lo que hacen casi todos los países cuando el crimen golpea: subir penas. Y no funcionó. Mientras la Asamblea discutía la Ley Antimafias, el país cerraba el año más violento de su historia.&quot; Luego el contraste con República Dominicana, que ellos ya escucharon de Mauricio: el índice dominicano de criminalidad está en 5,17, lejos del 7,48 de Ecuador, pero sube. Di: &quot;Les vengo a contar lo que aprendimos para que ustedes no tengan que llegar hasta ahí.&quot;</aside></section>
+<section class="slide paper-black" id="s-red" data-id="red" data-title="Una red" data-tr="wipe" aria-roledescription="diapositiva" aria-label="5 de 39">
+<p class="sticker" data-a="stamp">Por qué no funcionaba</p>
+<h2 class="t-lg red-h" data-a="up" style="--d:1">El crimen organizado es una red<br><span class="mark mark-red">y una red se mueve más rápido que un Estado</span></h2>
+<div class="red-layout">
+  <div class="net-box" data-a="pop" style="--d:3">
+    <svg class="net" viewBox="0 0 600 420" role="img" aria-label="Red de nodos conectados: al capturar un nodo, otro ocupa su lugar"></svg>
+    <button class="ui-btn net-btn" type="button">Capturar un nodo</button>
+  </div>
+  <div class="red-cards">
+    <div class="rc" data-step="1"><h3 class="t-sm">Nodos intercambiables</h3><p class="t-body muted">Capturas a uno y otro ocupa su lugar, así la red sobrevive a cada detención</p></div>
+    <div class="rc" data-step="2"><h3 class="t-sm">Sin fronteras</h3><p class="t-body muted">Planifica en un país, ejecuta en otro y lava el dinero en un tercero</p></div>
+    <div class="rc" data-step="3"><h3 class="t-sm">Vive del dinero</h3><p class="t-body muted">Su talón de Aquiles está en sus finanzas</p></div>
+  </div>
+</div>
+<img class="ill ill-globo" data-a="drop" style="--d:5" src="assets/img/c_globo.webp" alt="">
+<p class="foot">Jimmy Encalada, sesión del 2 de septiembre de 2026 · Convención de Palermo (UNTOC)</p>
+<aside class="notes" hidden>Aquí explicas por qué más cárcel no funcionaba, conectando con lo que Mauricio acaba de presentar, sin repetirlo. &quot;Las situaciones de Ecuador y República Dominicana son distintas. Pero la lógica del crimen es la misma: es una red, y una red aprende más rápido que cualquier Estado.&quot; Usa el ejemplo de Jimmy: el caso Hushpuppi, que operaba desde Dubái con víctimas en Catar y Nueva York, y lavaba en Rumania y Bulgaria. Y cierra con su frase, que viene de Giovanni Falcone: &quot;sigan el dinero y encontrarán a la mafia&quot;. Esta lámina es el puente: si el crimen es una red, la respuesta tampoco puede venir de una sola institución.</aside></section>
+<section class="slide paper-black split" id="s-giro" data-id="giro" data-title="Nos sentamos con ellos" data-tr="wipe" aria-roledescription="diapositiva" aria-label="6 de 39">
+<div class="split-text">
+  <p class="sticker" data-a="stamp">Así que hicimos algo distinto</p>
+  <h2 class="t-xl" data-a="up" style="--d:1">Dejamos de hablar de los legisladores<br><span class="mark mark-red" data-step="1">y nos sentamos con ellos</span></h2>
+</div>
+<figure class="polaroid tilt-r" data-a="drop" style="--d:3"><span class="tape"></span><img class="zoomable" src="assets/img/f_zury.jpg" alt="María Rosa Zury habla desde el podio de la Asamblea Nacional junto a los banners de Tinta Digital e IRI"><figcaption>Asamblea Nacional del Ecuador · Programa de Integridad Legislativa 2026</figcaption></figure>
+<aside class="notes" hidden>El giro de la historia. Pausa antes de decirlo. &quot;Durante años hicimos lo mismo que muchos de ustedes: hablar de los legisladores. Criticarlos, explicarlos, señalarlos. Un día decidimos entrar a la Asamblea y sentarnos con ellos y con sus equipos.&quot; Aquí la sala se pregunta: ¿y quiénes son ustedes para hacer eso? La siguiente lámina responde con el programa y con quienes lo hicieron posible.</aside></section>
+<section class="slide paper-black" id="s-alianzas" data-id="alianzas" data-title="Así nació el programa" data-tr="wipe" aria-roledescription="diapositiva" aria-label="7 de 39">
+<p class="sticker" data-a="stamp">Y así nació</p>
+<h2 class="t-md2" data-a="up" style="--d:1">El Programa de <span class="mark mark-red">Integridad Legislativa 2026</span></h2>
+<div class="logos-band" data-a="left" style="--d:3"><img src="assets/img/logos_aliados.png" alt="Logos de Tinta Digital, IRI, Asamblea Nacional del Ecuador, Escuela Legislativa y UTPL"></div>
+<div class="al-row">
+  <p class="t-lead muted al-text" data-a="up" style="--d:5">Impulsado por Tinta Digital con el apoyo de IRI, dentro de la Asamblea Nacional junto a su Escuela Legislativa y con el aval académico de la UTPL</p>
+  <div class="video-box" data-a="pop" style="--d:6">
+    <p class="video-cap"><b class="yellow">▶ Así lo contó la Asamblea</b><br>video de la Escuela Legislativa</p>
+    <div class="tv"><video id="reportaje" controls preload="metadata" playsinline poster="assets/img/poster_reportaje.jpg" aria-label="Video de la Escuela Legislativa sobre el Programa de Integridad Legislativa"><source src="assets/video/reportaje_asamblea.mp4" type="video/mp4"></video></div>
+    <a class="link-small" href="https://drive.google.com/file/d/1AJmCg5ESWXTcMyOolNXCGaIjQ7FP1MFE/view" target="_blank" rel="noopener">Si no se reproduce, abrir el video en Drive ↗</a>
+  </div>
+</div>
+<aside class="notes" hidden>Dilo con orgullo, justo después de &quot;nos sentamos con ellos&quot;. Cuenta que el acceso se construye: la Escuela Legislativa y la Coordinación de Participación Ciudadana abrieron la puerta, convocaron a las comisiones y pusieron el salón, y la UTPL convirtió el programa en una formación certificada, con 60 diplomas firmados junto a IRI y Tinta. Tuvo tanto eco que la propia Asamblea hizo un video, proyéctalo desde tu computadora o deja que escaneen el QR. De ahí sale la pregunta que todos se hacen: ¿por qué una organización como Tinta?</aside></section>
+<section class="slide paper-cream" id="s-somos" data-id="somos" data-title="¿Por qué nosotros?" data-tr="wipe" aria-roledescription="diapositiva" aria-label="8 de 39">
+<div class="somos">
+  <div class="col">
+    <p class="sticker" data-a="stamp">¿Por qué nosotros? · Tinta Digital</p>
+    <h2 class="t-lg" data-a="up" style="--d:1">Nacimos con una pregunta: ¿cómo hacemos que lo complejo <span class="mark">conecte con la gente?</span></h2>
+    <p class="t-lead soft" data-a="up" style="--d:3">Somos sociedad civil como ustedes, una mediatech creativa que junta medios, ciencias sociales, educación, creatividad y tecnología en un mismo equipo</p>
+  </div>
+  <div class="col side">
+    <p class="kicker red" data-a="fade" style="--d:3">Lo que sabemos hacer</p>
+    <p class="do" data-step="1">Democratizar la información</p>
+    <p class="do" data-step="2">Activar el pensamiento crítico</p>
+    <p class="do" data-step="3">Convertir conocimiento en herramientas</p>
+    <p class="do last" data-step="4">Experimentar con IA</p>
+    <div class="ink-box two" data-a="up" style="--d:5">
+      <p class="t-body cream-soft"><b class="num-s yellow" data-count="6.7" data-dec="1" data-suffix=" M">6,7 M</b><br>cuentas al mes</p>
+      <p class="t-body cream-soft"><b class="num-s yellow" data-count="9" data-dec="0">9</b><br>países, incluida RD</p>
+    </div>
+  </div>
+</div>
+<img class="ill ill-periodico" data-a="right" style="--d:4" src="assets/img/c_periodico.webp" alt="">
+<p class="foot">ICFJ · SembraMedia · TEDx · UNICEF · Harvard · PUCE · USFQ · Fundación Konrad Adenauer · tintadigital.la · @tintadigitaal</p>
+<aside class="notes" hidden>Esta lámina responde a &quot;¿y por qué ustedes?&quot;. Cuéntalo así: &quot;Tinta nació con una pregunta: ¿cómo hacemos que temas complejos realmente conecten con las personas? Eso es lo que sabemos hacer: democratizar información, activar pensamiento crítico, convertir conocimiento en herramientas y experimentar con IA. Hoy llegamos a 6,7 millones de cuentas al mes, también aquí en República Dominicana. Y nos preguntamos: ¿qué pasa si aplicamos eso al tema más complejo de todos, el crimen organizado, y se lo llevamos a quienes votan las leyes?&quot; Nombra uno o dos reconocimientos, no todos.</aside></section>
+<section class="slide paper-black" id="s-escuchamos" data-id="escuchamos" data-title="Primero escuchamos" data-tr="wipe" aria-roledescription="diapositiva" aria-label="9 de 39">
+<p class="sticker" data-a="stamp">Antes de diseñar nada</p>
+<h2 class="t-xl" data-a="up" style="--d:1">Primero <span class="mark mark-red">escuchamos</span></h2>
+<p class="t-lead muted lead-w" data-a="up" style="--d:2">Hablamos con asesores y equipos de la Asamblea y con especialistas, y les preguntamos qué pasa el día en que hay que votar</p>
+<div class="notes-wall">
+  <p class="postit p1" data-step="1">«Llegan gremios presionando para que el vacío se quede»</p>
+  <p class="postit p2" data-step="2">«La información técnica llega incompleta, o desde un solo ángulo»</p>
+  <p class="postit p3" data-step="3">«No hay tiempo para leer la ley completa»</p>
+  <p class="postit p4" data-step="4">«Esto no es tema de mi comisión»</p>
+</div>
+<p class="t-md yellow" data-step="5">Al momento de votar, <span class="mark mark-yel">nadie tenía con qué revisar una ley</span></p>
+<img class="ill ill-escucha" data-a="right" style="--d:2" src="assets/img/ill_mujer_morada.png" alt="">
+<img class="ill ill-reloj" data-a="pop" style="--d:6" src="assets/img/c_reloj.webp" alt="">
+<aside class="notes" hidden>Este es el corazón de la historia, y es lo que más le sirve a la sociedad civil: el programa no salió de un escritorio. Antes de plantear nada, conversamos con los equipos de la Asamblea y con los especialistas. Cuenta lo que escuchaste, como lo escuchaste: la presión de sectores interesados, la información incompleta, los tiempos que no alcanzan, y la sensación de que el crimen organizado &quot;es tema de la Comisión de Seguridad&quot; cuando en realidad toca a casi la mitad de las comisiones. Y remata: &quot;Al momento de votar, nadie tenía con qué revisar una ley. Ese vacío fue nuestro punto de partida.&quot; Las frases son síntesis de esas conversaciones; ajústalas a como tú las recuerdes.</aside></section>
+<section class="slide paper-cream" id="s-vimos" data-id="vimos" data-title="Lo que vimos" data-tr="wipe" aria-roledescription="diapositiva" aria-label="10 de 39">
+<p class="sticker" data-a="stamp">De lo que escuchamos a lo que decidimos</p>
+<h2 class="t-lg" data-a="up" style="--d:1">Tres cosas que vimos y cómo las convertimos en <span class="mark">método</span></h2>
+<div class="vd-head" data-a="fade" style="--d:2"><span>Lo que vimos</span><span></span><span>Lo que decidimos</span></div>
+<div class="vd">
+  <div class="vd-row" data-step="1"><p class="t-lead soft">El crimen organizado se trataba como tema de una sola comisión</p><p class="arrow red">→</p><p class="t-lead b">Mirarlo desde la economía, lo social y lo internacional</p></div>
+  <div class="vd-row" data-step="2"><p class="t-lead soft">Nadie tenía tiempo para leer una ley completa antes de votar</p><p class="arrow red">→</p><p class="t-lead b">Crear herramientas cortas que se usen en el Pleno y en las comisiones</p></div>
+  <div class="vd-row" data-step="3"><p class="t-lead soft">Una charla más no iba a cambiar la forma de legislar</p><p class="arrow red">→</p><p class="t-lead b">Aprender haciendo, con casos y laboratorios</p></div>
+</div>
+<aside class="notes" hidden>Aquí cuentas el paso que casi nadie cuenta: cómo lo que escuchamos se volvió diseño. Recorre cada fila de izquierda a derecha, &quot;vimos esto y por eso decidimos esto otro&quot;. Es la lámina que demuestra que el programa salió de la realidad de la Asamblea y que cada decisión tiene una razón. Termina con: &quot;Con esas tres decisiones armamos la metodología.&quot;</aside></section>
+<section class="slide paper-black" id="s-metodo" data-id="metodo" data-title="Metodología" data-tr="wipe" aria-roledescription="diapositiva" aria-label="11 de 39">
+<p class="sticker" data-a="stamp">Nuestra metodología</p>
+<h2 class="t-xxl" data-a="up" style="--d:1">Entender, aplicar <span class="mark mark-red">y construir</span></h2>
+<div class="timeline" data-a="fade" style="--d:2" aria-hidden="true">
+  <i class="tl-line"></i>
+  <span class="tl-dot" style="--x:0">26 ago</span><span class="tl-dot" style="--x:.12">28 ago</span><span class="tl-dot" style="--x:.4">2 sep</span><span class="tl-dot" style="--x:.52">4 sep</span><span class="tl-dot end" style="--x:1">22 sep</span>
+</div>
+<div class="m-steps">
+  <div class="m-step" data-step="1"><p class="m-n red">01</p><h3 class="t-sm">Entender</h3><p class="t-body muted">Seis especialistas explicaron el crimen organizado desde tres miradas</p></div>
+  <div class="m-step" data-step="2"><p class="m-n red">02</p><h3 class="t-sm">Aplicar</h3><p class="t-body muted">En laboratorios, los equipos evaluaron una ley ficticia con la Matriz</p></div>
+  <div class="m-step yel" data-step="3"><p class="m-n yellow">03</p><h3 class="t-sm">Construir</h3><p class="t-body muted">Los propios participantes escribieron su Guía de Buenas Prácticas</p></div>
+</div>
+<p class="foot">Cinco sesiones presenciales y virtuales · del 26 de agosto al 22 de septiembre de 2026 · aval académico de la UTPL</p>
+<aside class="notes" hidden>Esta es la columna vertebral de todo lo que viene, así que dila con calma. Primero entender, con especialistas que miraron el crimen desde la economía, lo social y lo internacional. Después aplicar, con un caso práctico en el que los equipos evaluaron una ley usando la Matriz que diseñó Jimmy Encalada. Y al final construir, cuando los propios asesores escribieron la Guía. Anuncia que vas a mostrar cómo se vio cada paso, y que al final se llevan las herramientas.</aside></section>
+<section class="slide paper-black" id="s-apuesta" data-id="apuesta" data-title="Tres miradas" data-tr="wipe" aria-roledescription="diapositiva" aria-label="12 de 39">
+<p class="sticker" data-a="stamp">01 · Entender</p>
+<h2 class="t-lg" data-a="up" style="--d:1">Para enfrentar una red<br>hay que <span class="mark mark-red">mirarla desde tres lados</span></h2>
+<div class="lenses">
+  <button type="button" class="lens" data-step="1"><span class="lens-k red">Económica</span><span class="lens-h">Es un mercado</span><span class="lens-p">Legislar toda la cadena de valor, del primer eslabón al último</span><span class="lens-a">Renato Rivera Rhon · GI-TOC</span></button>
+  <button type="button" class="lens" data-step="2"><span class="lens-k lilac">Social</span><span class="lens-h">Es una forma de organización</span><span class="lens-p">Actuar sobre las condiciones que lo reproducen en cada territorio</span><span class="lens-a">Pedro E. Manosalvas · coautor ENDO</span></button>
+  <button type="button" class="lens" data-step="3"><span class="lens-k yellow">Internacional</span><span class="lens-h">Es transnacional</span><span class="lens-p">Cumplir Palermo y GAFI para seguir el dinero y cooperar entre países</span><span class="lens-a">Jimmy Encalada · UNICRI</span></button>
+</div>
+<aside class="notes" hidden>Conecta con quiénes somos: mirar un tema complejo desde varios ángulos es justo lo que Tinta hace. Esta es la idea central de nuestra metodología. &quot;Para combatir el crimen organizado, el Legislativo necesita mirar el fenómeno con otros ojos, además de hacer leyes penales.&quot; Explica cada lente en una frase y con un ejemplo. Económica: Renato mostró que perseguir al transportista del combustible de contrabando no toca a quien controla el negocio. Social: Pedro planteó la diferencia entre la &quot;columna A&quot;, capturar autores, y la &quot;columna B&quot;, atacar las condiciones; y la segunda es donde el legislador sí tiene competencias. Internacional: Jimmy explicó la Convención de Palermo y por qué atacar las finanzas desarma la red. Remata: &quot;Tres miradas, una sola conclusión: legislar solo la sanción deja intactas las condiciones que reproducen el crimen.&quot;</aside></section>
+<section class="slide paper-cream" id="s-panel1" data-id="panel1" data-title="Voces 1" data-tr="wipe" aria-roledescription="diapositiva" aria-label="13 de 39">
+<p class="sticker" data-a="stamp">01 · Entender · las voces del programa</p>
+<h2 class="t-lg" data-a="up" style="--d:1">El crimen funciona como <span class="mark">una empresa</span></h2>
+<div class="voices"><button type="button" class="voice" data-step="1"><span class="v-name">Daniel Pontón · Decano, Escuela de Seguridad y Defensa, IAEN</span><span class="v-h">El narcotráfico es un problema sistémico</span><span class="v-q">Dilema: ¿cuándo se gana y cuándo se pierde esta guerra?</span></button><button type="button" class="voice" data-step="2"><span class="v-name">Katherine Herrera · Inteligencia estratégica, ex asesora del CNI</span><span class="v-h">Resiliencia es impedir que el poder criminal se reproduzca</span><span class="v-q">«Si el crimen organizado es un sistema, la respuesta del Estado también debe serlo».</span></button></div>
+<p class="foot">Sesión inaugural · Asamblea Nacional del Ecuador · 26 de agosto de 2026</p>
+<aside class="notes" hidden>Las tres láminas de &quot;voces&quot; muestran que no fue una charla de Tinta: reunimos a seis especialistas de primer nivel, cada uno con una mirada distinta. Pontón abrió la sesión inaugural y mostró la escala del problema; su frase central fue que el crimen funciona como una empresa. Katherine Herrera, ex asesora del Centro de Inteligencia Nacional y hoy en el Banco Central, llevó la mirada de inteligencia: elevar penas sirve poco si las finanzas y las rutas siguen intactas, y capturar cabecillas sirve poco si la estructura se recompone. Para ella el Parlamento tiene seis funciones de seguridad: legislar, fiscalizar, presupuestar, representar territorios, cooperar internacionalmente y proteger la legitimidad. Su otra frase sirve para esta sala: &quot;Una red criminal cruza fronteras en horas; una solicitud de cooperación no puede tardar meses.&quot;</aside></section>
+<section class="slide paper-cream" id="s-panel2" data-id="panel2" data-title="Voces 2" data-tr="wipe" aria-roledescription="diapositiva" aria-label="14 de 39">
+<p class="sticker" data-a="stamp">01 · Entender · las voces del programa</p>
+<h2 class="t-lg" data-a="up" style="--d:1">El dinero necesita una <span class="mark">puerta legal</span></h2>
+<div class="voices"><button type="button" class="voice" data-step="1"><span class="v-name">Daniela Escobar · Derecho penal económico y tributario</span><span class="v-h">Compliance formal frente a compliance efectivo</span><span class="v-q">¿Debe tratarse igual a la empresa que detecta y colabora que a la que mira hacia otro lado?</span></button><button type="button" class="voice" data-step="2"><span class="v-name">Renato Rivera Rhon · Analista senior, GI-TOC</span><span class="v-h">El ABC de las economías criminales</span><span class="v-q">A más fragmentación de grupos, más competencia y más violencia</span></button></div>
+<p class="foot">Sesiones del 26 y del 28 de agosto de 2026</p>
+<aside class="notes" hidden>Esta lámina conecta muy bien con el empresariado joven de la sala, como ANJE y Global Shapers. Escobar planteó la pregunta que ellos pueden llevar a su sector: ¿qué gana una empresa por tener un compliance que de verdad funciona? Rivera dio el ejemplo del contrabando de combustible: el sistema penal castiga al transportista, el eslabón más débil, y deja intacta la estructura comercial. Su propuesta fue regular mejor a las gasolineras y rastrear los activos, no subir los años de prisión.</aside></section>
+<section class="slide paper-cream" id="s-panel3" data-id="panel3" data-title="Voces 3" data-tr="wipe" aria-roledescription="diapositiva" aria-label="15 de 39">
+<p class="sticker" data-a="stamp">01 · Entender · las voces del programa</p>
+<h2 class="t-lg" data-a="up" style="--d:1">Atacar las condiciones y <span class="mark">seguir el dinero</span></h2>
+<div class="voices"><button type="button" class="voice" data-step="1"><span class="v-name">Pedro E. Manosalvas · Sociólogo, coautor de la ENDO</span><span class="v-h">El origen social del crimen organizado</span><span class="v-q">La corrupción es la condición que garantiza la continuidad del crimen</span></button><button type="button" class="voice" data-step="2"><span class="v-name">Jimmy Encalada · LL.M. Crimen y Justicia Transnacional, UNICRI</span><span class="v-h">Normativa internacional y la Matriz</span><span class="v-q">Creó la Matriz de Impacto Criminal y guió el laboratorio práctico</span></button></div>
+<p class="foot">Sesiones del 28 de agosto y del 2 y 4 de septiembre de 2026</p>
+<aside class="notes" hidden>Manosalvas es el que más resuena con la base comunitaria de la sala, como CONAMUCA, las Casas Comunitarias de Justicia y las organizaciones de fe: la pobreza por sí sola no produce crimen organizado; lo determinante es qué economía ilícita llega primero a un adolescente de quince años. Jimmy es el puente hacia las herramientas: él diseñó la matriz. Cuenta su caso: Hushpuppi, que lavó más de 300 millones de dólares en 18 meses; le decomisaron 40 millones, y el resto nunca se recuperó. Esa es la razón de que la matriz pregunte por el dinero.</aside></section>
+<section class="slide paper-black" id="s-social" data-id="social" data-title="La mirada social" data-tr="wipe" aria-roledescription="diapositiva" aria-label="16 de 39">
+<div class="social">
+  <div class="col">
+    <p class="sticker" data-a="stamp">01 · Entender · la mirada social</p>
+    <h2 class="t-md2" data-a="up" style="--d:1">¿Quién llega primero a un adolescente de quince años: <span class="mark mark-red">la escuela, el empleo formal o la economía ilícita?</span></h2>
+    <p class="t-lead muted" data-a="up" style="--d:3">Lo decisivo es qué mercados ilícitos hay en el territorio y qué alternativas legítimas le faltan a la gente</p>
+    <div class="soc-media"><figure class="screen" data-a="drop" style="--d:4"><span class="tape"></span><img class="zoomable" src="assets/img/f_pedro.jpg" alt="Pedro Manosalvas en la sesión virtual con la lámina Cinco ideas para conservar"></figure></div>
+  </div>
+  <div class="col side">
+    <p class="kicker yellow" data-a="fade" style="--d:2">Lo que la organización ofrece</p>
+    <p class="offer" data-step="1">Ingreso rápido y previsible</p>
+    <p class="offer" data-step="2">Protección frente a otros</p>
+    <p class="offer" data-step="3">Identidad y reconocimiento</p>
+    <p class="offer" data-step="4">Pertenencia y jerarquía</p>
+    <p class="offer last" data-step="5">Estatus en su entorno</p>
+    <p class="red-box" data-step="6">Son bienes sociales y por eso ninguna política que ofrezca solo dinero los sustituye</p>
+  </div>
+</div>
+<img class="ill ill-discman" data-a="right" style="--d:5" src="assets/img/c_discman.webp" alt="">
+<p class="foot">Pedro E. Manosalvas · «El origen del crimen organizado: una perspectiva social» · sesión virtual del 28 de agosto de 2026</p>
+<aside class="notes" hidden>Esta es la lámina de este público. Haz la pregunta a la sala tal como Pedro se la hizo a los asambleístas, y espera. Muchas de las organizaciones presentes trabajan justo ahí: en el barrio, en la comunidad, con jóvenes. Explica la idea de Pedro: el crimen organizado no reemplaza al Estado por ausencia, compite con él. Regula quién entra y sale de un barrio, cobra extorsión como si fuera un tributo, impone normas y castigos, controla mercados y resuelve lo que el Estado no resuelve. En Ecuador, la mayoría de las víctimas de homicidio en 2025 tenía entre 18 y 29 años: la misma edad de quienes se recluta. Remata: &quot;Esto no lo resuelve un artículo del Código Penal. Esto lo ven ustedes todos los días, y por eso el legislador los necesita.&quot;</aside></section>
+<section class="slide paper-cream" id="s-hicimos" data-id="hicimos" data-title="Así se vio" data-tr="wipe" aria-roledescription="diapositiva" aria-label="17 de 39">
+<p class="sticker" data-a="stamp">Así se vio en la práctica</p>
+<h2 class="t-md2" data-a="up" style="--d:1">Cinco sesiones y seis especialistas con una <span class="mark">Asamblea sentada a aprender</span></h2>
+<div class="hic">
+  <div class="hic-left">
+    <div class="waffle-wrap" data-a="fade" style="--d:2">
+      <div class="waffle" aria-hidden="true"></div>
+      <div class="stat-inline"><p class="num red" data-count="60" data-dec="0">60</p><p class="t-body">personas certificadas: 32 mujeres y 28 hombres</p></div>
+    </div>
+  </div>
+  <div class="hic-stack">
+    <figure class="polaroid hic-a" data-a="drop" style="--d:3"><span class="tape"></span><img class="zoomable" src="assets/img/f_sala.jpg" alt="Sesión inaugural del programa en la Asamblea Nacional del Ecuador, con el salón lleno"><figcaption>Sesión inaugural · Asamblea Nacional</figcaption></figure>
+    <figure class="polaroid tilt-r hic-b" data-a="drop" style="--d:5"><span class="tape"></span><img class="zoomable" src="assets/img/f_mesa.jpg" alt="Mesa principal de la sesión inaugural, con la pantalla del Programa de Formación Integridad Legislativa 2026"><figcaption>La mesa de la inauguración · 26 de agosto</figcaption></figure>
+  </div>
+</div>
+<p class="foot">Aliados: IRI · Escuela Legislativa y Coordinación de Participación Ciudadana de la Asamblea Nacional · UTPL</p>
+<aside class="notes" hidden>Cuéntalo como una historia, no como un informe. &quot;Durante dos semanas, miércoles y viernes, tuvimos a asambleístas y a sus equipos sentados a aprender sobre crimen organizado. Sesiones presenciales en la Asamblea y laboratorios virtuales.&quot; Señala la foto: así se veía el salón el día de la inauguración. Lo que más impacta a sociedad civil es que fue posible: que una organización como Tinta lograra entrar con un aval académico y una alianza institucional. Menciona que los diplomas fueron firmados por IRI, Tinta y la UTPL. Si te preguntan cómo lograron el acceso, ese es oro: cuenta cómo se construyó la alianza con la Escuela Legislativa.</aside></section>
+<section class="slide paper-black" id="s-momentos" data-id="momentos" data-title="Así se vivió" data-tr="wipe" aria-roledescription="diapositiva" aria-label="18 de 39">
+<p class="sticker" data-a="stamp">Así se vivió</p>
+<h2 class="t-lg" data-a="up" style="--d:1">Del salón de la Asamblea a la <span class="mark mark-red">Guía en sus manos</span></h2>
+<div class="board">
+  <figure class="polaroid b1" data-step="1"><span class="tape"></span><img class="zoomable" src="assets/img/f_asesores.jpg" alt="Asambleístas y asesores durante una sesión presencial del programa"><figcaption>Asesores y asambleístas · sesión presencial</figcaption></figure>
+  <figure class="polaroid b2" data-step="2"><span class="tape"></span><img class="zoomable" src="assets/img/f_jimmy.jpg" alt="Jimmy Encalada en el laboratorio virtual con la diapositiva Segui il denaro, troverai la mafia"><figcaption>Laboratorio virtual · Jimmy Encalada</figcaption></figure>
+  <figure class="polaroid b3" data-step="3"><span class="tape"></span><img class="zoomable" src="assets/img/f_guia.jpg" alt="Participantes muestran la Guía de Buenas Prácticas impresa en la sesión de cierre"><figcaption>Cierre · la Guía impresa</figcaption></figure>
+</div>
+<aside class="notes" hidden>No leas la lámina: deja que las fotos hablen unos segundos. Tres momentos. Primero, el salón lleno de asesores y asambleístas: esto no fue una charla para convencidos. Segundo, Jimmy Encalada en el laboratorio virtual con la frase atribuida a Giovanni Falcone, el juez que enfrentó a la mafia siciliana: &quot;Sigue el dinero y encontrarás a la mafia&quot;. Esa frase resume todo el programa. Tercero, la sesión de cierre del 22 de septiembre, con la Guía de Buenas Prácticas impresa: el documento que escribieron ellos mismos.</aside></section>
+<section class="slide paper-cream" id="s-debate" data-id="debate" data-title="El debate" data-tr="wipe" aria-roledescription="diapositiva" aria-label="19 de 39">
+<p class="sticker" data-a="stamp">El debate en la sala</p>
+<h2 class="t-md2" data-a="up" style="--d:1">Cuando la teoría tocó la <span class="mark">Ley Antimafias</span></h2>
+<div class="chat-row">
+  <div class="chat">
+    <div class="bubble left" data-step="1"><h3 class="b-h">La pregunta de una asambleísta</h3><p class="t-body">¿Por qué una ley que se presenta como integral se reduce a aumentar penas?</p></div>
+    <div class="bubble right" data-step="2"><h3 class="b-h">La respuesta del especialista</h3><p class="t-body">El caso del combustible: se castiga al transportista mientras la estructura comercial sigue intacta, por eso hay que regular y rastrear activos</p></div>
+    <div class="bubble left" data-step="3"><h3 class="b-h">La preocupación</h3><p class="t-body">La infiltración en la Policía exige una política estructural que una justicia, seguridad y condiciones de quienes están abajo</p></div>
+    <div class="bubble center" data-step="4"><h3 class="b-h">La conclusión compartida</h3><p class="t-body">Ante un fenómeno multicausal hace falta una visión integral que las leyes aisladas no dan</p></div>
+  </div>
+  <figure class="screen square" data-a="drop" style="--d:3"><span class="tape"></span><img class="zoomable" src="assets/img/f_virtual.jpg" alt="Sesión virtual del 28 de agosto con un especialista y participantes conectados"></figure>
+</div>
+<p class="foot">Sesión virtual del 28 de agosto · participaron, entre otros, Adrián Castro, Silvia Núñez, Ana Herrera, Jimmy Erazo y Nanki Saant</p>
+<aside class="notes" hidden>Este fue uno de los momentos más ricos del programa, y vale la pena contarlo como escena. Una asambleísta trajo a la sesión el debate real de la Ley Antimafias. El especialista respondió con un caso concreto, y otra asambleísta llevó la conversación a la infiltración en la Policía. Pedro Manosalvas propuso, por ejemplo, vivienda digna para policías en zonas de conflicto, para reducir su vulnerabilidad ante la corrupción. Mensaje para la sala: cuando a los legisladores se les da un marco, hacen las preguntas correctas. Asistieron a esa sesión, entre otros, Adrián Castro, Silvia Núñez, Ana Herrera, Jimmy Erazo y Nanki Saant.</aside></section>
+<section class="slide paper-black" id="s-dijeron" data-id="dijeron" data-title="Lo que nos dijeron" data-tr="wipe" aria-roledescription="diapositiva" aria-label="20 de 39">
+<p class="sticker" data-a="stamp">Lo que nos dijeron</p>
+<h2 class="t-xl" data-a="up" style="--d:1">Ellos mismos <span class="mark mark-red">lo vieron</span></h2>
+<div class="quotes3">
+  <figure class="qt" data-step="1"><p class="qt-mark">“</p><p class="qt-t">«Subir penas es un esquema caduco, la ley tiene que mirar la cadena de valor, la dolarización y el territorio»</p><p class="t-cap dim"><b class="cream">Sofía Salamea</b> · asambleísta, en el debate sobre la Ley Antimafias</p></figure>
+  <figure class="qt" data-step="2"><p class="qt-mark">“</p><p class="qt-t">«Leyes tenemos, lo que nos faltan son los mecanismos para hacerlas cumplir»</p><p class="t-cap dim"><b class="cream">Silvia Núñez</b> · asambleísta, sesión del 28 de agosto</p></figure>
+  <figure class="qt" data-step="3"><p class="qt-mark">“</p><p class="qt-t">«¿Cambiar al personal de arriba reduce la corrupción?»</p><p class="t-cap dim"><b class="cream">Walter Idrovo Ochoa</b> · durante las preguntas (la respuesta: solo si se atienden las causas)</p></figure>
+</div>
+<p class="foot">Síntesis de intervenciones registradas en las sesiones del programa</p>
+<aside class="notes" hidden>Esta es tu prueba social, y para un público escéptico vale más que cualquier cifra. &quot;No lo decimos nosotros. Lo dijeron los propios asambleístas después de escuchar a los especialistas.&quot; Las frases son síntesis fieles de lo que quedó registrado en las sesiones. Di los nombres en voz alta: le da peso. La tercera muestra que el programa abrió preguntas reales. Agrega lo que tú viviste y ninguna diapositiva puede contar: la presencia de la presidenta de la Comisión de Seguridad, el interés por la Ley Antimafias y el momento en que alguien se dio cuenta de algo.</aside></section>
+<section class="slide paper-cream" id="s-matriz" data-id="matriz" data-title="Matriz: qué es" data-tr="wipe" aria-roledescription="diapositiva" aria-label="21 de 39">
+<p class="sticker" data-a="stamp">02 · Aplicar · la Matriz de Jimmy Encalada</p>
+<h2 class="t-lg" data-a="up" style="--d:1">Cinco preguntas a <span class="mark">cualquier ley</span></h2>
+<div class="mx">
+  <img class="mx-cover zoomable" data-a="drop" style="--d:2" src="assets/img/portada_caja.jpg" alt="Portada de la Caja de Herramientas de Evaluación del Impacto Criminal, documento que contiene la Matriz">
+  <div class="mx-side mx-what">
+    <div class="ink-box" data-a="up" style="--d:3"><p class="kicker yellow">Qué es</p><p class="t-body cream">La Matriz de Evaluación del Impacto Criminal, creada en el programa para revisar una ley, reforma o proyecto contra el crimen organizado</p></div>
+    <div class="outline-box" data-a="up" style="--d:4"><p class="kicker red">Para qué sirve</p><p class="t-body soft">Para distinguir entre lo que la norma dice y lo que realmente puede aplicarse, con evidencia de cada artículo</p></div>
+  </div>
+  <div class="table-wrap mx-table" data-a="up" style="--d:3"><table class="tbl light">
+  <tr><th>Criterio</th><th>Pregunta central</th></tr>
+  <tr data-step="1"><td>1. Ecosistema criminal</td><td>¿Interviene la red completa o solo a sus ejecutores?</td></tr>
+  <tr data-step="2"><td>2. Capacidad institucional</td><td>¿Quién actúa, con qué competencias y cómo se coordina?</td></tr>
+  <tr data-step="3"><td>3. Trazabilidad financiera</td><td>¿Permite seguir el dinero y al beneficiario final?</td></tr>
+  <tr data-step="4"><td>4. Afectación económica</td><td>¿Altera los costos y ganancias del negocio criminal?</td></tr>
+  <tr data-step="5"><td>5. Legitimidad y adaptación</td><td>¿Evita abusos, se evalúa y aprende de sus resultados?</td></tr>
+  </table></div>
+</div>
+<p class="foot">Matriz de Evaluación del Impacto Criminal (MIC) y su Caja de Herramientas · Programa de Formación en Integridad Legislativa 2026</p>
+<aside class="notes" hidden>Conecta con la frase de Silvia Núñez que acabas de mostrar: «Leyes tenemos, lo que nos faltan son los mecanismos para hacerlas cumplir». Esta herramienta nació para eso. Explica qué es y para qué sirve en una frase cada uno, y recorre los cinco criterios sin detenerte en cada fila: cada uno es una pregunta que cualquier ley tiene que poder responder. La idea que debe quedar es que la matriz separa lo que la norma dice de lo que realmente puede aplicarse.</aside></section>
+<section class="slide paper-black" id="s-puntaje" data-id="puntaje" data-title="Cómo se puntúa" data-tr="wipe" aria-roledescription="diapositiva" aria-label="22 de 39">
+<p class="sticker" data-a="stamp">Cómo se asigna el puntaje</p>
+<h2 class="t-md2" data-a="up" style="--d:1">Dos notas por criterio: <span class="mark mark-red">lo que dice y lo que se aplica</span></h2>
+<div class="sc">
+  <div class="sc-card" data-step="1"><p class="kicker yellow">A · Diseño normativo · de 0 a 3</p><h3 class="t-sm">Lo que la ley dice</h3><div class="sc-row"><b class="sc-n">0</b><p class="t-body">La materia está ausente o la regulación es contradictoria</p></div><div class="sc-row"><b class="sc-n">1–2</b><p class="t-body">Existe regulación, pero es parcial, ambigua o fragmentada</p></div><div class="sc-row"><b class="sc-n">3</b><p class="t-body">Las reglas son claras, coherentes y compatibles con otras normas</p></div></div>
+  <p class="sc-op" data-step="2" aria-hidden="true">+</p>
+  <div class="sc-card" data-step="2"><p class="kicker yellow">B · Implementación o «reglas en uso» · de 0 a 3</p><h3 class="t-sm">Lo que de verdad se aplica</h3><div class="sc-row"><b class="sc-n">0</b><p class="t-body">No existen mecanismos, capacidades ni evidencia de aplicación</p></div><div class="sc-row"><b class="sc-n">1–2</b><p class="t-body">Existen mecanismos parciales o aplicación irregular</p></div><div class="sc-row"><b class="sc-n">3</b><p class="t-body">Existen responsables, procedimientos, recursos, coordinación y evidencia verificable de aplicación</p></div></div>
+</div>
+<div class="sc-sum" data-step="3"><p class="sc-eq">Hasta <b>6</b> por criterio <span>×</span> 5 criterios <span>=</span> <b>30</b></p><p class="t-body dim">Se puntúa solo después de ubicar el artículo, la disposición o la evidencia que lo sustenta</p></div>
+<aside class="notes" hidden>Esta es la lógica que hace útil a la matriz. Cada criterio recibe dos notas de 0 a 3: una por cómo está escrita la ley y otra por cómo se aplica en la realidad. Lee solo los extremos de cada escala, el 0 y el 3, y deja el medio para que lo vean. Remata: «Una regla puede estar bien escrita y aun así no tener responsables, procedimientos ni recursos. Por eso se califica dos veces». Y adelanta: esa segunda nota, la de la aplicación, es donde la mirada de ustedes pesa más.</aside></section>
+<section class="slide paper-cream" id="s-lectura" data-id="lectura" data-title="Cómo se lee el total" data-tr="wipe" aria-roledescription="diapositiva" aria-label="23 de 39">
+<p class="sticker" data-a="stamp">Cómo se interpreta el total</p>
+<h2 class="t-lg" data-a="up" style="--d:1">Cuatro lecturas <span class="mark">sobre 30 puntos</span></h2>
+<div class="bands">
+<div class="band b1" data-step="1"><p class="band-r">0–7</p><h3 class="band-h">Ley principalmente declarativa</h3><p class="t-body">capacidad muy limitada para combatir el crimen organizado transnacional</p></div><div class="band b2" data-step="2"><p class="band-r">8–18</p><h3 class="band-h">Respuesta fragmentaria</h3><p class="t-body">interviene algunos componentes, pero mantiene vacíos importantes</p></div><div class="band b3" data-step="3"><p class="band-r">19–25</p><h3 class="band-h">Marco potencialmente funcional</h3><p class="t-body">condicionado por capacidades, coordinación y aplicación efectiva</p></div><div class="band b4" data-step="4"><p class="band-r">26–30</p><h3 class="band-h">Marco integral, operativo y adaptable</h3><p class="t-body">con capacidad significativa para reducir la actuación criminal</p></div>
+</div>
+<div class="band-bar" aria-hidden="true"><i style="--a:0;--b:7"></i><i style="--a:7;--b:18"></i><i style="--a:18;--b:25"></i><i style="--a:25;--b:30"></i></div>
+<p class="t-lead b band-note" data-step="5">El puntaje no es el final: sirve para localizar los vacíos y saber si el problema está en el diseño, en la implementación o en ambos</p>
+<p class="foot">Valoración global de la Matriz de Evaluación del Impacto Criminal</p>
+<aside class="notes" hidden>Muestra los cuatro rangos de izquierda a derecha, uno por clic. No hace falta leer cada descripción completa: nombra el rango y su lectura. La última frase es la más importante, y viene de la propia Caja de Herramientas: una misma calificación puede esconder problemas distintos, reglas incompletas, falta de responsables, ausencia de recursos o controles débiles. Anuncia que ahora van a ver cómo la aplicaron los asesores en un caso.</aside></section>
+<section class="slide paper-black" id="s-slytherin" data-id="slytherin" data-title="Slytherin" data-tr="wipe" aria-roledescription="diapositiva" aria-label="24 de 39">
+<p class="sticker" data-a="stamp">02 · Aplicar · el caso del laboratorio</p>
+<p class="ex-stamp" data-a="stamp" style="--d:2">Ejemplo</p>
+<h2 class="t-md2" data-a="up" style="--d:1">Lo que encontraron los asesores en la <span class="mark mark-red">ley de Slytherin</span></h2>
+<p class="t-body muted" data-a="up" style="--d:2">Un país ficticio con 94 homicidios por cada 100.000 habitantes, una «Ley Nacional contra el Crimen Organizado» de 30 artículos, y grupos de trabajo de la Asamblea evaluándola.</p>
+<div class="table-wrap" data-a="up" style="--d:3"><table class="tbl dark">
+<tr><th>Criterio</th><th>El vacío que identificaron</th></tr>
+<tr data-step="1"><td>1. Ecosistema criminal</td><td>Define la organización criminal, pero es ambigua con facilitadores e intermediarios.</td></tr>
+<tr data-step="2"><td>2. Capacidad institucional</td><td>Crea un sistema nacional y equipos conjuntos, sin presupuesto ni forma de resolver choques de competencias.</td></tr>
+<tr data-step="3"><td>3. Trazabilidad financiera</td><td>Crea una base nacional de información sin interoperabilidad entre la unidad financiera, tributos y aduanas.</td></tr>
+<tr data-step="4"><td>4. Afectación económica</td><td>Prioriza la cárcel y no prevé extinción de dominio ni decomiso sin condena</td></tr>
+<tr data-step="5"><td>5. Legitimidad</td><td>Permite operaciones urgentes con notificación al juez hasta cinco días después.</td></tr>
+</table></div>
+<div class="meter" data-step="6" aria-hidden="true"><div class="m-bands"><i style="--a:0;--b:7"></i><i style="--a:7;--b:18"></i><i style="--a:18;--b:25"></i><i style="--a:25;--b:30"></i></div><b class="m-pin" style="--v:12">12</b><span class="m-0">0</span><span class="m-30">30</span></div>
+<p class="t-body sly-read" data-step="6"><b class="yellow">12 de 30 · respuesta fragmentaria:</b> bien escrita en el papel e inaplicable en la práctica</p>
+<p class="foot">Promedio de los grupos de trabajo · Informe final del programa</p>
+<aside class="notes" hidden>Esta es la prueba de que funciona. Cuenta el caso como una historia: un país costero, la droga llamada &quot;piedra filosofal&quot;, carteles extranjeros contra bandas locales y un presidente que declara la guerra al crimen. Ponerle humor ayudó a que los asesores se soltaran a criticar una ley sin sentirse en una pelea partidaria. Lo que encontraron se parece muchísimo a las leyes reales: buenas intenciones en el papel y vacíos en la aplicación. Remata: &quot;Y esto lo encontraron asesores legislativos en una tarde. Imaginen lo que pueden encontrar ustedes con un proyecto real.&quot;</aside></section>
+<section class="slide paper-black center-v" id="s-usar" data-id="usar" data-title="¿Cómo la usarían?" data-tr="wipe" aria-roledescription="diapositiva" aria-label="25 de 39">
+<p class="sticker" data-a="stamp">La pregunta para ustedes</p>
+<h2 class="t-lg" data-a="up" style="--d:1">¿Cómo podrían utilizar ustedes <span class="mark mark-red">esta matriz</span> para evaluar una propuesta de ley?</h2>
+<p class="t-xlead use-p" data-step="1">Vamos a probarlo con cinco preguntas, una por cada criterio</p>
+<div class="use-crit" data-step="2"><span>1 · Ecosistema criminal</span><span>2 · Capacidad institucional</span><span>3 · Trazabilidad financiera</span><span>4 · Afectación económica</span><span>5 · Legitimidad y adaptación</span></div>
+<p class="t-lead use-p dim" data-step="3">Cada respuesta habla de la nota B, la implementación de 0 a 3, la que mejor se ve desde el territorio que ustedes conocen</p>
+<img class="ill ill-usar" data-a="right" style="--d:2" src="assets/img/ill_mano_senala.png" alt="">
+<aside class="notes" hidden>Lámina puente: después del caso de Slytherin, devuelve la pregunta a la sala y deja unos segundos de silencio. Luego explica que la dinámica que viene recorre los cinco criterios de la matriz, uno por pregunta, y que sus respuestas apuntan a la segunda nota, la de implementación, donde se mira si hay responsables, recursos y evidencia de que la ley se aplica. Pasa a las tarjetas.</aside></section>
+<section class="slide paper-cream" id="s-tarjetas" data-id="tarjetas" data-title="Tarjetas: instrucciones" data-tr="wipe" aria-roledescription="diapositiva" aria-label="26 de 39">
+<p class="sticker" data-a="stamp">Ahora ustedes · tarjetas arriba</p>
+<h2 class="t-lg" data-a="up" style="--d:1">Una tarjeta verde y una roja <span class="mark">para responder</span></h2>
+<div class="tj">
+  <div class="tcard green" data-a="drop" style="--d:2"><p class="tc-sym" aria-hidden="true">✓</p><p class="tc-w">Verde · Sí</p><p class="t-body">Levanten la tarjeta verde si su respuesta es sí</p></div>
+  <div class="tcard redc" data-a="drop" style="--d:3"><p class="tc-sym" aria-hidden="true">✕</p><p class="tc-w">Roja · No</p><p class="t-body">Levanten la tarjeta roja si su respuesta es no</p></div>
+  <div class="tj-how">
+    <p class="kicker red" data-a="fade" style="--d:4">Cómo participar</p>
+    <p class="t-lead" data-step="1">Leemos una pregunta, cada persona levanta una tarjeta y miramos juntos cómo respondió la sala</p>
+    <p class="t-lead" data-step="2">Después revelamos qué criterio de la matriz está detrás de la pregunta y qué aporta su mirada a ese puntaje</p>
+    <p class="t-body b consigna" data-step="3">Cinco preguntas · unos 10 minutos</p>
+    <div class="timer" data-a="up" style="--d:5" data-seconds="600" role="timer" aria-label="Temporizador de la actividad"><output>10:00</output><button type="button" class="ui-btn t-start">Iniciar</button><button type="button" class="ui-btn t-pause">Pausar</button><button type="button" class="ui-btn t-reset">Reiniciar</button></div>
+  </div>
+</div>
+<aside class="notes" hidden>Reparte una tarjeta verde y una roja a cada persona antes de empezar. Explica la regla una sola vez y déjala en pantalla: verde es sí y roja es no, durante toda la dinámica. En cada pregunta, léela en voz alta, cuenta tres segundos y pide que levanten la tarjeta al mismo tiempo. Describe lo que ves en la sala (por ejemplo, casi todo rojo) e invita a una o dos personas a contar por qué. Luego pulsa «Ver reflexión» (o la tecla R) y cierra con la idea en pantalla. Calcula unos dos minutos por pregunta para mantener el ritmo.</aside></section>
+<section class="slide paper-black" id="s-tarjeta1" data-id="tarjeta1" data-title="Tarjetas: Ecosistema criminal" data-tr="wipe" aria-roledescription="diapositiva" aria-label="27 de 39">
+<div class="qhead" data-a="fade"><p class="sticker">Tarjetas arriba · pregunta 1 de 5</p><span class="qdots" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></div>
+<h2 class="t-lg q-text" data-a="up" style="--d:1">¿Saben quiénes financian, transportan y protegen el negocio ilícito que más golpea a su comunidad?</h2>
+<div class="q-ui" data-a="up" style="--d:3">
+  <p class="chip green"><span aria-hidden="true">✓</span> Verde · Sí</p>
+  <p class="chip redc"><span aria-hidden="true">✕</span> Roja · No</p>
+  <button class="ui-btn reveal-btn" type="button" aria-expanded="false" aria-controls="rev1">Ver reflexión</button>
+</div>
+<div class="flip" id="rev1" hidden>
+  <p class="kicker red">Criterio 1 de la Matriz · Ecosistema criminal</p>
+  <p class="t-lead">Ese conocimiento es el primer criterio de la matriz, que mide si una ley alcanza a toda la red o solo al último eslabón. Si levantaron la verde, ustedes ya tienen el mapa con el que se califica una ley, y si levantaron la roja, la matriz les dice qué preguntar para construirlo.</p>
+</div>
+<img class="ill ill-q" data-a="right" style="--d:2" src="assets/img/ill_dedo2.png" alt="">
+<aside class="notes" hidden>Lee la pregunta, cuenta tres segundos y pide que todos levanten su tarjeta al mismo tiempo: verde para sí, roja para no. Comenta en voz alta cómo se ve la sala e invita a una o dos personas a explicar su respuesta. Después pulsa «Ver reflexión» o la tecla R y nombra el criterio de la matriz: Ecosistema criminal.</aside></section>
+<section class="slide paper-black" id="s-tarjeta2" data-id="tarjeta2" data-title="Tarjetas: Capacidad institucional" data-tr="wipe" aria-roledescription="diapositiva" aria-label="28 de 39">
+<div class="qhead" data-a="fade"><p class="sticker">Tarjetas arriba · pregunta 2 de 5</p><span class="qdots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></div>
+<h2 class="t-lg q-text" data-a="up" style="--d:1">¿Han visto una ley que le encarga una tarea a una institución que en su territorio no tiene gente ni presupuesto para cumplirla?</h2>
+<div class="q-ui" data-a="up" style="--d:3">
+  <p class="chip green"><span aria-hidden="true">✓</span> Verde · Sí</p>
+  <p class="chip redc"><span aria-hidden="true">✕</span> Roja · No</p>
+  <button class="ui-btn reveal-btn" type="button" aria-expanded="false" aria-controls="rev2">Ver reflexión</button>
+</div>
+<div class="flip" id="rev2" hidden>
+  <p class="kicker red">Criterio 2 de la Matriz · Capacidad institucional</p>
+  <p class="t-lead">La matriz califica cada criterio dos veces, primero cómo está escrita la ley y después si se puede aplicar en el mundo real. Esa segunda mitad se mide mejor desde donde ustedes trabajan, porque ahí se ve si la institución existe, actúa y se coordina con las demás.</p>
+</div>
+<img class="ill ill-q" data-a="right" style="--d:2" src="assets/img/ill_mano_senala.png" alt="">
+<aside class="notes" hidden>Lee la pregunta, cuenta tres segundos y pide que todos levanten su tarjeta al mismo tiempo: verde para sí, roja para no. Comenta en voz alta cómo se ve la sala e invita a una o dos personas a explicar su respuesta. Después pulsa «Ver reflexión» o la tecla R y nombra el criterio de la matriz: Capacidad institucional.</aside></section>
+<section class="slide paper-black" id="s-tarjeta3" data-id="tarjeta3" data-title="Tarjetas: Trazabilidad financiera" data-tr="wipe" aria-roledescription="diapositiva" aria-label="29 de 39">
+<div class="qhead" data-a="fade"><p class="sticker">Tarjetas arriba · pregunta 3 de 5</p><span class="qdots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div>
+<h2 class="t-lg q-text" data-a="up" style="--d:1">¿Alguna vez su organización o su medio siguió el rastro del dinero de un negocio ilícito?</h2>
+<div class="q-ui" data-a="up" style="--d:3">
+  <p class="chip green"><span aria-hidden="true">✓</span> Verde · Sí</p>
+  <p class="chip redc"><span aria-hidden="true">✕</span> Roja · No</p>
+  <button class="ui-btn reveal-btn" type="button" aria-expanded="false" aria-controls="rev3">Ver reflexión</button>
+</div>
+<div class="flip" id="rev3" hidden>
+  <p class="kicker red">Criterio 3 de la Matriz · Trazabilidad financiera</p>
+  <p class="t-lead">Jimmy Encalada lo resumió en el programa: si se puede perseguir el dinero, se puede perseguir la estructura. El tercer criterio pregunta si la ley facilita esa información, y quien ya cruzó contratos, registros o bases públicas sabe exactamente dónde se corta el rastro.</p>
+</div>
+<img class="ill ill-q" data-a="right" style="--d:2" src="assets/img/ill_dedo2.png" alt="">
+<aside class="notes" hidden>Lee la pregunta, cuenta tres segundos y pide que todos levanten su tarjeta al mismo tiempo: verde para sí, roja para no. Comenta en voz alta cómo se ve la sala e invita a una o dos personas a explicar su respuesta. Después pulsa «Ver reflexión» o la tecla R y nombra el criterio de la matriz: Trazabilidad financiera.</aside></section>
+<section class="slide paper-black" id="s-tarjeta4" data-id="tarjeta4" data-title="Tarjetas: Afectación económica" data-tr="wipe" aria-roledescription="diapositiva" aria-label="30 de 39">
+<div class="qhead" data-a="fade"><p class="sticker">Tarjetas arriba · pregunta 4 de 5</p><span class="qdots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div>
+<h2 class="t-lg q-text" data-a="up" style="--d:1">¿Conocen algún caso en el que hubo condena y el negocio siguió funcionando igual?</h2>
+<div class="q-ui" data-a="up" style="--d:3">
+  <p class="chip green"><span aria-hidden="true">✓</span> Verde · Sí</p>
+  <p class="chip redc"><span aria-hidden="true">✕</span> Roja · No</p>
+  <button class="ui-btn reveal-btn" type="button" aria-expanded="false" aria-controls="rev4">Ver reflexión</button>
+</div>
+<div class="flip" id="rev4" hidden>
+  <p class="kicker red">Criterio 4 de la Matriz · Afectación económica</p>
+  <p class="t-lead">El cuarto criterio mide si la ley golpea la ganancia del crimen con decomiso, incentivos y sanciones. Cada caso que ustedes documentan de un negocio que sobrevivió a la condena es evidencia de que ese criterio no se está cumpliendo en la práctica.</p>
+</div>
+<img class="ill ill-q" data-a="right" style="--d:2" src="assets/img/ill_mano_senala.png" alt="">
+<aside class="notes" hidden>Lee la pregunta, cuenta tres segundos y pide que todos levanten su tarjeta al mismo tiempo: verde para sí, roja para no. Comenta en voz alta cómo se ve la sala e invita a una o dos personas a explicar su respuesta. Después pulsa «Ver reflexión» o la tecla R y nombra el criterio de la matriz: Afectación económica.</aside></section>
+<section class="slide paper-black" id="s-tarjeta5" data-id="tarjeta5" data-title="Tarjetas: Legitimidad y adaptación" data-tr="wipe" aria-roledescription="diapositiva" aria-label="31 de 39">
+<div class="qhead" data-a="fade"><p class="sticker">Tarjetas arriba · pregunta 5 de 5</p><span class="qdots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+<h2 class="t-lg q-text" data-a="up" style="--d:1">¿Su organización ha podido saber si una ley contra el crimen se revisó después de aprobada para ver si funcionó?</h2>
+<div class="q-ui" data-a="up" style="--d:3">
+  <p class="chip green"><span aria-hidden="true">✓</span> Verde · Sí</p>
+  <p class="chip redc"><span aria-hidden="true">✕</span> Roja · No</p>
+  <button class="ui-btn reveal-btn" type="button" aria-expanded="false" aria-controls="rev5">Ver reflexión</button>
+</div>
+<div class="flip" id="rev5" hidden>
+  <p class="kicker red">Criterio 5 de la Matriz · Legitimidad y adaptación</p>
+  <p class="t-lead">El quinto criterio mira los controles y la capacidad de una ley para corregirse, y ahí el seguimiento de la sociedad civil y del periodismo es la pieza que casi siempre falta. Las cinco preguntas que respondieron son los cinco criterios de la matriz, y antes de cerrar les dejamos el código del asistente interactivo para que califiquen con ella una ley que les preocupe.</p>
+</div>
+<img class="ill ill-q" data-a="right" style="--d:2" src="assets/img/ill_dedo2.png" alt="">
+<aside class="notes" hidden>Lee la pregunta, cuenta tres segundos y pide que todos levanten su tarjeta al mismo tiempo: verde para sí, roja para no. Comenta en voz alta cómo se ve la sala e invita a una o dos personas a explicar su respuesta. Después pulsa «Ver reflexión» o la tecla R y nombra el criterio de la matriz: Legitimidad y adaptación.</aside></section>
+<section class="slide paper-red center-v" id="s-rol" data-id="rol" data-title="Su rol" data-tr="wipe" aria-roledescription="diapositiva" aria-label="32 de 39">
+<p class="sticker inv" data-a="stamp">Y aquí entran ustedes</p>
+<h2 class="t-xxl ink" data-a="up" style="--d:1">Ustedes ven lo que <span class="mark mark-ink">los políticos no ven</span></h2>
+<p class="t-xlead ink rol-p" data-step="1">La matriz se hizo para legisladores, y en manos de la sociedad civil se convierte en <b>una forma de exigir con evidencia</b></p>
+<img class="ill ill-ojo" data-a="right" style="--d:2" src="assets/img/ill_mujer_roja.png" alt="">
+<aside class="notes" hidden>Lámina de pausa: dila lento y mira a la sala. &quot;Ustedes están en el territorio. Escuchan a las víctimas de la extorsión, ven a los jóvenes que recluta el crimen y siguen los expedientes judiciales que el Congreso olvida. Esa información, ese criterio, no lo tiene ningún diputado.&quot; Aquí puedes reconocer el trabajo que ya existe en la sala, por ejemplo el seguimiento ciudadano a los grandes casos de corrupción. &quot;Ustedes ya hacen esto. Lo que les traemos es un método común.&quot;</aside></section>
+<section class="slide paper-black" id="s-doblevia" data-id="doblevia" data-title="Dos direcciones" data-tr="wipe" aria-roledescription="diapositiva" aria-label="33 de 39">
+<p class="sticker" data-a="stamp">Dos direcciones</p>
+<h2 class="t-lg" data-a="up" style="--d:1">De la calle al Congreso<br>y del Congreso <span class="mark mark-red">a la calle</span></h2>
+<div class="dv">
+  <div class="dv-card" data-step="1"><p class="kicker red">Llevar la voz</p><h3 class="t-sm">Hacia quienes legislan</h3>
+    <ul class="ticks"><li>Lo que la gente percibe y vive en su territorio</li><li>Datos y casos que el Congreso no mira</li><li>Las aristas que nadie puso sobre la mesa</li></ul></div>
+  <div class="dv-arrows" aria-hidden="true"><span class="a1">→</span><img class="dv-sobre" src="assets/img/c_sobre.webp" alt=""><span class="a2">←</span></div>
+  <div class="dv-card" data-step="2"><p class="kicker yellow">Exigir cuentas</p><h3 class="t-sm">Hacia la ciudadanía</h3>
+    <ul class="ticks"><li>Preguntar lo que la ley no responde</li><li>Cuestionar con la evidencia en la mano</li><li>Traducir una ley para que la gente la entienda</li></ul></div>
+</div>
+<aside class="notes" hidden>Este es el corazón del rol de la sociedad civil. Primera dirección: ustedes son quienes pueden darles a los políticos las percepciones de la gente, los datos de territorio, las aristas que no ven. Segunda dirección: ustedes son quienes exigen, cuestionan y hacen que el poder vea lo que no quiere ver, y quienes le explican a la ciudadanía qué significa una ley. &quot;Para hacer las dos cosas necesitan un lenguaje común con los legisladores. La matriz es ese lenguaje.&quot; Y pasa a las herramientas: «Para hacer las dos cosas no tienen que empezar de cero».</aside></section>
+<section class="slide paper-black" id="s-herramientas" data-id="herramientas" data-title="Herramientas" data-tr="wipe" aria-roledescription="diapositiva" aria-label="34 de 39">
+<p class="sticker" data-a="stamp">Para hacerlo no empiezan de cero</p>
+<h2 class="t-lg" data-a="up" style="--d:1">Las herramientas <span class="mark mark-red">con las que nos quedamos</span></h2>
+<div class="tools">
+  <div class="tool" data-step="1"><img class="cover zoomable" src="assets/img/portada_checklist.jpg" alt="Portada del Checklist del Legislador"><h3 class="t-sm2">Checklist del Legislador</h3><p class="t-body muted">para revisar una ley antes de votarla</p></div>
+  <div class="tool" data-step="2"><img class="cover zoomable" src="assets/img/portada_caja.jpg" alt="Portada de la Caja de Herramientas de Evaluación del Impacto Criminal, que contiene la Matriz"><h3 class="t-sm2">Caja de Herramientas y Matriz</h3><p class="t-body muted">para evaluar paso a paso si una ley se puede aplicar</p></div>
+  <div class="tool" data-step="3"><img class="cover zoomable" src="assets/img/portada_guia.jpg" alt="Portada de la Guía de Buenas Prácticas Legislativas"><h3 class="t-sm2">Guía de Buenas Prácticas</h3><p class="t-body muted">para legislar mejor contra el crimen</p></div>
+  <div class="tool" data-step="4"><div class="cover ai"><img src="assets/img/ill_computadora.png" alt=""></div><h3 class="t-sm2 yellow">Asistente interactivo</h3><p class="t-body muted">para consultarlas paso a paso</p></div>
+</div>
+<aside class="notes" hidden>Aquí retomas el programa: todo lo que vivieron los asesores quedó convertido en herramientas, porque la idea era aprender haciendo. La Matriz ya la conocen; dile a la sala que viene dentro de una Caja de Herramientas con fichas paso a paso para aplicarla. Presenta las otras en una frase cada una y anuncia que vas a mostrar de cerca el Checklist y la Guía de Buenas Prácticas. El asistente interactivo reúne los documentos y fue registrado por IRI como recurso complementario.</aside></section>
+<section class="slide paper-cream" id="s-checklist" data-id="checklist" data-title="Checklist" data-tr="wipe" aria-roledescription="diapositiva" aria-label="35 de 39">
+<div class="ck">
+  <img class="ck-cover zoomable" data-a="drop" src="assets/img/portada_checklist.jpg" alt="Portada del Checklist del Legislador, guía de bolsillo del programa">
+  <div class="col">
+    <p class="sticker" data-a="stamp" style="--d:1">La herramienta para el momento de votar</p>
+    <h2 class="t-lg" data-a="up" style="--d:2">Nueve preguntas <span class="mark">antes de votar una ley</span></h2>
+    <div class="ck-q red-edge" data-step="1"><p class="kicker red">Mirada económica</p><p class="t-lead">¿Esta ley facilita rastrear el dinero, o lo dificulta?</p></div>
+    <div class="ck-q purple-edge" data-step="2"><p class="kicker purple">Mirada social</p><p class="t-lead">¿Previene el problema, o solo lo castiga después de que ocurrió?</p></div>
+    <div class="ck-q ink-edge" data-step="3"><p class="kicker">Mirada internacional</p><p class="t-lead">¿Cubre todo el proceso, o deja alguna etapa sin regular?</p></div>
+    <p class="t-lead b" data-step="4">Su última página pregunta: <span class="red">«¿Qué agregarías tú a este checklist?»</span></p>
+  </div>
+</div>
+<img class="ill ill-lapiz" data-a="up" style="--d:5" src="assets/img/c_lapiz.webp" alt="">
+<p class="foot">Checklist del Legislador · guía de bolsillo · basada en el Índice Global de Crimen Organizado (GI-TOC) y las recomendaciones del GAFI</p>
+<aside class="notes" hidden>Lleva el checklist impreso y levántalo. &quot;¿Se acuerdan de que al momento de votar nadie tenía con qué revisar una ley? Esto cabe en el bolsillo.&quot; Fue lo primero que recibió cada asambleísta y asesor el día de la inauguración, para usar en el Pleno y en las comisiones. Está armado con las tres miradas del programa, tres preguntas por mirada. También reconoce con honestidad con qué se topa un legislador al usarla: presión de gremios interesados, información técnica incompleta, tiempos que no alcanzan y la sensación de que &quot;esto no es mi tema&quot;. Remata con la última página: &quot;¿Qué agregarías tú a este checklist?&quot;. Y dile a la sala: &quot;Hoy esa pregunta es para ustedes. Ustedes saben cosas que los legisladores no saben.&quot;</aside></section>
+<section class="slide paper-cream" id="s-guia" data-id="guia" data-title="Guía" data-tr="wipe" aria-roledescription="diapositiva" aria-label="36 de 39">
+<p class="sticker" data-a="stamp">03 · Construir · la Guía que escribieron ellos</p>
+<h2 class="t-lg" data-a="up" style="--d:1">Seis pasos antes de <span class="mark">legislar contra el crimen</span></h2>
+<div class="gd">
+  <img class="gd-cover zoomable" data-a="drop" style="--d:2" src="assets/img/portada_guia.jpg" alt="Portada de la Guía de Buenas Prácticas Legislativas para combatir el crimen organizado transnacional">
+  <div class="gsteps">
+    <div class="gs" data-step="1"><p class="gs-n">1</p><div><h3 class="gs-h">Identificar la brecha</h3><p class="t-body soft">¿Falla la ley o falta presupuesto y capacidad?</p></div></div>
+    <div class="gs" data-step="4"><p class="gs-n">4</p><div><h3 class="gs-h">Definir la medida</h3><p class="t-body soft">¿Reforma, protocolo o sistema de información?</p></div></div>
+    <div class="gs" data-step="2"><p class="gs-n">2</p><div><h3 class="gs-h">Mapear la red completa</h3><p class="t-body soft">Financistas, testaferros, facilitadores y víctimas</p></div></div>
+    <div class="gs" data-step="5"><p class="gs-n">5</p><div><h3 class="gs-h">Asignar responsables</h3><p class="t-body soft">Quién lidera, con qué recursos y en qué plazo</p></div></div>
+    <div class="gs" data-step="3"><p class="gs-n">3</p><div><h3 class="gs-h">Contrastar con Palermo y GAFI</h3><p class="t-body soft">Que no queden vacíos frente a las obligaciones del país</p></div></div>
+    <div class="gs" data-step="6"><p class="gs-n">6</p><div><h3 class="gs-h">Verificar y adaptar</h3><p class="t-body soft">¿Se redujo de verdad la capacidad criminal?</p></div></div>
+  </div>
+</div>
+<img class="ill ill-pluma" data-a="right" style="--d:4" src="assets/img/c_pluma.webp" alt="">
+<p class="foot">Construida por los participantes el 4 de septiembre · entregada a la presidenta de la Comisión de Seguridad</p>
+<aside class="notes" hidden>Muestra la Guía impresa. Esta lámina tiene un mensaje que a la sociedad civil le encanta: el documento lo escribieron los propios legisladores y asesores, en dos grupos de trabajo; nosotros solo facilitamos. El grupo 1 armó los pasos 1 a 3 y el grupo 2 los pasos 4 a 6. Entre sus aportes estaban &quot;primar la calidad normativa sobre la cantidad&quot;, &quot;redactar con conceptos técnicos&quot; y &quot;considerar los aportes de la ciudadanía&quot;. Esta última frase es tu puente hacia los recursos: los propios asambleístas escribieron que necesitan los aportes de la ciudadanía, y por eso todo lo que construimos queda en sus manos.</aside></section>
+<section class="slide paper-black" id="s-materiales" data-id="materiales" data-title="Materiales" data-tr="wipe" aria-roledescription="diapositiva" aria-label="37 de 39">
+<p class="sticker" data-a="stamp">Llévenselo todo</p>
+<h2 class="t-lg" data-a="up" style="--d:1">Todo lo que construimos es suyo, <span class="mark mark-red">escaneen y llévenselo</span></h2>
+<div class="mats">
+  <div class="mat" data-step="1"><button type="button" class="qr-btn" aria-label="Ampliar código: Checklist del Legislador"><img class="qr" src="assets/img/qr_checklist.png" alt="Código QR del Checklist del Legislador"></button><h3 class="mat-h">Checklist del Legislador</h3><p class="t-cap muted">Nueve preguntas antes de votar</p><a class="ui-btn small" href="https://drive.google.com/file/d/1OReb07rw24yuVRJm7yCAhNTl0P9xkDeb/view?usp=drivesdk" target="_blank" rel="noopener">Abrir ↗</a></div>
+  <div class="mat" data-step="2"><button type="button" class="qr-btn" aria-label="Ampliar código: Matriz de Impacto Criminal"><img class="qr" src="assets/img/qr_matriz.png" alt="Código QR de la Matriz de Impacto Criminal"></button><h3 class="mat-h">Matriz de Impacto Criminal</h3><p class="t-cap muted">Cinco criterios, puntaje sobre 30</p><a class="ui-btn small" href="https://drive.google.com/file/d/1foAk1ZKSBVwAB7z5wJWoD2fMLyD_3AFn/view?usp=drivesdk" target="_blank" rel="noopener">Abrir ↗</a></div>
+  <div class="mat" data-step="3"><button type="button" class="qr-btn" aria-label="Ampliar código: Caja de Herramientas"><img class="qr" src="assets/img/qr_caja.png" alt="Código QR de la Caja de Herramientas"></button><h3 class="mat-h">Caja de Herramientas</h3><p class="t-cap muted">Cómo aplicar la matriz paso a paso</p><a class="ui-btn small" href="https://drive.google.com/file/d/1XeZL44ufYxEd3fmaFXga9c3Kmzn0-OFE/view?usp=drivesdk" target="_blank" rel="noopener">Abrir ↗</a></div>
+  <div class="mat" data-step="4"><button type="button" class="qr-btn" aria-label="Ampliar código: Guía de Buenas Prácticas"><img class="qr" src="assets/img/qr_guia.png" alt="Código QR de la Guía de Buenas Prácticas Legislativas"></button><h3 class="mat-h">Guía de Buenas Prácticas</h3><p class="t-cap muted">Seis pasos, escrita por los participantes</p><a class="ui-btn small" href="https://drive.google.com/file/d/1HWrWZPLjX-CPKK3V_iNjKYQnPncZCVS8/view?usp=drivesdk" target="_blank" rel="noopener">Abrir ↗</a></div>
+  <div class="mat" data-step="5"><button type="button" class="qr-btn" aria-label="Ampliar código: Asistente interactivo"><img class="qr" src="assets/img/qr_asistente.png" alt="Código QR del asistente interactivo en NotebookLM"></button><h3 class="mat-h yellow">Asistente interactivo</h3><p class="t-cap muted">para consultarlas paso a paso</p><a class="ui-btn small" href="https://notebook.google.com/notebook/9f969231-6147-4414-a3a8-b894a04ec6f4" target="_blank" rel="noopener">Abrir ↗</a></div>
+</div>
+<img class="ill ill-celular" data-a="right" style="--d:7" src="assets/img/c_celular.webp" alt="">
+<p class="foot">Programa de Formación en Integridad Legislativa 2026 · Tinta Digital × IRI</p>
+<aside class="notes" hidden>Deja esta lámina en pantalla un buen rato, mientras la gente saca el celular. Di: &quot;Nada de esto es secreto ni es solo para legisladores. Úsenlo, adáptenlo, mejórenlo.&quot; Si llevas impresos, este es el momento de repartirlos. Antes de presentar, prueba los cuatro códigos con tu celular desde una cuenta que no sea la tuya, para confirmar que los archivos se abren sin pedir permiso.</aside></section>
+<section class="slide paper-red center-v" id="s-cierre" data-id="cierre" data-title="Cierre" data-tr="fade" aria-roledescription="diapositiva" aria-label="38 de 39">
+<img class="ill ill-sol" data-a="pop" style="--d:2" src="assets/img/c_sol.webp" alt="">
+<img class="logo-close" data-a="pop" src="assets/img/logo_tinta_stack_w.png" alt="Logo de Tinta Digital">
+<h2 class="t-xxl cream close-h" data-a="up" style="--d:1">La red ya se organizó<br><span class="ink">y ahora nos toca <span class="mark mark-cream">a nosotros</span></span></h2>
+<p class="t-xlead ink close-p" data-step="1">La próxima vez que investiguen, denuncien o publiquen, que llegue a la mesa donde se vota</p>
+<p class="foot ink">María Rosa Zury · www.tintadigital.la · @tintadigitaal · Con el apoyo del International Republican Institute (IRI)</p>
+<aside class="notes" hidden>Cierra en alto, con la misma idea del inicio. &quot;Al principio les dije que la red no espera. Ya se organizó: tiene contadores, abogados, empresas y gente en las instituciones. La pregunta es si nosotros vamos a organizarnos igual de bien.&quot; Invita a colaborar y a quedar en contacto. Agradece a IRI y devuélvele la palabra a Mauricio.</aside></section>
+<section class="slide paper-black final" id="s-final" data-id="final" data-title="Tinta Digital × IRI" data-tr="fade" aria-roledescription="diapositiva" aria-label="39 de 39">
+<div class="logos-final" data-a="pop"><img class="lg-tinta" src="assets/img/logo_tinta_h_w.png" alt="Tinta Digital"><span class="lg-amp" aria-hidden="true">&amp;</span><img class="lg-iri" src="assets/img/logo_iri_w.png" alt="Instituto Republicano Internacional (IRI)"></div>
+<p class="big-handle" data-a="up" style="--d:2"><span>@</span>tintadigitaal</p>
+<p class="social-row" data-a="fade" style="--d:4">www.tintadigital.la</p>
+<aside class="notes" hidden>Deja esta lámina en pantalla mientras agradeces y devuelves la palabra a Mauricio.</aside></section>
+      <div id="wipe" aria-hidden="true"><img src="assets/img/logo_tinta_stack_w.png" alt=""></div>
+      <p id="handle" aria-hidden="true">@tintadigitaal</p>
+    </div>
+  </main>
+  <div id="progress" aria-hidden="true"></div>
+  <section id="notes" hidden aria-label="Notas para quien presenta"><h2>Notas para quien presenta</h2><div id="notes-body"></div></section>
+  <nav id="bar" aria-label="Controles de la presentación">
+    <button class="ctl" id="b-prev" type="button" aria-label="Diapositiva anterior">←<span class="lbl"> Anterior</span></button>
+    <span id="counter" aria-hidden="true">1 / 39</span>
+    <button class="ctl primary" id="b-next" type="button" aria-label="Diapositiva siguiente"><span class="lbl">Siguiente </span>→</button>
+    <span id="steps" role="status"></span>
+    <span id="sectitle"></span>
+    <button class="ctl" id="b-index" type="button" aria-expanded="false" aria-controls="index" title="Tecla I">☰<span class="lbl"> Índice</span></button>
+    <button class="ctl" id="b-notes" type="button" aria-pressed="false" title="Tecla N">Notas</button>
+    <button class="ctl" id="b-fs" type="button" title="Tecla F" aria-label="Pantalla completa">⛶<span class="lbl"> Pantalla completa</span></button>
+  </nav>
+  <p id="live" class="sr" aria-live="polite"></p>
+  <section id="index" hidden aria-label="Índice de diapositivas"><button class="ctl ix-close" type="button">Cerrar ✕</button><h2>Índice</h2><ol id="ix-list"></ol></section>
+  <div id="lightbox" hidden tabindex="-1" role="dialog" aria-label="Imagen ampliada"><div><img src="" alt=""><p></p></div></div>
+</div>
+<script>(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var n=slides.length, cur=0, busy=false, queued=null;
+  var $=function(id){return document.getElementById(id);};
+  var counter=$('counter'), prog=$('progress'), sect=$('sectitle'), notes=$('notes'), notesBody=$('notes-body'),
+      bNotes=$('b-notes'), bFs=$('b-fs'), live=$('live'), wipe=$('wipe'), stepsUi=$('steps'), lb=$('lightbox');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- helpers ---------- */
+  function steps(s){ return [].slice.call(s.querySelectorAll('[data-step]')).sort(function(a,b){return (+a.dataset.step)-(+b.dataset.step);}); }
+  function hiddenSteps(s){ return steps(s).filter(function(e){return !e.classList.contains('shown');}); }
+  function showStep(el){ el.classList.add('shown'); onStepShown(el); }
+  function resetSlide(s, all){
+    steps(s).forEach(function(e){ e.classList.toggle('shown', !!all); });
+    s.classList.remove('in'); void s.offsetWidth; s.classList.add('in');
+    runCounters(s);
+    if(all) steps(s).forEach(onStepShown);
+    if(s.id==='s-red') netReset();
+    s.querySelectorAll('.lenses,.voices').forEach(function(g){ g.classList.remove('has-focus'); g.querySelectorAll('.focus').forEach(function(x){x.classList.remove('focus');}); });
+    s.querySelectorAll('.flip').forEach(function(f){ f.hidden=true; });
+    s.querySelectorAll('.reveal-btn').forEach(function(b){ b.setAttribute('aria-expanded','false'); b.textContent='Ver reflexión'; });
+  }
+  function updateUi(){
+    var s=slides[cur];
+    counter.textContent=(cur+1)+' / '+n;
+    prog.style.width=((cur+1)/n*100)+'%';
+    sect.textContent=s.getAttribute('data-title')||'';
+    var a=s.querySelector('aside.notes'); notesBody.textContent=a?a.textContent:'';
+    var st=steps(s), done=st.filter(function(e){return e.classList.contains('shown');}).length;
+    stepsUi.innerHTML=st.map(function(e,i){return '<i class="'+(i<done?'on':'')+'"></i>';}).join('');
+    stepsUi.setAttribute('aria-label', st.length? ('Paso '+done+' de '+st.length) : '');
+  }
+  function pauseAll(){ document.querySelectorAll('video').forEach(function(v){ try{ if(!v.paused) v.pause(); }catch(e){} }); }
+
+  /* ---------- navigation ---------- */
+  function swap(i, all){
+    var old=slides[cur]; old.classList.remove('active','in'); old.setAttribute('aria-hidden','true'); old.inert=true;
+    cur=i; var s=slides[cur];
+    s.classList.add('active'); s.removeAttribute('aria-hidden'); s.inert=false; s.scrollTop=0;
+    resetSlide(s, all);
+    updateUi();
+    var hd=$('handle'); if(hd) hd.classList.toggle('hide', s.classList.contains('final'));
+    live.textContent='Diapositiva '+(cur+1)+' de '+n+': '+(s.getAttribute('data-title')||'');
+    try{ history.replaceState(null,'','#s'+(cur+1)); }catch(e){}
+  }
+  function go(i, opts){
+    opts=opts||{};
+    i=Math.max(0,Math.min(n-1,i));
+    if(i===cur) return; if(busy&&!opts.instant){ queued=function(){ go(i,opts); }; return; }
+    pauseAll();
+    var back=i<cur, all=opts.all!==undefined?opts.all:back;
+    var tr=slides[i].getAttribute('data-tr')||'wipe';
+    if(reduce||opts.instant||tr==='fade'){
+      swap(i, all);
+      if(!reduce && !opts.instant){ slides[cur].classList.remove('fadein'); void slides[cur].offsetWidth; slides[cur].classList.add('fadein'); }
+      return;
+    }
+    busy=true;
+    wipe.className=''; void wipe.offsetWidth; wipe.className=back?'back':'run';
+    setTimeout(function(){ swap(i, all); }, 250);
+    setTimeout(function(){ busy=false; wipe.className=''; var q=queued; queued=null; if(q) q(); }, 560);
+  }
+  function next(){
+    if(busy){ queued=next; return; }
+    var h=hiddenSteps(slides[cur]);
+    if(h.length){ showStep(h[0]); updateUi(); return; }
+    go(cur+1,{all:false});
+  }
+  function prev(){ if(busy){ queued=prev; return; } go(cur-1,{all:true}); }
+
+  /* ---------- counters (end on the exact approved text) ---------- */
+  function fmt(v,dec){ return v.toLocaleString('es-ES',{minimumFractionDigits:dec,maximumFractionDigits:dec,useGrouping:true}).replace(/ /g,'.'); }
+  function runCounters(s){
+    s.querySelectorAll('[data-count]').forEach(function(el){
+      if(!el.dataset.final) el.dataset.final=el.textContent;
+      if(reduce){ el.textContent=el.dataset.final; return; }
+      var to=parseFloat(el.dataset.count), dec=+el.dataset.dec||0, suf=el.dataset.suffix||'', t0=null, dur=1300, delay=500;
+      el.textContent=fmt(0,dec)+suf;
+      function tick(t){ if(!t0) t0=t; var p=Math.min(1,Math.max(0,(t-t0-delay)/dur)); var e=1-Math.pow(1-p,3);
+        el.textContent=fmt(to*e,dec)+suf; if(p<1 && s.classList.contains('active')) requestAnimationFrame(tick); else el.textContent=el.dataset.final; }
+      requestAnimationFrame(tick);
+    });
+  }
+
+  /* ---------- per-step effects ---------- */
+  function onStepShown(el){
+    if(el.classList.contains('meter')){}
+    el.querySelectorAll && el.querySelectorAll('.seg30').forEach(function(g){ [].forEach.call(g.children,function(c,k){ c.style.setProperty('--k',k); }); });
+  }
+
+  /* ---------- generated visuals ---------- */
+  document.querySelectorAll('.seg30').forEach(function(g){ for(var k=0;k<30;k++){ var i=document.createElement('i'); i.style.setProperty('--k',k); if(g.classList.contains('fill12')&&k<12) i.className='on'; g.appendChild(i);} });
+  document.querySelectorAll('.ticks-viz').forEach(function(g){ for(var k=0;k<92;k++){ var i=document.createElement('i'); i.style.setProperty('--k',k); g.appendChild(i);} });
+  document.querySelectorAll('.waffle').forEach(function(g){
+    for(var k=0;k<60;k++){ var i=document.createElement('i'); i.style.setProperty('--k',k); if(k>=32) i.className='m'; g.appendChild(i);}
+    var lg=document.createElement('div'); lg.className='wlegend'; lg.setAttribute('aria-hidden','true'); lg.innerHTML='<span>32</span><span class="m">28</span>';
+    g.parentNode.querySelector('.stat-inline').appendChild(lg);
+  });
+
+  /* ---------- network demo (slide "red") ---------- */
+  var NS='http://www.w3.org/2000/svg', net=document.querySelector('.net'), nodes=[], links=[];
+  function el(tag,attrs){ var e=document.createElementNS(NS,tag); for(var k in attrs) e.setAttribute(k,attrs[k]); return e; }
+  function netReset(){
+    if(!net) return; net.innerHTML=''; nodes=[]; links=[];
+    var seed=7; function rnd(){ seed=(seed*9301+49297)%233280; return seed/233280; }
+    for(var r=0;r<3;r++) for(var c=0;c<5;c++){ nodes.push({x:70+c*115+rnd()*40-20, y:70+r*140+rnd()*50-25, hub:(r===1&&c===2)}); }
+    nodes.forEach(function(a,i){ var d=nodes.map(function(b,j){return {j:j,d:Math.hypot(a.x-b.x,a.y-b.y)};}).filter(function(o){return o.j!==i;}).sort(function(p,q){return p.d-q.d;}).slice(0,3);
+      d.forEach(function(o){ if(!links.some(function(L){return (L.a===i&&L.b===o.j)||(L.a===o.j&&L.b===i);})) links.push({a:i,b:o.j}); }); });
+    links.forEach(function(L){ L.el=el('line',{x1:nodes[L.a].x,y1:nodes[L.a].y,x2:nodes[L.b].x,y2:nodes[L.b].y}); net.appendChild(L.el); });
+    nodes.forEach(function(nd){ nd.el=el('circle',{cx:nd.x,cy:nd.y,r:nd.hub?20:13,'class':nd.hub?'hub':''}); net.appendChild(nd.el); });
+  }
+  var netBtn=document.querySelector('.net-btn');
+  if(netBtn) netBtn.addEventListener('click',function(){
+    if(!nodes.length) return;
+    var alive=nodes.filter(function(x){return !x.dead;}); var v=alive[Math.floor(Math.random()*alive.length)];
+    v.el.setAttribute('class','hit');
+    var x=el('path',{d:'M'+(v.x-22)+' '+(v.y-22)+' L'+(v.x+22)+' '+(v.y+22)+' M'+(v.x+22)+' '+(v.y-22)+' L'+(v.x-22)+' '+(v.y+22),'class':'x'}); net.appendChild(x);
+    requestAnimationFrame(function(){ x.setAttribute('class','x on'); });
+    setTimeout(function(){
+      v.el.setAttribute('class','gone'); v.dead=true;
+      links.forEach(function(L){ if(nodes[L.a]===v||nodes[L.b]===v) L.el.style.opacity='0'; });
+      setTimeout(function(){
+        x.remove();
+        var nn={x:v.x+(Math.random()*40-20), y:v.y+(Math.random()*40-20), hub:v.hub};
+        nodes.push(nn); var idx=nodes.length-1;
+        links.forEach(function(L){ if(nodes[L.a]===v||nodes[L.b]===v){ var o=nodes[L.a]===v?L.b:L.a; if(nodes[o].dead) return;
+          var ln=el('line',{x1:nn.x,y1:nn.y,x2:nodes[o].x,y2:nodes[o].y}); net.insertBefore(ln,net.firstChild); links.push({a:idx,b:o,el:ln}); } });
+        nn.el=el('circle',{cx:nn.x,cy:nn.y,r:2,'class':'hit'}); net.appendChild(nn.el);
+        requestAnimationFrame(function(){ nn.el.setAttribute('r',nn.hub?20:13); });
+        setTimeout(function(){ nn.el.setAttribute('class',nn.hub?'hub':''); },900);
+      },700);
+    },650);
+  });
+
+  /* ---------- focus groups (lenses, voices) ---------- */
+  document.querySelectorAll('.lens,.voice').forEach(function(b){
+    b.addEventListener('click',function(){
+      var g=b.parentNode, on=!b.classList.contains('focus');
+      g.querySelectorAll('.focus').forEach(function(x){x.classList.remove('focus');});
+      if(!b.classList.contains('shown')) showStep(b);
+      b.classList.toggle('focus',on); g.classList.toggle('has-focus',on); updateUi();
+    });
+  });
+
+  /* ---------- reveal (card activity) ---------- */
+  function toggleReveal(btn){
+    var box=$(btn.getAttribute('aria-controls')); if(!box) return;
+    var open=box.hidden; box.hidden=!open; btn.setAttribute('aria-expanded',String(open));
+    btn.textContent=open?'Ocultar reflexión':'Ver reflexión';
+  }
+  document.querySelectorAll('.reveal-btn').forEach(function(b){ b.addEventListener('click',function(){ toggleReveal(b); }); });
+
+  /* ---------- lightbox ---------- */
+  function openLb(src,alt){ lb.querySelector('img').src=src; lb.querySelector('img').alt=alt||''; lb.querySelector('p').textContent=alt||''; lb.hidden=false; lb.focus(); }
+  function closeLb(){ lb.hidden=true; }
+  document.querySelectorAll('img.zoomable').forEach(function(im){ im.addEventListener('click',function(e){ e.stopPropagation(); openLb(im.currentSrc||im.src, im.alt); }); });
+  document.querySelectorAll('.qr-btn').forEach(function(b){ b.addEventListener('click',function(){ var im=b.querySelector('img'); openLb(im.src, b.parentNode.querySelector('.mat-h').textContent); }); });
+  lb.addEventListener('click',closeLb);
+
+  /* ---------- controls ---------- */
+  $('b-prev').addEventListener('click',prev);
+  $('b-next').addEventListener('click',next);
+  function toggleNotes(){ notes.hidden=!notes.hidden; bNotes.setAttribute('aria-pressed',String(!notes.hidden)); }
+  bNotes.addEventListener('click',toggleNotes);
+  var canFs=!!(document.documentElement.requestFullscreen||document.documentElement.webkitRequestFullscreen);
+  if(!canFs) bFs.hidden=true;
+  function toggleFs(){ var d=document, e=d.documentElement;
+    try{ if(d.fullscreenElement||d.webkitFullscreenElement){ (d.exitFullscreen||d.webkitExitFullscreen).call(d); }
+         else { var p=(e.requestFullscreen||e.webkitRequestFullscreen).call(e); if(p&&p.catch) p.catch(function(){ bFs.hidden=true; }); } }catch(x){ bFs.hidden=true; } }
+  bFs.addEventListener('click',toggleFs);
+  document.addEventListener('fullscreenchange',function(){ var l=bFs.querySelector('.lbl'); if(l) l.textContent=document.fullscreenElement?' Salir de pantalla completa':' Pantalla completa'; });
+  document.addEventListener('keydown',function(e){
+    if(e.altKey||e.ctrlKey||e.metaKey) return;
+    if(!ix.hidden){ if(e.key==='Escape'||e.key==='i'||e.key==='I'){ e.preventDefault(); toggleIndex(false); } return; }
+    if(!lb.hidden){ if(e.key==='Escape'||e.key===' '||e.key==='Enter'){ e.preventDefault(); closeLb(); } return; }
+    var t=e.target;
+    if(t&&t.closest&&t.closest('video, input, textarea, select')) return;
+    var onBtn=t&&t.closest&&t.closest('button, a');
+    var k=e.key;
+    if(k==='ArrowRight'||k==='PageDown'||(k===' '&&!onBtn)){ e.preventDefault(); next(); }
+    else if(k==='ArrowLeft'||k==='PageUp'){ e.preventDefault(); prev(); }
+    else if(k==='Home'){ e.preventDefault(); go(0,{all:false}); }
+    else if(k==='End'){ e.preventDefault(); go(n-1,{all:true}); }
+    else if(k==='f'||k==='F'){ if(canFs) toggleFs(); }
+    else if(k==='n'||k==='N'){ toggleNotes(); }
+    else if(k==='i'||k==='I'){ toggleIndex(true); }
+    else if(k==='r'||k==='R'){ var b=slides[cur].querySelector('.reveal-btn'); if(b) toggleReveal(b); }
+  });
+  var tx=null,ty=null,vp=$('viewport');
+  vp.addEventListener('touchstart',function(e){ if(e.target.closest('video,button,a,.zoomable')){tx=null;return;} tx=e.touches[0].clientX; ty=e.touches[0].clientY; },{passive:true});
+  vp.addEventListener('touchend',function(e){ if(tx===null) return; var dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;
+    if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){ if(dx<0) next(); else prev(); } tx=null; },{passive:true});
+  window.addEventListener('hashchange',function(){ var m=/^#s(\d+)$/.exec(location.hash||''); if(m){ var i=+m[1]-1; if(i!==cur) go(i,{all:true,instant:true}); } });
+  document.addEventListener('visibilitychange',function(){ if(document.hidden) pauseAll(); });
+
+  /* ---------- activity timer ---------- */
+  document.querySelectorAll('.timer').forEach(function(tm){
+    var total=+tm.dataset.seconds||600, left=total, h=null, out=tm.querySelector('output');
+    function draw(){ var m=Math.floor(left/60), s=left%60; out.textContent=m+':'+(s<10?'0':'')+s; tm.classList.toggle('done',left<=0); }
+    function stop(){ if(h){ clearInterval(h); h=null; } }
+    tm.querySelector('.t-start').addEventListener('click',function(){ if(h||left<=0) return; h=setInterval(function(){ left--; draw(); if(left<=0) stop(); },1000); });
+    tm.querySelector('.t-pause').addEventListener('click',stop);
+    tm.querySelector('.t-reset').addEventListener('click',function(){ stop(); left=total; draw(); });
+    draw();
+  });
+
+  /* ---------- clickable index ---------- */
+  var ix=$('index'), ixList=$('ix-list');
+  ixList.innerHTML=slides.map(function(s,i){ return '<li><button type="button" data-i="'+i+'"><span class="ix-n">'+(i+1)+'</span><span>'+(s.getAttribute('data-title')||'')+'</span></button></li>'; }).join('');
+  function toggleIndex(force){ var open=force!==undefined?force:ix.hidden; ix.hidden=!open; $('b-index').setAttribute('aria-expanded',String(open));
+    if(open){ ixList.querySelectorAll('button').forEach(function(b){ b.classList.toggle('cur',+b.dataset.i===cur); }); var c=ixList.querySelector('.cur'); if(c) c.focus(); } }
+  $('b-index').addEventListener('click',function(){ toggleIndex(); });
+  ix.querySelector('.ix-close').addEventListener('click',function(){ toggleIndex(false); });
+  ixList.addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return; toggleIndex(false); go(+b.dataset.i,{all:true,instant:true}); });
+
+  /* ---------- video: robust loading ---------- */
+  document.querySelectorAll('video').forEach(function(v){
+    var tried=false;
+    function viaBlob(){
+      if(tried) return; tried=true;
+      var inline=document.getElementById('video-data');
+      try{
+        if(inline){
+          var b64=inline.textContent.trim(), bin=atob(b64), len=bin.length, u8=new Uint8Array(len);
+          for(var k=0;k<len;k++) u8[k]=bin.charCodeAt(k);
+          v.src=URL.createObjectURL(new Blob([u8],{type:'video/mp4'})); v.load(); return;
+        }
+        var srcEl=v.querySelector('source'), url=srcEl?srcEl.getAttribute('src'):v.getAttribute('src');
+        if(!url||url.indexOf('blob:')===0) return;
+        fetch(url).then(function(r){ if(!r.ok) throw 0; return r.blob(); }).then(function(b){
+          v.src=URL.createObjectURL(new Blob([b],{type:'video/mp4'})); v.load(); }).catch(function(){ v.closest('.video-box')&&v.closest('.video-box').classList.add('v-failed'); });
+      }catch(e){ v.closest('.video-box')&&v.closest('.video-box').classList.add('v-failed'); }
+    }
+    if(document.getElementById("video-data")) setTimeout(viaBlob,1200);
+    v.addEventListener('error',viaBlob,true);
+    var s=v.querySelector('source'); if(s) s.addEventListener('error',viaBlob);
+    v.addEventListener('click',function(e){ e.stopPropagation(); });
+  });
+
+  /* ---------- start ---------- */
+  slides.forEach(function(s,i){ s.setAttribute('data-tr', s.getAttribute('data-tr')||'wipe'); if(i){ s.setAttribute('aria-hidden','true'); s.inert=true; } });
+  var m=/^#s(\d+)$/.exec(location.hash||''), start=m?Math.max(0,Math.min(n-1,+m[1]-1)):0;
+  cur=start; slides[cur].classList.add('active'); slides[cur].removeAttribute('aria-hidden'); slides[cur].inert=false;
+  resetSlide(slides[cur], start>0); updateUi(); if($('handle')) $('handle').classList.toggle('hide', slides[cur].classList.contains('final'));
+  window.__deck={next:next,prev:prev,go:go,cur:function(){return cur;}};
+})();
+</script>
