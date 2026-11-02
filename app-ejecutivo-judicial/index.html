@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Este proyecto podrá aplicarse? · Matriz de Impacto Criminal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600;700;800&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{--black:#111012;--ink:#1b191d;--red:#EB332A;--cream:#F6F1E6;--yellow:#FFD522;--muted:#b9b2a6;--line:rgba(246,241,230,.16)}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--black) url('../app-assets/papel-negro.jpg') center/cover fixed;color:var(--cream);font-family:'Open Sans',system-ui,sans-serif;font-size:17px;line-height:1.55}
+a{color:var(--yellow)}
+.wrap{max-width:980px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-left))}
+header.top{position:sticky;top:0;z-index:10;background:rgba(17,16,18,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logos{display:flex;align-items:center;gap:14px}
+.logos img{height:44px;width:auto;display:block}
+.logos .amp{font-family:'Bebas Neue';color:var(--red);font-size:28px;line-height:1}
+.logos img.iri{height:46px}
+.tag{font-family:'Special Elite',monospace;font-size:13px;background:var(--red);color:var(--cream);padding:4px 10px;transform:rotate(-1.5deg);white-space:nowrap}
+.tag.y{background:var(--yellow);color:var(--black)}
+h1,h2,h3{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.5px;line-height:.95;margin:0;text-wrap:balance}
+h1{font-size:clamp(46px,8vw,92px)}
+h2{font-size:clamp(34px,5vw,56px)}
+h3{font-size:clamp(24px,3vw,30px)}
+.red{color:var(--red)} .yel{color:var(--yellow)} .muted{color:var(--muted)}
+.mark{background:linear-gradient(transparent 55%,var(--red) 55%);padding:0 .08em}
+.mark-y{background:var(--yellow);color:var(--black);padding:0 .15em}
+section{padding:48px 0}
+.screen[hidden]{display:none!important}
+.lead{font-size:clamp(18px,2.3vw,22px);max-width:760px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.card{background:rgba(27,25,29,.88);border:1px solid var(--line);border-top:5px solid var(--red);padding:20px}
+.card p{margin:.5em 0 0;color:var(--muted)}
+.card .k{font-family:'Special Elite',monospace;color:var(--red);font-size:14px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+label.f{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:15px}
+input,textarea{font:inherit;background:var(--cream);color:var(--black);border:2px solid var(--cream);padding:10px 12px;border-radius:0;width:100%}
+textarea{min-height:76px;resize:vertical}
+input:focus,textarea:focus{outline:3px solid var(--yellow);outline-offset:1px}
+.btn{font-family:'Bebas Neue';font-size:26px;letter-spacing:.5px;background:var(--red);color:var(--cream);border:0;padding:12px 26px 10px;cursor:pointer;box-shadow:5px 5px 0 var(--black)}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:6px 6px 0 var(--black)}
+.btn.ghost{background:transparent;border:2px solid var(--cream);box-shadow:none}
+.btn.yel{background:var(--yellow);color:var(--black)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;align-items:center}
+.progress{display:flex;gap:6px;margin:0 0 18px}
+.progress i{flex:1;height:6px;background:var(--line)}
+.progress i.on{background:var(--red)}
+.crit-n{font-family:'Bebas Neue';font-size:110px;line-height:.8;color:var(--red)}
+.q{font-size:clamp(20px,2.6vw,26px);font-weight:700;margin:14px 0 8px;max-width:820px}
+.why{background:rgba(255,213,34,.08);border-left:5px solid var(--yellow);padding:14px 18px;margin:18px 0}
+.why b{color:var(--yellow)}
+.check{margin:14px 0 0;padding-left:20px;color:var(--muted)}
+.check li{margin:3px 0}
+.scale{margin-top:26px}
+.scale h4{margin:0 0 4px;font-size:16px;text-transform:uppercase;letter-spacing:.6px}
+.scale .sub{margin:0 0 10px;color:var(--muted);font-size:15px}
+.opts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.opt{background:rgba(27,25,29,.9);border:2px solid var(--line);color:var(--cream);text-align:left;padding:12px;cursor:pointer;font:inherit;font-size:14px;line-height:1.35}
+.opt b{display:block;font-family:'Bebas Neue';font-size:34px;line-height:1;font-weight:400;color:var(--red)}
+.opt[aria-pressed="true"]{border-color:var(--yellow);background:rgba(255,213,34,.14)}
+.opt[aria-pressed="true"] b{color:var(--yellow)}
+.score{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap;margin:20px 0}
+.score .big{font-family:'Bebas Neue';font-size:140px;line-height:.8;color:var(--yellow)}
+.band{font-size:22px;font-weight:800}
+.bars{display:grid;gap:10px;margin:26px 0}
+.bar{display:grid;grid-template-columns:240px 1fr 54px;gap:12px;align-items:center;font-size:15px}
+.bar .t{height:16px;background:var(--line);position:relative}
+.bar .t i{position:absolute;inset:0 auto 0 0;background:var(--red)}
+.bar .t i.ok{background:var(--yellow)}
+.gap{background:rgba(27,25,29,.9);border:1px solid var(--line);border-left:5px solid var(--red);padding:16px 18px;margin:12px 0}
+.gap h3{color:var(--cream)}
+.gap p{margin:.4em 0 0}
+.draft{background:var(--cream);color:var(--black);padding:22px;white-space:pre-wrap;font-size:15px;line-height:1.6;border:0;width:100%;min-height:340px;font-family:'Open Sans',sans-serif}
+.note{background:rgba(235,51,42,.12);border:1px solid var(--red);padding:18px 20px;margin-top:30px}
+.note h3{color:var(--yellow)}
+.follow{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:30px;border-top:1px solid var(--line);padding-top:24px}
+.handle{font-family:'Bebas Neue';font-size:clamp(36px,6vw,58px);line-height:1}
+.handle span{color:var(--red)}
+footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+.toast{position:fixed;left:50%;bottom:24px;translate:-50% 0;background:var(--yellow);color:var(--black);padding:10px 18px;font-weight:700;display:none}
+@media (max-width:760px){
+  .grid3,.fields{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr 1fr}
+  .bar{grid-template-columns:1fr 46px}
+  .bar .t{grid-column:1/-1;grid-row:2}
+  .tag.hide-s{display:none}
+  .logos img{height:28px} .logos img.iri{height:32px}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="logos"><img src="../assets/img/logo_tinta_h_w.png" alt="Tinta Digital"><span class="amp" aria-hidden="true">&amp;</span><img class="iri" src="../assets/img/logo_iri_w.png" alt="Instituto Republicano Internacional (IRI)"></div>
+  <div style="display:flex;gap:10px;align-items:center"><span class="tag y hide-s">Ejecutivo y Judicial</span><span class="tag">Matriz MIC</span></div>
+</div></header>
+
+<main class="wrap">
+
+<!-- INTRO -->
+<section class="screen" id="intro">
+  <span class="tag">Programa de Integridad Legislativa</span>
+  <h1 style="margin-top:22px">Hay un proyecto de ley en discusión <span class="red">que a su institución le tocará aplicar</span></h1>
+  <p class="lead" style="margin-top:22px">Si nace con vacíos, la ley fallará en la práctica y la responsabilidad recaerá sobre quienes deben ejecutarla. Esta herramienta le ayuda a revisarlo <span class="mark-y">antes de que se apruebe</span>, desde lo que su institución necesita para cumplirlo.</p>
+  <div class="grid3">
+    <div class="card"><p class="k">01 · Detectar a tiempo</p><h3>Qué no resuelve el proyecto</h3><p>Competencias, coordinación, información, presupuesto y seguimiento, con los cinco criterios de la Matriz de Evaluación del Impacto Criminal.</p></div>
+    <div class="card"><p class="k">02 · Hacerlo ver</p><h3>Observaciones técnicas listas</h3><p>Al final obtiene un borrador de observaciones para la comisión que tramita el proyecto o para una comparecencia.</p></div>
+    <div class="card"><p class="k">03 · Proteger su rol</p><h3>Una ley que pueda cumplirse</h3><p>Señalar los vacíos durante el debate evita que su institución cargue después con una norma inaplicable.</p></div>
+  </div>
+  <div class="fields">
+    <label class="f">Proyecto de ley (opcional)<input id="proyecto" placeholder="Ej.: Proyecto de ley contra el crimen organizado"></label>
+    <label class="f">Su institución (opcional)<input id="institucion" placeholder="Ej.: Ministerio Público"></label>
+  </div>
+  <p class="muted" style="font-size:14px;margin-top:10px">En cada criterio va a dar dos notas de 0 a 3: lo que el proyecto establece y lo que su institución podría aplicar. Conviene tener el texto del proyecto a mano para ubicar el artículo que respalda cada nota.</p>
+  <div class="actions"><button class="btn" id="start">Empezar la revisión</button><span class="muted">Cinco preguntas · unos 10 minutos</span></div>
+</section>
+
+<!-- CRITERIA -->
+<section class="screen" id="crit" hidden>
+  <div class="progress" id="prog"></div>
+  <div style="display:flex;gap:22px;align-items:flex-end;flex-wrap:wrap">
+    <p class="crit-n" id="cN">1</p>
+    <div><p class="tag" id="cTag" style="display:inline-block">Criterio 1 de 5</p><h2 id="cName" style="margin-top:10px"></h2></div>
+  </div>
+  <p class="q" id="cQ"></p>
+  <details open><summary class="muted" style="cursor:pointer">Qué revisar en el proyecto</summary><ul class="check" id="cCheck"></ul></details>
+  <div class="why" id="cWhy"></div>
+  <div class="scale">
+    <h4>A · Lo que el proyecto establece</h4><p class="sub">Diseño normativo, de 0 a 3</p>
+    <div class="opts" id="optA"></div>
+  </div>
+  <div class="scale">
+    <h4>B · Lo que su institución podría aplicar</h4><p class="sub">Implementación o «reglas en uso», de 0 a 3</p>
+    <div class="opts" id="optB"></div>
+  </div>
+  <label class="f" style="margin-top:22px">Artículo o evidencia que respalda su nota (opcional)<textarea id="cNote" placeholder="Ej.: El art. 12 crea una unidad especializada, pero no le asigna presupuesto"></textarea></label>
+  <div class="actions"><button class="btn ghost" id="back">Anterior</button><button class="btn" id="next" disabled>Siguiente</button></div>
+</section>
+
+<!-- RESULT -->
+<section class="screen" id="result" hidden>
+  <span class="tag">Resultado de su revisión</span>
+  <h2 style="margin-top:18px" id="rTitle">Lo que encontró en el proyecto</h2>
+  <div class="score"><p class="big" id="rScore">0</p><div><p class="muted" style="margin:0">puntos sobre 30</p><p class="band" id="rBand"></p><p class="muted" id="rBandD" style="margin:0;max-width:560px"></p></div></div>
+  <div class="bars" id="rBars"></div>
+  <h2 style="margin-top:34px">Los vacíos <span class="red">que conviene señalar</span></h2>
+  <p class="muted">Aparecen los criterios donde alguna de las dos notas quedó en 0 o 1, o donde la suma no pasa de 3 sobre 6.</p>
+  <div id="rGaps"></div>
+  <h2 style="margin-top:34px">Su borrador de <span class="yel">observaciones técnicas</span></h2>
+  <p class="muted">Ajústelo con su equipo jurídico y envíelo a la comisión que tramita el proyecto o llévelo a una comparecencia.</p>
+  <textarea class="draft" id="rDraft" aria-label="Borrador de observaciones técnicas"></textarea>
+  <div class="actions"><button class="btn yel" id="copy">Copiar el borrador</button><button class="btn ghost" id="restart">Revisar otro proyecto</button></div>
+
+  <div class="note">
+    <h3>Un primer paso</h3>
+    <p>Esta herramienta se construyó con lo aprendido en el Programa de Integridad Legislativa 2026, a partir de la Matriz de Evaluación del Impacto Criminal y de las sesiones con Jimmy Encalada. Ofrece una primera lectura del proyecto, y recomendamos que sus resultados se analicen con especialistas en la materia, con el equipo jurídico de su institución y con las demás entidades que deberán aplicar la ley, antes de convertirlos en una posición oficial.</p>
+  </div>
+  <div class="follow">
+    <div><p class="muted" style="margin:0 0 4px">Sigamos conversando</p><p class="handle"><span>@</span>tintadigitaal</p></div>
+    <a class="btn" href="https://www.tintadigital.la" target="_blank" rel="noopener" style="text-decoration:none">tintadigital.la ↗</a>
+  </div>
+</section>
+
+</main>
+<footer><div class="wrap"><span>Programa de Formación en Integridad Legislativa 2026 · Tinta Digital con el apoyo del IRI</span><span>Síganos en <b style="color:var(--cream)">@tintadigitaal</b></span></div></footer>
+<div class="toast" id="toast">Borrador copiado</div>
+
+<script>
+var A_LBL=[["0","La materia está ausente o la regulación es contradictoria"],["1","Existe regulación, pero es parcial o ambigua"],["2","Existe regulación, aunque todavía fragmentada"],["3","Las reglas son claras, coherentes y compatibles con otras normas"]];
+var B_LBL=[["0","No existen mecanismos, capacidades ni evidencia de que pueda aplicarse"],["1","Habría mecanismos muy parciales o aplicación irregular"],["2","Habría mecanismos, pero incompletos"],["3","Existen responsables, procedimientos, recursos y coordinación para aplicarlo"]];
+var C=[
+ {n:"Ecosistema criminal",
+  q:"¿El proyecto le permite a su institución actuar sobre toda la estructura criminal o solo sobre quienes ejecutan el delito?",
+  check:["Usa la definición de grupo delictivo organizado de la Convención de Palermo (UNTOC)","Alcanza a líderes, financiadores, testaferros, facilitadores, empresas fachada y funcionarios involucrados","Cubre cadenas logísticas, mercados ilícitos y economías legales usadas para lavar recursos","Prevé la jurisdicción nacional y transnacional"],
+  why:"Jimmy Encalada lo explicó con el artículo 5 de la Convención de Palermo: el crimen organizado abarca la estructura que está detrás de quien jala el gatillo, y la ley debe permitir perseguir a quien dirige, ayuda, oculta o facilita.",
+  rec:"Solicitar que el proyecto adopte la definición de grupo delictivo organizado de la Convención de Palermo y que alcance expresamente a financiadores, testaferros, facilitadores, empresas fachada y funcionarios involucrados, para que la institución pueda actuar sobre toda la estructura, incluidos quienes la financian y la facilitan."},
+ {n:"Capacidad institucional",
+  q:"¿El proyecto le asigna a su institución competencias claras, los recursos para cumplirlas y reglas para coordinarse con las demás?",
+  check:["Distribución clara de competencias, sin superposiciones con otras entidades","Unidades especializadas y reglas para operaciones conjuntas","Coordinación entre Policía, Fiscalía, inteligencia, justicia, aduanas, sistema tributario y supervisores financieros","Recursos humanos, tecnológicos y presupuestarios","Forma de resolver los conflictos de competencia"],
+  why:"En el programa se recordó que la Convención presume que las instituciones funcionan: la extradición, la asistencia y el decomiso requieren cortes capaces e independientes, fiscales e investigadores. Si el proyecto encarga tareas sin capacidades, la ley queda en el papel.",
+  rec:"Pedir que el proyecto precise qué institución lidera cada tarea, cómo se coordina con Policía, Fiscalía, aduanas, sistema tributario y supervisores financieros, cómo se resuelven los conflictos de competencia y con qué recursos humanos, tecnológicos y presupuestarios contará cada entidad responsable."},
+ {n:"Trazabilidad financiera",
+  q:"¿El proyecto le da a su institución la información y las herramientas para seguir el dinero y llegar al beneficiario final?",
+  check:["Acceso e intercambio legal de información entre instituciones","Inteligencia criminal y financiera","Registro de beneficiarios finales y trazabilidad de activos y transacciones","Interoperabilidad de bases de datos y cooperación internacional","Protección de fuentes y denunciantes, cadena de custodia y controles contra el uso indebido de la información"],
+  why:"La idea central de Jimmy Encalada: si se puede perseguir el dinero, se puede perseguir a la estructura. Por eso el tercer criterio de la Matriz es financiero, y sin información compartida la institución no puede reconstruir la red.",
+  rec:"Recomendar que el proyecto garantice el acceso e intercambio legal de información entre instituciones, un registro de beneficiarios finales, la interoperabilidad de las bases de datos y cauces de cooperación internacional, con controles contra el uso indebido de la información."},
+ {n:"Afectación económica",
+  q:"¿El proyecto le da a su institución herramientas para golpear la ganancia del negocio criminal, más allá de sumar años de cárcel?",
+  check:["Sanciones proporcionales y aplicables, también para personas jurídicas","Decomiso y recuperación de activos con debido proceso","Medidas contra la corrupción y el lavado, y sanciones a facilitadores","Protección e incentivos para la colaboración eficaz","Reparación a víctimas y administración transparente de los bienes recuperados"],
+  why:"En el caso Hushpuppi que analizó Jimmy Encalada, lo decisivo fue el decomiso de decenas de millones de dólares y bienes de lujo, junto con la cooperación entre países. Una ley que solo endurece penas deja intacta la ganancia que sostiene a la red.",
+  rec:"Proponer que el proyecto incluya decomiso y recuperación de activos con debido proceso, responsabilidad de personas jurídicas, sanciones a facilitadores, incentivos para la colaboración eficaz y una administración transparente de los bienes recuperados."},
+ {n:"Legitimidad y adaptación",
+  q:"¿El proyecto prevé controles, protección para quienes lo aplican y una forma de evaluar si está funcionando?",
+  check:["Debido proceso, control judicial y protección de derechos","Mecanismos contra la corrupción y la captura institucional","Protección del personal en roles sensibles, como jueces y fiscales","Supervisión independiente e indicadores verificables","Evaluación periódica, rendición de cuentas y cláusulas de revisión"],
+  why:"Jimmy Encalada advirtió que, cuando las instituciones son frágiles o están capturadas, el sistema existe en el papel pero no funciona, y que el Estado no puede fallar en proteger a jueces, fiscales y personal en roles sensibles.",
+  rec:"Pedir que el proyecto incorpore control judicial, mecanismos contra la captura institucional, protección para el personal en roles sensibles, indicadores verificables, evaluación periódica y cláusulas de revisión que permitan corregir la ley a partir de sus resultados."}
+];
+var BANDS=[[0,7,"Ley principalmente declarativa","Capacidad muy limitada para combatir el crimen organizado transnacional."],[8,18,"Respuesta fragmentaria","Interviene algunos componentes, pero mantiene vacíos importantes."],[19,25,"Marco potencialmente funcional","Condicionado por capacidades, coordinación y aplicación efectiva."],[26,30,"Marco integral, operativo y adaptable","Con capacidad significativa para reducir la actuación criminal."]];
+var S={i:0,a:[null,null,null,null,null],b:[null,null,null,null,null],note:["","","","",""]};
+function $(id){return document.getElementById(id)}
+function show(id){["intro","crit","result"].forEach(function(s){$(s).hidden=(s!==id)});window.scrollTo(0,0)}
+function opts(el,lbl,key){el.innerHTML="";lbl.forEach(function(l,v){var b=document.createElement("button");b.type="button";b.className="opt";b.setAttribute("aria-pressed",S[key][S.i]===v?"true":"false");b.innerHTML="<b>"+l[0]+"</b>"+l[1];b.onclick=function(){S[key][S.i]=v;render()};el.appendChild(b)})}
+function render(){var c=C[S.i];$("cN").textContent=S.i+1;$("cTag").textContent="Criterio "+(S.i+1)+" de 5";$("cName").textContent=c.n;$("cQ").textContent=c.q;
+ $("cCheck").innerHTML=c.check.map(function(x){return"<li>"+x+"</li>"}).join("");$("cWhy").innerHTML="<b>Por qué importa · </b>"+c.why;
+ opts($("optA"),A_LBL,"a");opts($("optB"),B_LBL,"b");$("cNote").value=S.note[S.i];
+ $("prog").innerHTML=C.map(function(_,k){return'<i class="'+(k<=S.i?"on":"")+'"></i>'}).join("");
+ $("next").disabled=!(S.a[S.i]!==null&&S.b[S.i]!==null);$("next").textContent=S.i===4?"Ver resultado":"Siguiente";}
+function band(t){for(var k=0;k<BANDS.length;k++){if(t>=BANDS[k][0]&&t<=BANDS[k][1])return BANDS[k]}return BANDS[0]}
+function result(){var tot=0,gaps=[],bars="";
+ C.forEach(function(c,k){var s=S.a[k]+S.b[k];tot+=s;var gap=(S.a[k]<=1||S.b[k]<=1||s<=3);if(gap)gaps.push(k);
+  bars+='<div class="bar"><span>'+(k+1)+". "+c.n+'</span><span class="t"><i class="'+(gap?"":"ok")+'" style="width:'+(s/6*100)+'%"></i></span><b>'+s+'/6</b></div>';});
+ var bd=band(tot),proj=$("proyecto").value.trim(),inst=$("institucion").value.trim();
+ $("rScore").textContent=tot;$("rBand").textContent=bd[2];$("rBandD").textContent=bd[3];$("rBars").innerHTML=bars;
+ $("rTitle").textContent=proj?("Lo que encontró en «"+proj+"»"):"Lo que encontró en el proyecto";
+ $("rGaps").innerHTML=gaps.length?gaps.map(function(k){var c=C[k];return'<div class="gap"><h3>'+(k+1)+". "+c.n+' · '+S.a[k]+' + '+S.b[k]+' de 6</h3><p><b>Qué pedir:</b> '+c.rec+'</p>'+(S.note[k]?'<p class="muted"><b>Su nota:</b> '+esc(S.note[k])+'</p>':"")+'</div>'}).join(""):'<div class="gap" style="border-left-color:var(--yellow)"><h3>Sin vacíos graves</h3><p>Ningún criterio quedó por debajo del umbral. Aun así, conviene revisar con especialistas los puntos con nota 2 antes de dar el proyecto por bueno.</p></div>';
+ var I=inst||"[Institución]",P=proj?("«"+proj+"»"):"[nombre del proyecto]";
+ var d="Observaciones técnicas al proyecto de ley "+P+"\nRemite: "+I+"\n\n";
+ d+="Nuestra institución revisó el proyecto con la Matriz de Evaluación del Impacto Criminal, que analiza cinco criterios en dos dimensiones: lo que la norma establece y lo que las instituciones responsables podrían aplicar en la práctica. La valoración preliminar es de "+tot+" sobre 30 puntos, que corresponde a «"+bd[2]+"»: "+bd[3].charAt(0).toLowerCase()+bd[3].slice(1)+"\n\n";
+ if(gaps.length){d+="Para que la ley pueda cumplirse una vez aprobada, se recomienda a la Comisión:\n\n";
+  gaps.forEach(function(k,j){d+=(j+1)+". "+C[k].n+": "+C[k].rec+(S.note[k]?" Observación específica: "+S.note[k]:"")+"\n\n"});}
+ else{d+="La revisión no identificó vacíos graves en los cinco criterios. Se sugiere, de todos modos, precisar los aspectos con valoración intermedia antes de su aprobación.\n\n";}
+ d+="Quedamos a disposición de la Comisión para ampliar estas observaciones y acompañar el debate del proyecto.";
+ $("rDraft").value=d;show("result");}
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+$("start").onclick=function(){S.i=0;render();show("crit")};
+$("cNote").oninput=function(){S.note[S.i]=this.value};
+$("next").onclick=function(){if(S.i<4){S.i++;render();window.scrollTo(0,0)}else result()};
+$("back").onclick=function(){if(S.i>0){S.i--;render();window.scrollTo(0,0)}else show("intro")};
+$("restart").onclick=function(){S={i:0,a:[null,null,null,null,null],b:[null,null,null,null,null],note:["","","","",""]};$("proyecto").value="";$("institucion").value="";show("intro")};
+$("copy").onclick=function(){var t=$("rDraft");var done=function(){var x=$("toast");x.style.display="block";setTimeout(function(){x.style.display="none"},1800)};
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t.value).then(done,function(){t.select();document.execCommand("copy");done()})}else{t.select();document.execCommand("copy");done()}};
+</script>
+</body>
+</html>
