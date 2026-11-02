@@ -661,38 +661,59 @@ tr.shown td{animation:rowflash 1.2s ease-out}
 #s-puntaje .sc-row .t-body{font-size:calc(var(--u)*28)}
 .meter{flex-shrink:0} #s-slytherin{gap:calc(var(--u)*20)} #s-slytherin .t-md2{font-size:calc(var(--u)*84)}
 #s-slytherin .t-md2{max-width:calc(var(--u)*1240)}
+
+/* v7 · civil-society restructure */
+.cover-h{max-width:calc(var(--u)*1500)}
+.cover-sub{margin-top:calc(var(--u)*24);color:var(--cream,#f6f1e6)}
+.hook-h{max-width:calc(var(--u)*1400);margin-bottom:calc(var(--u)*30);line-height:1.1}
+.imp-main{display:flex;flex-direction:column;gap:calc(var(--u)*8);max-width:calc(var(--u)*700)}
+.imp-main .num{font-size:calc(var(--u)*200);line-height:.9}
+.imp-row{display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--u)*24);margin-top:calc(var(--u)*20)}
+.imp{display:flex;flex-direction:column;gap:calc(var(--u)*4);border-top:calc(var(--u)*5) solid var(--red-hi);padding-top:calc(var(--u)*12)}
+.imp .num-s{font-size:calc(var(--u)*90);line-height:1}
+.lrns{display:grid;grid-template-columns:repeat(4,1fr);gap:calc(var(--u)*30);margin:auto 0}
+.lrn{display:flex;flex-direction:column;gap:calc(var(--u)*12);border-top:calc(var(--u)*6) solid var(--red-hi);padding-top:calc(var(--u)*16)}
+.lrn-n{font-family:var(--f-display);font-size:calc(var(--u)*110);line-height:.9;color:var(--red-hi)}
+.tst{display:grid;grid-template-columns:1fr 1.1fr;gap:calc(var(--u)*60);margin:auto 0;align-items:center}
+.appw{display:flex;gap:calc(var(--u)*80);align-items:center;flex:1;min-height:0}
+.appw-t{flex:1;display:flex;flex-direction:column;gap:calc(var(--u)*30);min-width:0}
+.appw-qr{display:flex;flex-direction:column;gap:calc(var(--u)*20);align-items:center;margin-right:calc(var(--u)*260)}
+.appw-qr .qr{width:calc(var(--u)*420);height:calc(var(--u)*420);background:#fff;padding:calc(var(--u)*14)}
+@container vp (max-aspect-ratio: 23/20){
+  .lrns,.imp-row{grid-template-columns:1fr 1fr}
+  .tst,.appw{display:flex;flex-direction:column;align-items:stretch}
+  .appw-qr{margin-right:0}
+}
+#s-pregunta .hand-up{margin-bottom:calc(var(--u)*90)}
+#s-matriz .mx-table{flex:1}
+#s-pregunta .hook-h{font-size:calc(var(--u)*64)}
+.lrn .t-body{font-size:calc(var(--u)*30)}
+.lrn .t-sm2{font-size:calc(var(--u)*38)}
 </style>
 <div id="app">
   <main id="viewport" aria-label="Presentación">
     <div class="stage" id="stage">
-<section class="slide paper-black" id="s-cover" data-id="cover" data-title="Portada" data-tr="fade" aria-roledescription="diapositiva" aria-label="1 de 39">
+<section class="slide paper-black" id="s-cover" data-id="cover" data-title="Portada" data-tr="fade" aria-roledescription="diapositiva" aria-label="1 de 31">
 <div class="logos-ti" data-a="fade"><img class="lg-tinta" src="assets/img/logo_tinta_h_w.png" alt="Tinta Digital"><span class="lg-amp" aria-hidden="true">&amp;</span><img class="lg-iri" src="assets/img/logo_iri_w.png" alt="Instituto Republicano Internacional (IRI)"></div>
-<h1 class="t-hero">
-  <span class="w" data-a="word" style="--d:2">Investigaste,</span>
-  <span class="w" data-a="word" style="--d:6">denunciaste,</span>
-  <span class="w" data-a="word" style="--d:10">publicaste…</span>
-  <span class="w stamp-red" data-a="stampw" style="--d:15">y la ley salió igual</span>
+<h1 class="t-hero cover-h">
+  <span class="w" data-a="word" style="--d:2">Programa de</span>
+  <span class="w stamp-red" data-a="stampw" style="--d:6">Integridad Legislativa</span>
 </h1>
+<p class="t-xlead cover-sub" data-a="up" style="--d:10">Lo que aprendimos en Ecuador</p>
 <div class="cover-foot" data-a="up" style="--d:2">
-  <p class="t-cap">Programa de Integridad Legislativa · lo que aprendimos en Ecuador</p>
+  <p class="t-cap">Tinta Digital × IRI</p>
   <p class="t-cap right">María Rosa Zury<br>Santo Domingo · 4 de noviembre de 2026</p>
 </div>
 <img class="ill ill-cover" data-a="right" style="--d:1" src="assets/img/ill_mano_senala.png" alt="">
 <aside class="notes" hidden>No empieces con &quot;buenos días, gracias por la invitación&quot;. Deja la frase en pantalla y léela despacio, una parte por respiración, mirando a la sala. Después pregunta: &quot;¿A cuántos de ustedes les ha pasado? Meses en una investigación, en un informe, en una denuncia… y el día de la votación nadie lo había leído.&quot; Deja que asientan. Si alguien quiere contar su caso, dale 30 segundos, ese testimonio vale más que cualquier lámina. Y cierra: &quot;A nosotros también nos pasó, por eso estamos aquí.&quot;</aside></section>
-<section class="slide paper-red center-v" id="s-mesa" data-id="mesa" data-title="La mesa donde se vota" data-tr="wipe" aria-roledescription="diapositiva" aria-label="2 de 39">
-<h2 class="t-xl ink" data-a="up">Tenemos la evidencia, los datos y muchas veces la razón</h2>
-<h2 class="t-xl cream" data-step="1">pero casi nunca llegan a la <span class="mark mark-ink">mesa donde se vota</span></h2>
-<div class="corner-star" data-a="pop" style="--d:3"><svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 2 L58 36 L92 22 L66 48 L98 62 L62 64 L70 98 L50 70 L30 98 L38 64 L2 62 L34 48 L8 22 L42 36 Z"/></svg></div>
-<img class="ill ill-sobre" data-a="right" style="--d:2" src="assets/img/c_sobre.webp" alt="">
-<aside class="notes" hidden>Este es el diagnóstico que une a toda la sala: organizaciones, periodistas, jóvenes. El trabajo de la sociedad civil existe, es bueno y tiene evidencia. Lo que falla es el puente: llega tarde, llega en un formato que nadie usa o llega a quien no decide. Di: &quot;Esta hora es sobre ese puente. Sobre cómo lo construimos en Ecuador, y cómo ustedes pueden usarlo aquí.&quot;</aside></section>
-<section class="slide paper-cream center-v" id="s-pregunta" data-id="pregunta" data-title="Hagamos la prueba" data-tr="wipe" aria-roledescription="diapositiva" aria-label="3 de 39">
-<p class="sticker" data-a="stamp">Hagamos la prueba</p>
-<h2 class="t-lg q-narrow" data-a="up" style="--d:1">¿Cuántas leyes contra el crimen y la corrupción aprobadas en los últimos cinco años vinieron con un <span class="mark">análisis de si realmente se podían aplicar</span>?</h2>
-<p class="t-md red hand-up" data-step="1">Levanten la mano</p>
+<section class="slide paper-cream center-v" id="s-pregunta" data-id="pregunta" data-title="La pregunta disparadora" data-tr="wipe" aria-roledescription="diapositiva" aria-label="2 de 31">
+<h2 class="t-md2 hook-h"><span class="w" data-a="word" style="--d:1">Investigaste,</span> <span class="w" data-a="word" style="--d:4">denunciaste,</span> <span class="w" data-a="word" style="--d:7">publicaste…</span> <span class="w stamp-red" data-a="stampw" style="--d:11">y la ley salió igual</span></h2>
+<h2 class="t-md2 q-narrow" data-step="1">¿Cuántas leyes contra el crimen y la corrupción aprobadas en los últimos cinco años vinieron con un <span class="mark">análisis de si realmente se podían aplicar</span>?</h2>
+<p class="t-md red hand-up" data-step="2">Levanten la mano</p>
 <img class="ill ill-pensativa" data-a="up" style="--d:2" src="assets/img/c_mujer_pensativa.webp" alt="">
 <img class="ill ill-dedo wiggle" data-a="right" style="--d:3" src="assets/img/ill_dedo.png" alt="">
 <aside class="notes" hidden>Haz la pregunta y espera de verdad. Nadie va a levantar la mano, o muy pocos. Ese silencio es tu primer argumento. Di: &quot;Esta misma pregunta la hicimos en la Asamblea Nacional del Ecuador, frente a asambleístas. La respuesta fue la misma que acabo de ver aquí. Y ahí empieza nuestra historia.&quot;</aside></section>
-<section class="slide paper-cream" id="s-problema" data-id="problema" data-title="El problema en Ecuador" data-tr="wipe" aria-roledescription="diapositiva" aria-label="4 de 39">
+<section class="slide paper-cream" id="s-problema" data-id="problema" data-title="El problema en Ecuador" data-tr="wipe" aria-roledescription="diapositiva" aria-label="3 de 31">
 <p class="sticker" data-a="stamp">En Ecuador nos pasó lo mismo</p>
 <h2 class="t-lg" data-a="up" style="--d:1">Respondíamos a una red con <span class="mark">más años de cárcel</span></h2>
 <div class="stat-row">
@@ -710,7 +731,7 @@ tr.shown td{animation:rowflash 1.2s ease-out}
 <p class="t-lead pull" data-step="1">Reforma penal tras reforma penal, más delitos tipificados y penas más altas, <b>mientras el crimen seguía creciendo</b></p>
 <p class="foot">Fuentes: Global Organized Crime Index 2025 (GI-TOC) · Ministerio del Interior del Ecuador, vía Primicias (2026)</p>
 <aside class="notes" hidden>Cuenta esto como una confesión, no como una estadística. &quot;En Ecuador hicimos lo que hacen casi todos los países cuando el crimen golpea: subir penas. Y no funcionó. Mientras la Asamblea discutía la Ley Antimafias, el país cerraba el año más violento de su historia.&quot; Luego el contraste con República Dominicana, que ellos ya escucharon de Mauricio: el índice dominicano de criminalidad está en 5,17, lejos del 7,48 de Ecuador, pero sube. Di: &quot;Les vengo a contar lo que aprendimos para que ustedes no tengan que llegar hasta ahí.&quot;</aside></section>
-<section class="slide paper-black" id="s-red" data-id="red" data-title="Una red" data-tr="wipe" aria-roledescription="diapositiva" aria-label="5 de 39">
+<section class="slide paper-black" id="s-red" data-id="red" data-title="Una red" data-tr="wipe" aria-roledescription="diapositiva" aria-label="4 de 31">
 <p class="sticker" data-a="stamp">Por qué no funcionaba</p>
 <h2 class="t-lg red-h" data-a="up" style="--d:1">El crimen organizado es una red<br><span class="mark mark-red">y una red se mueve más rápido que un Estado</span></h2>
 <div class="red-layout">
@@ -727,14 +748,14 @@ tr.shown td{animation:rowflash 1.2s ease-out}
 <img class="ill ill-globo" data-a="drop" style="--d:5" src="assets/img/c_globo.webp" alt="">
 <p class="foot">Jimmy Encalada, sesión del 2 de septiembre de 2026 · Convención de Palermo (UNTOC)</p>
 <aside class="notes" hidden>Aquí explicas por qué más cárcel no funcionaba, conectando con lo que Mauricio acaba de presentar, sin repetirlo. &quot;Las situaciones de Ecuador y República Dominicana son distintas. Pero la lógica del crimen es la misma: es una red, y una red aprende más rápido que cualquier Estado.&quot; Usa el ejemplo de Jimmy: el caso Hushpuppi, que operaba desde Dubái con víctimas en Catar y Nueva York, y lavaba en Rumania y Bulgaria. Y cierra con su frase, que viene de Giovanni Falcone: &quot;sigan el dinero y encontrarán a la mafia&quot;. Esta lámina es el puente: si el crimen es una red, la respuesta tampoco puede venir de una sola institución.</aside></section>
-<section class="slide paper-black split" id="s-giro" data-id="giro" data-title="Nos sentamos con ellos" data-tr="wipe" aria-roledescription="diapositiva" aria-label="6 de 39">
+<section class="slide paper-black split" id="s-giro" data-id="giro" data-title="Nos sentamos con ellos" data-tr="wipe" aria-roledescription="diapositiva" aria-label="5 de 31">
 <div class="split-text">
   <p class="sticker" data-a="stamp">Así que hicimos algo distinto</p>
   <h2 class="t-xl" data-a="up" style="--d:1">Dejamos de hablar de los legisladores<br><span class="mark mark-red" data-step="1">y nos sentamos con ellos</span></h2>
 </div>
 <figure class="polaroid tilt-r" data-a="drop" style="--d:3"><span class="tape"></span><img class="zoomable" src="assets/img/f_zury.jpg" alt="María Rosa Zury habla desde el podio de la Asamblea Nacional junto a los banners de Tinta Digital e IRI"><figcaption>Asamblea Nacional del Ecuador · Programa de Integridad Legislativa 2026</figcaption></figure>
 <aside class="notes" hidden>El giro de la historia. Pausa antes de decirlo. &quot;Durante años hicimos lo mismo que muchos de ustedes: hablar de los legisladores. Criticarlos, explicarlos, señalarlos. Un día decidimos entrar a la Asamblea y sentarnos con ellos y con sus equipos.&quot; Aquí la sala se pregunta: ¿y quiénes son ustedes para hacer eso? La siguiente lámina responde con el programa y con quienes lo hicieron posible.</aside></section>
-<section class="slide paper-black" id="s-alianzas" data-id="alianzas" data-title="Así nació el programa" data-tr="wipe" aria-roledescription="diapositiva" aria-label="7 de 39">
+<section class="slide paper-black" id="s-alianzas" data-id="alianzas" data-title="Así nació el programa" data-tr="wipe" aria-roledescription="diapositiva" aria-label="6 de 31">
 <p class="sticker" data-a="stamp">Y así nació</p>
 <h2 class="t-md2" data-a="up" style="--d:1">El Programa de <span class="mark mark-red">Integridad Legislativa 2026</span></h2>
 <div class="logos-band" data-a="left" style="--d:3"><img src="assets/img/logos_aliados.png" alt="Logos de Tinta Digital, IRI, Asamblea Nacional del Ecuador, Escuela Legislativa y UTPL"></div>
@@ -747,7 +768,17 @@ tr.shown td{animation:rowflash 1.2s ease-out}
   </div>
 </div>
 <aside class="notes" hidden>Dilo con orgullo, justo después de &quot;nos sentamos con ellos&quot;. Cuenta que el acceso se construye: la Escuela Legislativa y la Coordinación de Participación Ciudadana abrieron la puerta, convocaron a las comisiones y pusieron el salón, y la UTPL convirtió el programa en una formación certificada, con 60 diplomas firmados junto a IRI y Tinta. Tuvo tanto eco que la propia Asamblea hizo un video, proyéctalo desde tu computadora o deja que escaneen el QR. De ahí sale la pregunta que todos se hacen: ¿por qué una organización como Tinta?</aside></section>
-<section class="slide paper-cream" id="s-somos" data-id="somos" data-title="¿Por qué nosotros?" data-tr="wipe" aria-roledescription="diapositiva" aria-label="8 de 39">
+<section class="slide paper-cream" id="s-aprendimos" data-id="aprendimos" data-title="Lo que aprendimos" data-tr="wipe" aria-roledescription="diapositiva" aria-label="7 de 31">
+<p class="sticker" data-a="stamp">Lo que aprendimos al trabajar juntos</p>
+<h2 class="t-lg" data-a="up" style="--d:1">Nadie cambia una ley <span class="mark">desde afuera</span></h2>
+<div class="lrns">
+  <div class="lrn" data-step="1"><p class="lrn-n">1</p><h3 class="t-sm2">Sentarnos con quienes legislan</h3><p class="t-body soft">Escuchar primero y construir con ellos</p></div>
+  <div class="lrn" data-step="2"><p class="lrn-n">2</p><h3 class="t-sm2">Entrar por la puerta institucional</h3><p class="t-body soft">La Escuela Legislativa y la Coordinación de Participación Ciudadana nos abrieron la Asamblea</p></div>
+  <div class="lrn" data-step="3"><p class="lrn-n">3</p><h3 class="t-sm2">Encontrar quien crea en la idea</h3><p class="t-body soft">El IRI creyó en este programa y lo apoyó directamente desde el inicio</p></div>
+  <div class="lrn" data-step="4"><p class="lrn-n">4</p><h3 class="t-sm2">Respaldarnos en la academia</h3><p class="t-body soft">La UTPL dio aval académico y certificó a los participantes</p></div>
+</div>
+<aside class="notes" hidden>Esta es la lección que más le sirve a la sociedad civil en la sala: el programa funcionó porque entramos acompañados. Cuenta en una frase cada punto, con énfasis en que la puerta institucional, la Escuela Legislativa, fue la que nos permitió trabajar dentro de la Asamblea, y que la academia le dio peso a la certificación.</aside></section>
+<section class="slide paper-cream" id="s-somos" data-id="somos" data-title="¿Por qué nosotros?" data-tr="wipe" aria-roledescription="diapositiva" aria-label="8 de 31">
 <div class="somos">
   <div class="col">
     <p class="sticker" data-a="stamp">¿Por qué nosotros? · Tinta Digital</p>
@@ -769,46 +800,8 @@ tr.shown td{animation:rowflash 1.2s ease-out}
 <img class="ill ill-periodico" data-a="right" style="--d:4" src="assets/img/c_periodico.webp" alt="">
 <p class="foot">ICFJ · SembraMedia · TEDx · UNICEF · Harvard · PUCE · USFQ · Fundación Konrad Adenauer · tintadigital.la · @tintadigitaal</p>
 <aside class="notes" hidden>Esta lámina responde a &quot;¿y por qué ustedes?&quot;. Cuéntalo así: &quot;Tinta nació con una pregunta: ¿cómo hacemos que temas complejos realmente conecten con las personas? Eso es lo que sabemos hacer: democratizar información, activar pensamiento crítico, convertir conocimiento en herramientas y experimentar con IA. Hoy llegamos a 6,7 millones de cuentas al mes, también aquí en República Dominicana. Y nos preguntamos: ¿qué pasa si aplicamos eso al tema más complejo de todos, el crimen organizado, y se lo llevamos a quienes votan las leyes?&quot; Nombra uno o dos reconocimientos, no todos.</aside></section>
-<section class="slide paper-black" id="s-escuchamos" data-id="escuchamos" data-title="Primero escuchamos" data-tr="wipe" aria-roledescription="diapositiva" aria-label="9 de 39">
-<p class="sticker" data-a="stamp">Antes de diseñar nada</p>
-<h2 class="t-xl" data-a="up" style="--d:1">Primero <span class="mark mark-red">escuchamos</span></h2>
-<p class="t-lead muted lead-w" data-a="up" style="--d:2">Hablamos con asesores y equipos de la Asamblea y con especialistas, y les preguntamos qué pasa el día en que hay que votar</p>
-<div class="notes-wall">
-  <p class="postit p1" data-step="1">«Llegan gremios presionando para que el vacío se quede»</p>
-  <p class="postit p2" data-step="2">«La información técnica llega incompleta, o desde un solo ángulo»</p>
-  <p class="postit p3" data-step="3">«No hay tiempo para leer la ley completa»</p>
-  <p class="postit p4" data-step="4">«Esto no es tema de mi comisión»</p>
-</div>
-<p class="t-md yellow" data-step="5">Al momento de votar, <span class="mark mark-yel">nadie tenía con qué revisar una ley</span></p>
-<img class="ill ill-escucha" data-a="right" style="--d:2" src="assets/img/ill_mujer_morada.png" alt="">
-<img class="ill ill-reloj" data-a="pop" style="--d:6" src="assets/img/c_reloj.webp" alt="">
-<aside class="notes" hidden>Este es el corazón de la historia, y es lo que más le sirve a la sociedad civil: el programa no salió de un escritorio. Antes de plantear nada, conversamos con los equipos de la Asamblea y con los especialistas. Cuenta lo que escuchaste, como lo escuchaste: la presión de sectores interesados, la información incompleta, los tiempos que no alcanzan, y la sensación de que el crimen organizado &quot;es tema de la Comisión de Seguridad&quot; cuando en realidad toca a casi la mitad de las comisiones. Y remata: &quot;Al momento de votar, nadie tenía con qué revisar una ley. Ese vacío fue nuestro punto de partida.&quot; Las frases son síntesis de esas conversaciones; ajústalas a como tú las recuerdes.</aside></section>
-<section class="slide paper-cream" id="s-vimos" data-id="vimos" data-title="Lo que vimos" data-tr="wipe" aria-roledescription="diapositiva" aria-label="10 de 39">
-<p class="sticker" data-a="stamp">De lo que escuchamos a lo que decidimos</p>
-<h2 class="t-lg" data-a="up" style="--d:1">Tres cosas que vimos y cómo las convertimos en <span class="mark">método</span></h2>
-<div class="vd-head" data-a="fade" style="--d:2"><span>Lo que vimos</span><span></span><span>Lo que decidimos</span></div>
-<div class="vd">
-  <div class="vd-row" data-step="1"><p class="t-lead soft">El crimen organizado se trataba como tema de una sola comisión</p><p class="arrow red">→</p><p class="t-lead b">Mirarlo desde la economía, lo social y lo internacional</p></div>
-  <div class="vd-row" data-step="2"><p class="t-lead soft">Nadie tenía tiempo para leer una ley completa antes de votar</p><p class="arrow red">→</p><p class="t-lead b">Crear herramientas cortas que se usen en el Pleno y en las comisiones</p></div>
-  <div class="vd-row" data-step="3"><p class="t-lead soft">Una charla más no iba a cambiar la forma de legislar</p><p class="arrow red">→</p><p class="t-lead b">Aprender haciendo, con casos y laboratorios</p></div>
-</div>
-<aside class="notes" hidden>Aquí cuentas el paso que casi nadie cuenta: cómo lo que escuchamos se volvió diseño. Recorre cada fila de izquierda a derecha, &quot;vimos esto y por eso decidimos esto otro&quot;. Es la lámina que demuestra que el programa salió de la realidad de la Asamblea y que cada decisión tiene una razón. Termina con: &quot;Con esas tres decisiones armamos la metodología.&quot;</aside></section>
-<section class="slide paper-black" id="s-metodo" data-id="metodo" data-title="Metodología" data-tr="wipe" aria-roledescription="diapositiva" aria-label="11 de 39">
-<p class="sticker" data-a="stamp">Nuestra metodología</p>
-<h2 class="t-xxl" data-a="up" style="--d:1">Entender, aplicar <span class="mark mark-red">y construir</span></h2>
-<div class="timeline" data-a="fade" style="--d:2" aria-hidden="true">
-  <i class="tl-line"></i>
-  <span class="tl-dot" style="--x:0">26 ago</span><span class="tl-dot" style="--x:.12">28 ago</span><span class="tl-dot" style="--x:.4">2 sep</span><span class="tl-dot" style="--x:.52">4 sep</span><span class="tl-dot end" style="--x:1">22 sep</span>
-</div>
-<div class="m-steps">
-  <div class="m-step" data-step="1"><p class="m-n red">01</p><h3 class="t-sm">Entender</h3><p class="t-body muted">Seis especialistas explicaron el crimen organizado desde tres miradas</p></div>
-  <div class="m-step" data-step="2"><p class="m-n red">02</p><h3 class="t-sm">Aplicar</h3><p class="t-body muted">En laboratorios, los equipos evaluaron una ley ficticia con la Matriz</p></div>
-  <div class="m-step yel" data-step="3"><p class="m-n yellow">03</p><h3 class="t-sm">Construir</h3><p class="t-body muted">Los propios participantes escribieron su Guía de Buenas Prácticas</p></div>
-</div>
-<p class="foot">Cinco sesiones presenciales y virtuales · del 26 de agosto al 22 de septiembre de 2026 · aval académico de la UTPL</p>
-<aside class="notes" hidden>Esta es la columna vertebral de todo lo que viene, así que dila con calma. Primero entender, con especialistas que miraron el crimen desde la economía, lo social y lo internacional. Después aplicar, con un caso práctico en el que los equipos evaluaron una ley usando la Matriz que diseñó Jimmy Encalada. Y al final construir, cuando los propios asesores escribieron la Guía. Anuncia que vas a mostrar cómo se vio cada paso, y que al final se llevan las herramientas.</aside></section>
-<section class="slide paper-black" id="s-apuesta" data-id="apuesta" data-title="Tres miradas" data-tr="wipe" aria-roledescription="diapositiva" aria-label="12 de 39">
-<p class="sticker" data-a="stamp">01 · Entender</p>
+<section class="slide paper-black" id="s-apuesta" data-id="apuesta" data-title="Tres miradas" data-tr="wipe" aria-roledescription="diapositiva" aria-label="9 de 31">
+<p class="sticker" data-a="stamp">Cómo lo hicimos · tres miradas</p>
 <h2 class="t-lg" data-a="up" style="--d:1">Para enfrentar una red<br>hay que <span class="mark mark-red">mirarla desde tres lados</span></h2>
 <div class="lenses">
   <button type="button" class="lens" data-step="1"><span class="lens-k red">Económica</span><span class="lens-h">Es un mercado</span><span class="lens-p">Legislar toda la cadena de valor, del primer eslabón al último</span><span class="lens-a">Renato Rivera Rhon · GI-TOC</span></button>
@@ -816,53 +809,16 @@ tr.shown td{animation:rowflash 1.2s ease-out}
   <button type="button" class="lens" data-step="3"><span class="lens-k yellow">Internacional</span><span class="lens-h">Es transnacional</span><span class="lens-p">Cumplir Palermo y GAFI para seguir el dinero y cooperar entre países</span><span class="lens-a">Jimmy Encalada · UNICRI</span></button>
 </div>
 <aside class="notes" hidden>Conecta con quiénes somos: mirar un tema complejo desde varios ángulos es justo lo que Tinta hace. Esta es la idea central de nuestra metodología. &quot;Para combatir el crimen organizado, el Legislativo necesita mirar el fenómeno con otros ojos, además de hacer leyes penales.&quot; Explica cada lente en una frase y con un ejemplo. Económica: Renato mostró que perseguir al transportista del combustible de contrabando no toca a quien controla el negocio. Social: Pedro planteó la diferencia entre la &quot;columna A&quot;, capturar autores, y la &quot;columna B&quot;, atacar las condiciones; y la segunda es donde el legislador sí tiene competencias. Internacional: Jimmy explicó la Convención de Palermo y por qué atacar las finanzas desarma la red. Remata: &quot;Tres miradas, una sola conclusión: legislar solo la sanción deja intactas las condiciones que reproducen el crimen.&quot;</aside></section>
-<section class="slide paper-cream" id="s-panel1" data-id="panel1" data-title="Voces 1" data-tr="wipe" aria-roledescription="diapositiva" aria-label="13 de 39">
-<p class="sticker" data-a="stamp">01 · Entender · las voces del programa</p>
-<h2 class="t-lg" data-a="up" style="--d:1">El crimen funciona como <span class="mark">una empresa</span></h2>
-<div class="voices"><button type="button" class="voice" data-step="1"><span class="v-name">Daniel Pontón · Decano, Escuela de Seguridad y Defensa, IAEN</span><span class="v-h">El narcotráfico es un problema sistémico</span><span class="v-q">Dilema: ¿cuándo se gana y cuándo se pierde esta guerra?</span></button><button type="button" class="voice" data-step="2"><span class="v-name">Katherine Herrera · Inteligencia estratégica, ex asesora del CNI</span><span class="v-h">Resiliencia es impedir que el poder criminal se reproduzca</span><span class="v-q">«Si el crimen organizado es un sistema, la respuesta del Estado también debe serlo».</span></button></div>
-<p class="foot">Sesión inaugural · Asamblea Nacional del Ecuador · 26 de agosto de 2026</p>
-<aside class="notes" hidden>Las tres láminas de &quot;voces&quot; muestran que no fue una charla de Tinta: reunimos a seis especialistas de primer nivel, cada uno con una mirada distinta. Pontón abrió la sesión inaugural y mostró la escala del problema; su frase central fue que el crimen funciona como una empresa. Katherine Herrera, ex asesora del Centro de Inteligencia Nacional y hoy en el Banco Central, llevó la mirada de inteligencia: elevar penas sirve poco si las finanzas y las rutas siguen intactas, y capturar cabecillas sirve poco si la estructura se recompone. Para ella el Parlamento tiene seis funciones de seguridad: legislar, fiscalizar, presupuestar, representar territorios, cooperar internacionalmente y proteger la legitimidad. Su otra frase sirve para esta sala: &quot;Una red criminal cruza fronteras en horas; una solicitud de cooperación no puede tardar meses.&quot;</aside></section>
-<section class="slide paper-cream" id="s-panel2" data-id="panel2" data-title="Voces 2" data-tr="wipe" aria-roledescription="diapositiva" aria-label="14 de 39">
-<p class="sticker" data-a="stamp">01 · Entender · las voces del programa</p>
-<h2 class="t-lg" data-a="up" style="--d:1">El dinero necesita una <span class="mark">puerta legal</span></h2>
-<div class="voices"><button type="button" class="voice" data-step="1"><span class="v-name">Daniela Escobar · Derecho penal económico y tributario</span><span class="v-h">Compliance formal frente a compliance efectivo</span><span class="v-q">¿Debe tratarse igual a la empresa que detecta y colabora que a la que mira hacia otro lado?</span></button><button type="button" class="voice" data-step="2"><span class="v-name">Renato Rivera Rhon · Analista senior, GI-TOC</span><span class="v-h">El ABC de las economías criminales</span><span class="v-q">A más fragmentación de grupos, más competencia y más violencia</span></button></div>
-<p class="foot">Sesiones del 26 y del 28 de agosto de 2026</p>
-<aside class="notes" hidden>Esta lámina conecta muy bien con el empresariado joven de la sala, como ANJE y Global Shapers. Escobar planteó la pregunta que ellos pueden llevar a su sector: ¿qué gana una empresa por tener un compliance que de verdad funciona? Rivera dio el ejemplo del contrabando de combustible: el sistema penal castiga al transportista, el eslabón más débil, y deja intacta la estructura comercial. Su propuesta fue regular mejor a las gasolineras y rastrear los activos, no subir los años de prisión.</aside></section>
-<section class="slide paper-cream" id="s-panel3" data-id="panel3" data-title="Voces 3" data-tr="wipe" aria-roledescription="diapositiva" aria-label="15 de 39">
-<p class="sticker" data-a="stamp">01 · Entender · las voces del programa</p>
-<h2 class="t-lg" data-a="up" style="--d:1">Atacar las condiciones y <span class="mark">seguir el dinero</span></h2>
-<div class="voices"><button type="button" class="voice" data-step="1"><span class="v-name">Pedro E. Manosalvas · Sociólogo, coautor de la ENDO</span><span class="v-h">El origen social del crimen organizado</span><span class="v-q">La corrupción es la condición que garantiza la continuidad del crimen</span></button><button type="button" class="voice" data-step="2"><span class="v-name">Jimmy Encalada · LL.M. Crimen y Justicia Transnacional, UNICRI</span><span class="v-h">Normativa internacional y la Matriz</span><span class="v-q">Creó la Matriz de Impacto Criminal y guió el laboratorio práctico</span></button></div>
-<p class="foot">Sesiones del 28 de agosto y del 2 y 4 de septiembre de 2026</p>
-<aside class="notes" hidden>Manosalvas es el que más resuena con la base comunitaria de la sala, como CONAMUCA, las Casas Comunitarias de Justicia y las organizaciones de fe: la pobreza por sí sola no produce crimen organizado; lo determinante es qué economía ilícita llega primero a un adolescente de quince años. Jimmy es el puente hacia las herramientas: él diseñó la matriz. Cuenta su caso: Hushpuppi, que lavó más de 300 millones de dólares en 18 meses; le decomisaron 40 millones, y el resto nunca se recuperó. Esa es la razón de que la matriz pregunte por el dinero.</aside></section>
-<section class="slide paper-black" id="s-social" data-id="social" data-title="La mirada social" data-tr="wipe" aria-roledescription="diapositiva" aria-label="16 de 39">
-<div class="social">
-  <div class="col">
-    <p class="sticker" data-a="stamp">01 · Entender · la mirada social</p>
-    <h2 class="t-md2" data-a="up" style="--d:1">¿Quién llega primero a un adolescente de quince años: <span class="mark mark-red">la escuela, el empleo formal o la economía ilícita?</span></h2>
-    <p class="t-lead muted" data-a="up" style="--d:3">Lo decisivo es qué mercados ilícitos hay en el territorio y qué alternativas legítimas le faltan a la gente</p>
-    <div class="soc-media"><figure class="screen" data-a="drop" style="--d:4"><span class="tape"></span><img class="zoomable" src="assets/img/f_pedro.jpg" alt="Pedro Manosalvas en la sesión virtual con la lámina Cinco ideas para conservar"></figure></div>
-  </div>
-  <div class="col side">
-    <p class="kicker yellow" data-a="fade" style="--d:2">Lo que la organización ofrece</p>
-    <p class="offer" data-step="1">Ingreso rápido y previsible</p>
-    <p class="offer" data-step="2">Protección frente a otros</p>
-    <p class="offer" data-step="3">Identidad y reconocimiento</p>
-    <p class="offer" data-step="4">Pertenencia y jerarquía</p>
-    <p class="offer last" data-step="5">Estatus en su entorno</p>
-    <p class="red-box" data-step="6">Son bienes sociales y por eso ninguna política que ofrezca solo dinero los sustituye</p>
-  </div>
-</div>
-<img class="ill ill-discman" data-a="right" style="--d:5" src="assets/img/c_discman.webp" alt="">
-<p class="foot">Pedro E. Manosalvas · «El origen del crimen organizado: una perspectiva social» · sesión virtual del 28 de agosto de 2026</p>
-<aside class="notes" hidden>Esta es la lámina de este público. Haz la pregunta a la sala tal como Pedro se la hizo a los asambleístas, y espera. Muchas de las organizaciones presentes trabajan justo ahí: en el barrio, en la comunidad, con jóvenes. Explica la idea de Pedro: el crimen organizado no reemplaza al Estado por ausencia, compite con él. Regula quién entra y sale de un barrio, cobra extorsión como si fuera un tributo, impone normas y castigos, controla mercados y resuelve lo que el Estado no resuelve. En Ecuador, la mayoría de las víctimas de homicidio en 2025 tenía entre 18 y 29 años: la misma edad de quienes se recluta. Remata: &quot;Esto no lo resuelve un artículo del Código Penal. Esto lo ven ustedes todos los días, y por eso el legislador los necesita.&quot;</aside></section>
-<section class="slide paper-cream" id="s-hicimos" data-id="hicimos" data-title="Así se vio" data-tr="wipe" aria-roledescription="diapositiva" aria-label="17 de 39">
-<p class="sticker" data-a="stamp">Así se vio en la práctica</p>
-<h2 class="t-md2" data-a="up" style="--d:1">Cinco sesiones y seis especialistas con una <span class="mark">Asamblea sentada a aprender</span></h2>
+<section class="slide paper-cream" id="s-hicimos" data-id="hicimos" data-title="Lo que logramos" data-tr="wipe" aria-roledescription="diapositiva" aria-label="10 de 31">
+<p class="sticker" data-a="stamp">Lo que logramos</p>
+<h2 class="t-md2" data-a="up" style="--d:1">Una Asamblea <span class="mark">sentada a aprender</span></h2>
 <div class="hic">
   <div class="hic-left">
-    <div class="waffle-wrap" data-a="fade" style="--d:2">
-      <div class="waffle" aria-hidden="true"></div>
-      <div class="stat-inline"><p class="num red" data-count="60" data-dec="0">60</p><p class="t-body">personas certificadas: 32 mujeres y 28 hombres</p></div>
+    <div class="imp-main" data-a="fade" style="--d:2"><p class="num red" data-count="59" data-dec="0">59</p><p class="t-lead">personas certificadas entre asambleístas, asesores y equipos técnicos, en agosto y septiembre de 2026</p></div>
+    <div class="imp-row">
+      <div class="imp" data-step="1"><b class="num-s red" data-count="5" data-dec="0">5</b><span class="t-body">encuentros</span></div>
+      <div class="imp" data-step="2"><b class="num-s red" data-count="25" data-dec="0">25</b><span class="t-body">matrices analizadas</span></div>
+      <div class="imp" data-step="3"><b class="num-s red" data-count="4" data-dec="0">4</b><span class="t-body">herramientas creadas</span></div>
     </div>
   </div>
   <div class="hic-stack">
@@ -872,233 +828,18 @@ tr.shown td{animation:rowflash 1.2s ease-out}
 </div>
 <p class="foot">Aliados: IRI · Escuela Legislativa y Coordinación de Participación Ciudadana de la Asamblea Nacional · UTPL</p>
 <aside class="notes" hidden>Cuéntalo como una historia, no como un informe. &quot;Durante dos semanas, miércoles y viernes, tuvimos a asambleístas y a sus equipos sentados a aprender sobre crimen organizado. Sesiones presenciales en la Asamblea y laboratorios virtuales.&quot; Señala la foto: así se veía el salón el día de la inauguración. Lo que más impacta a sociedad civil es que fue posible: que una organización como Tinta lograra entrar con un aval académico y una alianza institucional. Menciona que los diplomas fueron firmados por IRI, Tinta y la UTPL. Si te preguntan cómo lograron el acceso, ese es oro: cuenta cómo se construyó la alianza con la Escuela Legislativa.</aside></section>
-<section class="slide paper-black" id="s-momentos" data-id="momentos" data-title="Así se vivió" data-tr="wipe" aria-roledescription="diapositiva" aria-label="18 de 39">
-<p class="sticker" data-a="stamp">Así se vivió</p>
-<h2 class="t-lg" data-a="up" style="--d:1">Del salón de la Asamblea a la <span class="mark mark-red">Guía en sus manos</span></h2>
-<div class="board">
-  <figure class="polaroid b1" data-step="1"><span class="tape"></span><img class="zoomable" src="assets/img/f_asesores.jpg" alt="Asambleístas y asesores durante una sesión presencial del programa"><figcaption>Asesores y asambleístas · sesión presencial</figcaption></figure>
-  <figure class="polaroid b2" data-step="2"><span class="tape"></span><img class="zoomable" src="assets/img/f_jimmy.jpg" alt="Jimmy Encalada en el laboratorio virtual con la diapositiva Segui il denaro, troverai la mafia"><figcaption>Laboratorio virtual · Jimmy Encalada</figcaption></figure>
-  <figure class="polaroid b3" data-step="3"><span class="tape"></span><img class="zoomable" src="assets/img/f_guia.jpg" alt="Participantes muestran la Guía de Buenas Prácticas impresa en la sesión de cierre"><figcaption>Cierre · la Guía impresa</figcaption></figure>
-</div>
-<aside class="notes" hidden>No leas la lámina: deja que las fotos hablen unos segundos. Tres momentos. Primero, el salón lleno de asesores y asambleístas: esto no fue una charla para convencidos. Segundo, Jimmy Encalada en el laboratorio virtual con la frase atribuida a Giovanni Falcone, el juez que enfrentó a la mafia siciliana: &quot;Sigue el dinero y encontrarás a la mafia&quot;. Esa frase resume todo el programa. Tercero, la sesión de cierre del 22 de septiembre, con la Guía de Buenas Prácticas impresa: el documento que escribieron ellos mismos.</aside></section>
-<section class="slide paper-cream" id="s-debate" data-id="debate" data-title="El debate" data-tr="wipe" aria-roledescription="diapositiva" aria-label="19 de 39">
-<p class="sticker" data-a="stamp">El debate en la sala</p>
-<h2 class="t-md2" data-a="up" style="--d:1">Cuando la teoría tocó la <span class="mark">Ley Antimafias</span></h2>
-<div class="chat-row">
-  <div class="chat">
-    <div class="bubble left" data-step="1"><h3 class="b-h">La pregunta de una asambleísta</h3><p class="t-body">¿Por qué una ley que se presenta como integral se reduce a aumentar penas?</p></div>
-    <div class="bubble right" data-step="2"><h3 class="b-h">La respuesta del especialista</h3><p class="t-body">El caso del combustible: se castiga al transportista mientras la estructura comercial sigue intacta, por eso hay que regular y rastrear activos</p></div>
-    <div class="bubble left" data-step="3"><h3 class="b-h">La preocupación</h3><p class="t-body">La infiltración en la Policía exige una política estructural que una justicia, seguridad y condiciones de quienes están abajo</p></div>
-    <div class="bubble center" data-step="4"><h3 class="b-h">La conclusión compartida</h3><p class="t-body">Ante un fenómeno multicausal hace falta una visión integral que las leyes aisladas no dan</p></div>
-  </div>
-  <figure class="screen square" data-a="drop" style="--d:3"><span class="tape"></span><img class="zoomable" src="assets/img/f_virtual.jpg" alt="Sesión virtual del 28 de agosto con un especialista y participantes conectados"></figure>
-</div>
-<p class="foot">Sesión virtual del 28 de agosto · participaron, entre otros, Adrián Castro, Silvia Núñez, Ana Herrera, Jimmy Erazo y Nanki Saant</p>
-<aside class="notes" hidden>Este fue uno de los momentos más ricos del programa, y vale la pena contarlo como escena. Una asambleísta trajo a la sesión el debate real de la Ley Antimafias. El especialista respondió con un caso concreto, y otra asambleísta llevó la conversación a la infiltración en la Policía. Pedro Manosalvas propuso, por ejemplo, vivienda digna para policías en zonas de conflicto, para reducir su vulnerabilidad ante la corrupción. Mensaje para la sala: cuando a los legisladores se les da un marco, hacen las preguntas correctas. Asistieron a esa sesión, entre otros, Adrián Castro, Silvia Núñez, Ana Herrera, Jimmy Erazo y Nanki Saant.</aside></section>
-<section class="slide paper-black" id="s-dijeron" data-id="dijeron" data-title="Lo que nos dijeron" data-tr="wipe" aria-roledescription="diapositiva" aria-label="20 de 39">
-<p class="sticker" data-a="stamp">Lo que nos dijeron</p>
-<h2 class="t-xl" data-a="up" style="--d:1">Ellos mismos <span class="mark mark-red">lo vieron</span></h2>
-<div class="quotes3">
-  <figure class="qt" data-step="1"><p class="qt-mark">“</p><p class="qt-t">«Subir penas es un esquema caduco, la ley tiene que mirar la cadena de valor, la dolarización y el territorio»</p><p class="t-cap dim"><b class="cream">Sofía Salamea</b> · asambleísta, en el debate sobre la Ley Antimafias</p></figure>
-  <figure class="qt" data-step="2"><p class="qt-mark">“</p><p class="qt-t">«Leyes tenemos, lo que nos faltan son los mecanismos para hacerlas cumplir»</p><p class="t-cap dim"><b class="cream">Silvia Núñez</b> · asambleísta, sesión del 28 de agosto</p></figure>
-  <figure class="qt" data-step="3"><p class="qt-mark">“</p><p class="qt-t">«¿Cambiar al personal de arriba reduce la corrupción?»</p><p class="t-cap dim"><b class="cream">Walter Idrovo Ochoa</b> · durante las preguntas (la respuesta: solo si se atienden las causas)</p></figure>
-</div>
-<p class="foot">Síntesis de intervenciones registradas en las sesiones del programa</p>
-<aside class="notes" hidden>Esta es tu prueba social, y para un público escéptico vale más que cualquier cifra. &quot;No lo decimos nosotros. Lo dijeron los propios asambleístas después de escuchar a los especialistas.&quot; Las frases son síntesis fieles de lo que quedó registrado en las sesiones. Di los nombres en voz alta: le da peso. La tercera muestra que el programa abrió preguntas reales. Agrega lo que tú viviste y ninguna diapositiva puede contar: la presencia de la presidenta de la Comisión de Seguridad, el interés por la Ley Antimafias y el momento en que alguien se dio cuenta de algo.</aside></section>
-<section class="slide paper-cream" id="s-matriz" data-id="matriz" data-title="Matriz: qué es" data-tr="wipe" aria-roledescription="diapositiva" aria-label="21 de 39">
-<p class="sticker" data-a="stamp">02 · Aplicar · la Matriz de Jimmy Encalada</p>
-<h2 class="t-lg" data-a="up" style="--d:1">Cinco preguntas a <span class="mark">cualquier ley</span></h2>
-<div class="mx">
-  <img class="mx-cover zoomable" data-a="drop" style="--d:2" src="assets/img/portada_caja.jpg" alt="Portada de la Caja de Herramientas de Evaluación del Impacto Criminal, documento que contiene la Matriz">
-  <div class="mx-side mx-what">
-    <div class="ink-box" data-a="up" style="--d:3"><p class="kicker yellow">Qué es</p><p class="t-body cream">La Matriz de Evaluación del Impacto Criminal, creada en el programa para revisar una ley, reforma o proyecto contra el crimen organizado</p></div>
-    <div class="outline-box" data-a="up" style="--d:4"><p class="kicker red">Para qué sirve</p><p class="t-body soft">Para distinguir entre lo que la norma dice y lo que realmente puede aplicarse, con evidencia de cada artículo</p></div>
-  </div>
-  <div class="table-wrap mx-table" data-a="up" style="--d:3"><table class="tbl light">
-  <tr><th>Criterio</th><th>Pregunta central</th></tr>
-  <tr data-step="1"><td>1. Ecosistema criminal</td><td>¿Interviene la red completa o solo a sus ejecutores?</td></tr>
-  <tr data-step="2"><td>2. Capacidad institucional</td><td>¿Quién actúa, con qué competencias y cómo se coordina?</td></tr>
-  <tr data-step="3"><td>3. Trazabilidad financiera</td><td>¿Permite seguir el dinero y al beneficiario final?</td></tr>
-  <tr data-step="4"><td>4. Afectación económica</td><td>¿Altera los costos y ganancias del negocio criminal?</td></tr>
-  <tr data-step="5"><td>5. Legitimidad y adaptación</td><td>¿Evita abusos, se evalúa y aprende de sus resultados?</td></tr>
-  </table></div>
-</div>
-<p class="foot">Matriz de Evaluación del Impacto Criminal (MIC) y su Caja de Herramientas · Programa de Formación en Integridad Legislativa 2026</p>
-<aside class="notes" hidden>Conecta con la frase de Silvia Núñez que acabas de mostrar: «Leyes tenemos, lo que nos faltan son los mecanismos para hacerlas cumplir». Esta herramienta nació para eso. Explica qué es y para qué sirve en una frase cada uno, y recorre los cinco criterios sin detenerte en cada fila: cada uno es una pregunta que cualquier ley tiene que poder responder. La idea que debe quedar es que la matriz separa lo que la norma dice de lo que realmente puede aplicarse.</aside></section>
-<section class="slide paper-black" id="s-puntaje" data-id="puntaje" data-title="Cómo se puntúa" data-tr="wipe" aria-roledescription="diapositiva" aria-label="22 de 39">
-<p class="sticker" data-a="stamp">Cómo se asigna el puntaje</p>
-<h2 class="t-md2" data-a="up" style="--d:1">Dos notas por criterio: <span class="mark mark-red">lo que dice y lo que se aplica</span></h2>
-<div class="sc">
-  <div class="sc-card" data-step="1"><p class="kicker yellow">A · Diseño normativo · de 0 a 3</p><h3 class="t-sm">Lo que la ley dice</h3><div class="sc-row"><b class="sc-n">0</b><p class="t-body">La materia está ausente o la regulación es contradictoria</p></div><div class="sc-row"><b class="sc-n">1–2</b><p class="t-body">Existe regulación, pero es parcial, ambigua o fragmentada</p></div><div class="sc-row"><b class="sc-n">3</b><p class="t-body">Las reglas son claras, coherentes y compatibles con otras normas</p></div></div>
-  <p class="sc-op" data-step="2" aria-hidden="true">+</p>
-  <div class="sc-card" data-step="2"><p class="kicker yellow">B · Implementación o «reglas en uso» · de 0 a 3</p><h3 class="t-sm">Lo que de verdad se aplica</h3><div class="sc-row"><b class="sc-n">0</b><p class="t-body">No existen mecanismos, capacidades ni evidencia de aplicación</p></div><div class="sc-row"><b class="sc-n">1–2</b><p class="t-body">Existen mecanismos parciales o aplicación irregular</p></div><div class="sc-row"><b class="sc-n">3</b><p class="t-body">Existen responsables, procedimientos, recursos, coordinación y evidencia verificable de aplicación</p></div></div>
-</div>
-<div class="sc-sum" data-step="3"><p class="sc-eq">Hasta <b>6</b> por criterio <span>×</span> 5 criterios <span>=</span> <b>30</b></p><p class="t-body dim">Se puntúa solo después de ubicar el artículo, la disposición o la evidencia que lo sustenta</p></div>
-<aside class="notes" hidden>Esta es la lógica que hace útil a la matriz. Cada criterio recibe dos notas de 0 a 3: una por cómo está escrita la ley y otra por cómo se aplica en la realidad. Lee solo los extremos de cada escala, el 0 y el 3, y deja el medio para que lo vean. Remata: «Una regla puede estar bien escrita y aun así no tener responsables, procedimientos ni recursos. Por eso se califica dos veces». Y adelanta: esa segunda nota, la de la aplicación, es donde la mirada de ustedes pesa más.</aside></section>
-<section class="slide paper-cream" id="s-lectura" data-id="lectura" data-title="Cómo se lee el total" data-tr="wipe" aria-roledescription="diapositiva" aria-label="23 de 39">
-<p class="sticker" data-a="stamp">Cómo se interpreta el total</p>
-<h2 class="t-lg" data-a="up" style="--d:1">Cuatro lecturas <span class="mark">sobre 30 puntos</span></h2>
-<div class="bands">
-<div class="band b1" data-step="1"><p class="band-r">0–7</p><h3 class="band-h">Ley principalmente declarativa</h3><p class="t-body">capacidad muy limitada para combatir el crimen organizado transnacional</p></div><div class="band b2" data-step="2"><p class="band-r">8–18</p><h3 class="band-h">Respuesta fragmentaria</h3><p class="t-body">interviene algunos componentes, pero mantiene vacíos importantes</p></div><div class="band b3" data-step="3"><p class="band-r">19–25</p><h3 class="band-h">Marco potencialmente funcional</h3><p class="t-body">condicionado por capacidades, coordinación y aplicación efectiva</p></div><div class="band b4" data-step="4"><p class="band-r">26–30</p><h3 class="band-h">Marco integral, operativo y adaptable</h3><p class="t-body">con capacidad significativa para reducir la actuación criminal</p></div>
-</div>
-<div class="band-bar" aria-hidden="true"><i style="--a:0;--b:7"></i><i style="--a:7;--b:18"></i><i style="--a:18;--b:25"></i><i style="--a:25;--b:30"></i></div>
-<p class="t-lead b band-note" data-step="5">El puntaje no es el final: sirve para localizar los vacíos y saber si el problema está en el diseño, en la implementación o en ambos</p>
-<p class="foot">Valoración global de la Matriz de Evaluación del Impacto Criminal</p>
-<aside class="notes" hidden>Muestra los cuatro rangos de izquierda a derecha, uno por clic. No hace falta leer cada descripción completa: nombra el rango y su lectura. La última frase es la más importante, y viene de la propia Caja de Herramientas: una misma calificación puede esconder problemas distintos, reglas incompletas, falta de responsables, ausencia de recursos o controles débiles. Anuncia que ahora van a ver cómo la aplicaron los asesores en un caso.</aside></section>
-<section class="slide paper-black" id="s-slytherin" data-id="slytherin" data-title="Slytherin" data-tr="wipe" aria-roledescription="diapositiva" aria-label="24 de 39">
-<p class="sticker" data-a="stamp">02 · Aplicar · el caso del laboratorio</p>
-<p class="ex-stamp" data-a="stamp" style="--d:2">Ejemplo</p>
-<h2 class="t-md2" data-a="up" style="--d:1">Lo que encontraron los asesores en la <span class="mark mark-red">ley de Slytherin</span></h2>
-<p class="t-body muted" data-a="up" style="--d:2">Un país ficticio con 94 homicidios por cada 100.000 habitantes, una «Ley Nacional contra el Crimen Organizado» de 30 artículos, y grupos de trabajo de la Asamblea evaluándola.</p>
-<div class="table-wrap" data-a="up" style="--d:3"><table class="tbl dark">
-<tr><th>Criterio</th><th>El vacío que identificaron</th></tr>
-<tr data-step="1"><td>1. Ecosistema criminal</td><td>Define la organización criminal, pero es ambigua con facilitadores e intermediarios.</td></tr>
-<tr data-step="2"><td>2. Capacidad institucional</td><td>Crea un sistema nacional y equipos conjuntos, sin presupuesto ni forma de resolver choques de competencias.</td></tr>
-<tr data-step="3"><td>3. Trazabilidad financiera</td><td>Crea una base nacional de información sin interoperabilidad entre la unidad financiera, tributos y aduanas.</td></tr>
-<tr data-step="4"><td>4. Afectación económica</td><td>Prioriza la cárcel y no prevé extinción de dominio ni decomiso sin condena</td></tr>
-<tr data-step="5"><td>5. Legitimidad</td><td>Permite operaciones urgentes con notificación al juez hasta cinco días después.</td></tr>
-</table></div>
-<div class="meter" data-step="6" aria-hidden="true"><div class="m-bands"><i style="--a:0;--b:7"></i><i style="--a:7;--b:18"></i><i style="--a:18;--b:25"></i><i style="--a:25;--b:30"></i></div><b class="m-pin" style="--v:12">12</b><span class="m-0">0</span><span class="m-30">30</span></div>
-<p class="t-body sly-read" data-step="6"><b class="yellow">12 de 30 · respuesta fragmentaria:</b> bien escrita en el papel e inaplicable en la práctica</p>
-<p class="foot">Promedio de los grupos de trabajo · Informe final del programa</p>
-<aside class="notes" hidden>Esta es la prueba de que funciona. Cuenta el caso como una historia: un país costero, la droga llamada &quot;piedra filosofal&quot;, carteles extranjeros contra bandas locales y un presidente que declara la guerra al crimen. Ponerle humor ayudó a que los asesores se soltaran a criticar una ley sin sentirse en una pelea partidaria. Lo que encontraron se parece muchísimo a las leyes reales: buenas intenciones en el papel y vacíos en la aplicación. Remata: &quot;Y esto lo encontraron asesores legislativos en una tarde. Imaginen lo que pueden encontrar ustedes con un proyecto real.&quot;</aside></section>
-<section class="slide paper-black center-v" id="s-usar" data-id="usar" data-title="¿Cómo la usarían?" data-tr="wipe" aria-roledescription="diapositiva" aria-label="25 de 39">
-<p class="sticker" data-a="stamp">La pregunta para ustedes</p>
-<h2 class="t-lg" data-a="up" style="--d:1">¿Cómo podrían utilizar ustedes <span class="mark mark-red">esta matriz</span> para evaluar una propuesta de ley?</h2>
-<p class="t-xlead use-p" data-step="1">Vamos a probarlo con cinco preguntas, una por cada criterio</p>
-<div class="use-crit" data-step="2"><span>1 · Ecosistema criminal</span><span>2 · Capacidad institucional</span><span>3 · Trazabilidad financiera</span><span>4 · Afectación económica</span><span>5 · Legitimidad y adaptación</span></div>
-<p class="t-lead use-p dim" data-step="3">Cada respuesta habla de la nota B, la implementación de 0 a 3, la que mejor se ve desde el territorio que ustedes conocen</p>
-<img class="ill ill-usar" data-a="right" style="--d:2" src="assets/img/ill_mano_senala.png" alt="">
-<aside class="notes" hidden>Lámina puente: después del caso de Slytherin, devuelve la pregunta a la sala y deja unos segundos de silencio. Luego explica que la dinámica que viene recorre los cinco criterios de la matriz, uno por pregunta, y que sus respuestas apuntan a la segunda nota, la de implementación, donde se mira si hay responsables, recursos y evidencia de que la ley se aplica. Pasa a las tarjetas.</aside></section>
-<section class="slide paper-cream" id="s-tarjetas" data-id="tarjetas" data-title="Tarjetas: instrucciones" data-tr="wipe" aria-roledescription="diapositiva" aria-label="26 de 39">
-<p class="sticker" data-a="stamp">Ahora ustedes · tarjetas arriba</p>
-<h2 class="t-lg" data-a="up" style="--d:1">Una tarjeta verde y una roja <span class="mark">para responder</span></h2>
-<div class="tj">
-  <div class="tcard green" data-a="drop" style="--d:2"><p class="tc-sym" aria-hidden="true">✓</p><p class="tc-w">Verde · Sí</p><p class="t-body">Levanten la tarjeta verde si su respuesta es sí</p></div>
-  <div class="tcard redc" data-a="drop" style="--d:3"><p class="tc-sym" aria-hidden="true">✕</p><p class="tc-w">Roja · No</p><p class="t-body">Levanten la tarjeta roja si su respuesta es no</p></div>
-  <div class="tj-how">
-    <p class="kicker red" data-a="fade" style="--d:4">Cómo participar</p>
-    <p class="t-lead" data-step="1">Leemos una pregunta, cada persona levanta una tarjeta y miramos juntos cómo respondió la sala</p>
-    <p class="t-lead" data-step="2">Después revelamos qué criterio de la matriz está detrás de la pregunta y qué aporta su mirada a ese puntaje</p>
-    <p class="t-body b consigna" data-step="3">Cinco preguntas · unos 10 minutos</p>
-    <div class="timer" data-a="up" style="--d:5" data-seconds="600" role="timer" aria-label="Temporizador de la actividad"><output>10:00</output><button type="button" class="ui-btn t-start">Iniciar</button><button type="button" class="ui-btn t-pause">Pausar</button><button type="button" class="ui-btn t-reset">Reiniciar</button></div>
-  </div>
-</div>
-<aside class="notes" hidden>Reparte una tarjeta verde y una roja a cada persona antes de empezar. Explica la regla una sola vez y déjala en pantalla: verde es sí y roja es no, durante toda la dinámica. En cada pregunta, léela en voz alta, cuenta tres segundos y pide que levanten la tarjeta al mismo tiempo. Describe lo que ves en la sala (por ejemplo, casi todo rojo) e invita a una o dos personas a contar por qué. Luego pulsa «Ver reflexión» (o la tecla R) y cierra con la idea en pantalla. Calcula unos dos minutos por pregunta para mantener el ritmo.</aside></section>
-<section class="slide paper-black" id="s-tarjeta1" data-id="tarjeta1" data-title="Tarjetas: Ecosistema criminal" data-tr="wipe" aria-roledescription="diapositiva" aria-label="27 de 39">
-<div class="qhead" data-a="fade"><p class="sticker">Tarjetas arriba · pregunta 1 de 5</p><span class="qdots" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></div>
-<h2 class="t-lg q-text" data-a="up" style="--d:1">¿Saben quiénes financian, transportan y protegen el negocio ilícito que más golpea a su comunidad?</h2>
-<div class="q-ui" data-a="up" style="--d:3">
-  <p class="chip green"><span aria-hidden="true">✓</span> Verde · Sí</p>
-  <p class="chip redc"><span aria-hidden="true">✕</span> Roja · No</p>
-  <button class="ui-btn reveal-btn" type="button" aria-expanded="false" aria-controls="rev1">Ver reflexión</button>
-</div>
-<div class="flip" id="rev1" hidden>
-  <p class="kicker red">Criterio 1 de la Matriz · Ecosistema criminal</p>
-  <p class="t-lead">Ese conocimiento es el primer criterio de la matriz, que mide si una ley alcanza a toda la red o solo al último eslabón. Si levantaron la verde, ustedes ya tienen el mapa con el que se califica una ley, y si levantaron la roja, la matriz les dice qué preguntar para construirlo.</p>
-</div>
-<img class="ill ill-q" data-a="right" style="--d:2" src="assets/img/ill_dedo2.png" alt="">
-<aside class="notes" hidden>Lee la pregunta, cuenta tres segundos y pide que todos levanten su tarjeta al mismo tiempo: verde para sí, roja para no. Comenta en voz alta cómo se ve la sala e invita a una o dos personas a explicar su respuesta. Después pulsa «Ver reflexión» o la tecla R y nombra el criterio de la matriz: Ecosistema criminal.</aside></section>
-<section class="slide paper-black" id="s-tarjeta2" data-id="tarjeta2" data-title="Tarjetas: Capacidad institucional" data-tr="wipe" aria-roledescription="diapositiva" aria-label="28 de 39">
-<div class="qhead" data-a="fade"><p class="sticker">Tarjetas arriba · pregunta 2 de 5</p><span class="qdots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></div>
-<h2 class="t-lg q-text" data-a="up" style="--d:1">¿Han visto una ley que le encarga una tarea a una institución que en su territorio no tiene gente ni presupuesto para cumplirla?</h2>
-<div class="q-ui" data-a="up" style="--d:3">
-  <p class="chip green"><span aria-hidden="true">✓</span> Verde · Sí</p>
-  <p class="chip redc"><span aria-hidden="true">✕</span> Roja · No</p>
-  <button class="ui-btn reveal-btn" type="button" aria-expanded="false" aria-controls="rev2">Ver reflexión</button>
-</div>
-<div class="flip" id="rev2" hidden>
-  <p class="kicker red">Criterio 2 de la Matriz · Capacidad institucional</p>
-  <p class="t-lead">La matriz califica cada criterio dos veces, primero cómo está escrita la ley y después si se puede aplicar en el mundo real. Esa segunda mitad se mide mejor desde donde ustedes trabajan, porque ahí se ve si la institución existe, actúa y se coordina con las demás.</p>
-</div>
-<img class="ill ill-q" data-a="right" style="--d:2" src="assets/img/ill_mano_senala.png" alt="">
-<aside class="notes" hidden>Lee la pregunta, cuenta tres segundos y pide que todos levanten su tarjeta al mismo tiempo: verde para sí, roja para no. Comenta en voz alta cómo se ve la sala e invita a una o dos personas a explicar su respuesta. Después pulsa «Ver reflexión» o la tecla R y nombra el criterio de la matriz: Capacidad institucional.</aside></section>
-<section class="slide paper-black" id="s-tarjeta3" data-id="tarjeta3" data-title="Tarjetas: Trazabilidad financiera" data-tr="wipe" aria-roledescription="diapositiva" aria-label="29 de 39">
-<div class="qhead" data-a="fade"><p class="sticker">Tarjetas arriba · pregunta 3 de 5</p><span class="qdots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div>
-<h2 class="t-lg q-text" data-a="up" style="--d:1">¿Alguna vez su organización o su medio siguió el rastro del dinero de un negocio ilícito?</h2>
-<div class="q-ui" data-a="up" style="--d:3">
-  <p class="chip green"><span aria-hidden="true">✓</span> Verde · Sí</p>
-  <p class="chip redc"><span aria-hidden="true">✕</span> Roja · No</p>
-  <button class="ui-btn reveal-btn" type="button" aria-expanded="false" aria-controls="rev3">Ver reflexión</button>
-</div>
-<div class="flip" id="rev3" hidden>
-  <p class="kicker red">Criterio 3 de la Matriz · Trazabilidad financiera</p>
-  <p class="t-lead">Jimmy Encalada lo resumió en el programa: si se puede perseguir el dinero, se puede perseguir la estructura. El tercer criterio pregunta si la ley facilita esa información, y quien ya cruzó contratos, registros o bases públicas sabe exactamente dónde se corta el rastro.</p>
-</div>
-<img class="ill ill-q" data-a="right" style="--d:2" src="assets/img/ill_dedo2.png" alt="">
-<aside class="notes" hidden>Lee la pregunta, cuenta tres segundos y pide que todos levanten su tarjeta al mismo tiempo: verde para sí, roja para no. Comenta en voz alta cómo se ve la sala e invita a una o dos personas a explicar su respuesta. Después pulsa «Ver reflexión» o la tecla R y nombra el criterio de la matriz: Trazabilidad financiera.</aside></section>
-<section class="slide paper-black" id="s-tarjeta4" data-id="tarjeta4" data-title="Tarjetas: Afectación económica" data-tr="wipe" aria-roledescription="diapositiva" aria-label="30 de 39">
-<div class="qhead" data-a="fade"><p class="sticker">Tarjetas arriba · pregunta 4 de 5</p><span class="qdots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div>
-<h2 class="t-lg q-text" data-a="up" style="--d:1">¿Conocen algún caso en el que hubo condena y el negocio siguió funcionando igual?</h2>
-<div class="q-ui" data-a="up" style="--d:3">
-  <p class="chip green"><span aria-hidden="true">✓</span> Verde · Sí</p>
-  <p class="chip redc"><span aria-hidden="true">✕</span> Roja · No</p>
-  <button class="ui-btn reveal-btn" type="button" aria-expanded="false" aria-controls="rev4">Ver reflexión</button>
-</div>
-<div class="flip" id="rev4" hidden>
-  <p class="kicker red">Criterio 4 de la Matriz · Afectación económica</p>
-  <p class="t-lead">El cuarto criterio mide si la ley golpea la ganancia del crimen con decomiso, incentivos y sanciones. Cada caso que ustedes documentan de un negocio que sobrevivió a la condena es evidencia de que ese criterio no se está cumpliendo en la práctica.</p>
-</div>
-<img class="ill ill-q" data-a="right" style="--d:2" src="assets/img/ill_mano_senala.png" alt="">
-<aside class="notes" hidden>Lee la pregunta, cuenta tres segundos y pide que todos levanten su tarjeta al mismo tiempo: verde para sí, roja para no. Comenta en voz alta cómo se ve la sala e invita a una o dos personas a explicar su respuesta. Después pulsa «Ver reflexión» o la tecla R y nombra el criterio de la matriz: Afectación económica.</aside></section>
-<section class="slide paper-black" id="s-tarjeta5" data-id="tarjeta5" data-title="Tarjetas: Legitimidad y adaptación" data-tr="wipe" aria-roledescription="diapositiva" aria-label="31 de 39">
-<div class="qhead" data-a="fade"><p class="sticker">Tarjetas arriba · pregunta 5 de 5</p><span class="qdots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
-<h2 class="t-lg q-text" data-a="up" style="--d:1">¿Su organización ha podido saber si una ley contra el crimen se revisó después de aprobada para ver si funcionó?</h2>
-<div class="q-ui" data-a="up" style="--d:3">
-  <p class="chip green"><span aria-hidden="true">✓</span> Verde · Sí</p>
-  <p class="chip redc"><span aria-hidden="true">✕</span> Roja · No</p>
-  <button class="ui-btn reveal-btn" type="button" aria-expanded="false" aria-controls="rev5">Ver reflexión</button>
-</div>
-<div class="flip" id="rev5" hidden>
-  <p class="kicker red">Criterio 5 de la Matriz · Legitimidad y adaptación</p>
-  <p class="t-lead">El quinto criterio mira los controles y la capacidad de una ley para corregirse, y ahí el seguimiento de la sociedad civil y del periodismo es la pieza que casi siempre falta. Las cinco preguntas que respondieron son los cinco criterios de la matriz, y antes de cerrar les dejamos el código del asistente interactivo para que califiquen con ella una ley que les preocupe.</p>
-</div>
-<img class="ill ill-q" data-a="right" style="--d:2" src="assets/img/ill_dedo2.png" alt="">
-<aside class="notes" hidden>Lee la pregunta, cuenta tres segundos y pide que todos levanten su tarjeta al mismo tiempo: verde para sí, roja para no. Comenta en voz alta cómo se ve la sala e invita a una o dos personas a explicar su respuesta. Después pulsa «Ver reflexión» o la tecla R y nombra el criterio de la matriz: Legitimidad y adaptación.</aside></section>
-<section class="slide paper-red center-v" id="s-rol" data-id="rol" data-title="Su rol" data-tr="wipe" aria-roledescription="diapositiva" aria-label="32 de 39">
-<p class="sticker inv" data-a="stamp">Y aquí entran ustedes</p>
-<h2 class="t-xxl ink" data-a="up" style="--d:1">Ustedes ven lo que <span class="mark mark-ink">los políticos no ven</span></h2>
-<p class="t-xlead ink rol-p" data-step="1">La matriz se hizo para legisladores, y en manos de la sociedad civil se convierte en <b>una forma de exigir con evidencia</b></p>
-<img class="ill ill-ojo" data-a="right" style="--d:2" src="assets/img/ill_mujer_roja.png" alt="">
-<aside class="notes" hidden>Lámina de pausa: dila lento y mira a la sala. &quot;Ustedes están en el territorio. Escuchan a las víctimas de la extorsión, ven a los jóvenes que recluta el crimen y siguen los expedientes judiciales que el Congreso olvida. Esa información, ese criterio, no lo tiene ningún diputado.&quot; Aquí puedes reconocer el trabajo que ya existe en la sala, por ejemplo el seguimiento ciudadano a los grandes casos de corrupción. &quot;Ustedes ya hacen esto. Lo que les traemos es un método común.&quot;</aside></section>
-<section class="slide paper-black" id="s-doblevia" data-id="doblevia" data-title="Dos direcciones" data-tr="wipe" aria-roledescription="diapositiva" aria-label="33 de 39">
-<p class="sticker" data-a="stamp">Dos direcciones</p>
-<h2 class="t-lg" data-a="up" style="--d:1">De la calle al Congreso<br>y del Congreso <span class="mark mark-red">a la calle</span></h2>
-<div class="dv">
-  <div class="dv-card" data-step="1"><p class="kicker red">Llevar la voz</p><h3 class="t-sm">Hacia quienes legislan</h3>
-    <ul class="ticks"><li>Lo que la gente percibe y vive en su territorio</li><li>Datos y casos que el Congreso no mira</li><li>Las aristas que nadie puso sobre la mesa</li></ul></div>
-  <div class="dv-arrows" aria-hidden="true"><span class="a1">→</span><img class="dv-sobre" src="assets/img/c_sobre.webp" alt=""><span class="a2">←</span></div>
-  <div class="dv-card" data-step="2"><p class="kicker yellow">Exigir cuentas</p><h3 class="t-sm">Hacia la ciudadanía</h3>
-    <ul class="ticks"><li>Preguntar lo que la ley no responde</li><li>Cuestionar con la evidencia en la mano</li><li>Traducir una ley para que la gente la entienda</li></ul></div>
-</div>
-<aside class="notes" hidden>Este es el corazón del rol de la sociedad civil. Primera dirección: ustedes son quienes pueden darles a los políticos las percepciones de la gente, los datos de territorio, las aristas que no ven. Segunda dirección: ustedes son quienes exigen, cuestionan y hacen que el poder vea lo que no quiere ver, y quienes le explican a la ciudadanía qué significa una ley. &quot;Para hacer las dos cosas necesitan un lenguaje común con los legisladores. La matriz es ese lenguaje.&quot; Y pasa a las herramientas: «Para hacer las dos cosas no tienen que empezar de cero».</aside></section>
-<section class="slide paper-black" id="s-herramientas" data-id="herramientas" data-title="Herramientas" data-tr="wipe" aria-roledescription="diapositiva" aria-label="34 de 39">
-<p class="sticker" data-a="stamp">Para hacerlo no empiezan de cero</p>
-<h2 class="t-lg" data-a="up" style="--d:1">Las herramientas <span class="mark mark-red">con las que nos quedamos</span></h2>
+<section class="slide paper-black" id="s-herramientas" data-id="herramientas" data-title="Herramientas" data-tr="wipe" aria-roledescription="diapositiva" aria-label="11 de 31">
+<p class="sticker" data-a="stamp">Lo que creamos junto a los participantes</p>
+<h2 class="t-lg" data-a="up" style="--d:1">Las herramientas <span class="mark mark-red">que nos dejó el programa</span></h2>
 <div class="tools">
-  <div class="tool" data-step="1"><img class="cover zoomable" src="assets/img/portada_checklist.jpg" alt="Portada del Checklist del Legislador"><h3 class="t-sm2">Checklist del Legislador</h3><p class="t-body muted">para revisar una ley antes de votarla</p></div>
+  <div class="tool" data-step="1"><img class="cover zoomable" src="assets/img/portada_checklist.jpg" alt="Portada del Checklist del Legislador"><h3 class="t-sm2">Checklist del Legislador</h3><p class="t-body muted">nueve preguntas para revisar una ley antes de votarla</p></div>
   <div class="tool" data-step="2"><img class="cover zoomable" src="assets/img/portada_caja.jpg" alt="Portada de la Caja de Herramientas de Evaluación del Impacto Criminal, que contiene la Matriz"><h3 class="t-sm2">Caja de Herramientas y Matriz</h3><p class="t-body muted">para evaluar paso a paso si una ley se puede aplicar</p></div>
-  <div class="tool" data-step="3"><img class="cover zoomable" src="assets/img/portada_guia.jpg" alt="Portada de la Guía de Buenas Prácticas Legislativas"><h3 class="t-sm2">Guía de Buenas Prácticas</h3><p class="t-body muted">para legislar mejor contra el crimen</p></div>
+  <div class="tool" data-step="3"><img class="cover zoomable" src="assets/img/portada_guia.jpg" alt="Portada de la Guía de Buenas Prácticas Legislativas"><h3 class="t-sm2">Guía de Buenas Prácticas</h3><p class="t-body muted">seis pasos para legislar mejor contra el crimen</p></div>
   <div class="tool" data-step="4"><div class="cover ai"><img src="assets/img/ill_computadora.png" alt=""></div><h3 class="t-sm2 yellow">Asistente interactivo</h3><p class="t-body muted">para consultarlas paso a paso</p></div>
 </div>
-<aside class="notes" hidden>Aquí retomas el programa: todo lo que vivieron los asesores quedó convertido en herramientas, porque la idea era aprender haciendo. La Matriz ya la conocen; dile a la sala que viene dentro de una Caja de Herramientas con fichas paso a paso para aplicarla. Presenta las otras en una frase cada una y anuncia que vas a mostrar de cerca el Checklist y la Guía de Buenas Prácticas. El asistente interactivo reúne los documentos y fue registrado por IRI como recurso complementario.</aside></section>
-<section class="slide paper-cream" id="s-checklist" data-id="checklist" data-title="Checklist" data-tr="wipe" aria-roledescription="diapositiva" aria-label="35 de 39">
-<div class="ck">
-  <img class="ck-cover zoomable" data-a="drop" src="assets/img/portada_checklist.jpg" alt="Portada del Checklist del Legislador, guía de bolsillo del programa">
-  <div class="col">
-    <p class="sticker" data-a="stamp" style="--d:1">La herramienta para el momento de votar</p>
-    <h2 class="t-lg" data-a="up" style="--d:2">Nueve preguntas <span class="mark">antes de votar una ley</span></h2>
-    <div class="ck-q red-edge" data-step="1"><p class="kicker red">Mirada económica</p><p class="t-lead">¿Esta ley facilita rastrear el dinero, o lo dificulta?</p></div>
-    <div class="ck-q purple-edge" data-step="2"><p class="kicker purple">Mirada social</p><p class="t-lead">¿Previene el problema, o solo lo castiga después de que ocurrió?</p></div>
-    <div class="ck-q ink-edge" data-step="3"><p class="kicker">Mirada internacional</p><p class="t-lead">¿Cubre todo el proceso, o deja alguna etapa sin regular?</p></div>
-    <p class="t-lead b" data-step="4">Su última página pregunta: <span class="red">«¿Qué agregarías tú a este checklist?»</span></p>
-  </div>
-</div>
-<img class="ill ill-lapiz" data-a="up" style="--d:5" src="assets/img/c_lapiz.webp" alt="">
-<p class="foot">Checklist del Legislador · guía de bolsillo · basada en el Índice Global de Crimen Organizado (GI-TOC) y las recomendaciones del GAFI</p>
-<aside class="notes" hidden>Lleva el checklist impreso y levántalo. &quot;¿Se acuerdan de que al momento de votar nadie tenía con qué revisar una ley? Esto cabe en el bolsillo.&quot; Fue lo primero que recibió cada asambleísta y asesor el día de la inauguración, para usar en el Pleno y en las comisiones. Está armado con las tres miradas del programa, tres preguntas por mirada. También reconoce con honestidad con qué se topa un legislador al usarla: presión de gremios interesados, información técnica incompleta, tiempos que no alcanzan y la sensación de que &quot;esto no es mi tema&quot;. Remata con la última página: &quot;¿Qué agregarías tú a este checklist?&quot;. Y dile a la sala: &quot;Hoy esa pregunta es para ustedes. Ustedes saben cosas que los legisladores no saben.&quot;</aside></section>
-<section class="slide paper-cream" id="s-guia" data-id="guia" data-title="Guía" data-tr="wipe" aria-roledescription="diapositiva" aria-label="36 de 39">
-<p class="sticker" data-a="stamp">03 · Construir · la Guía que escribieron ellos</p>
+<aside class="notes" hidden>Todo lo que vivieron los participantes quedó convertido en herramientas, porque la idea era aprender haciendo. Presenta cada una en una frase: el Checklist para el momento de votar, la Caja de Herramientas con la Matriz que vamos a ver por dentro en un momento, y la Guía escrita por los propios asambleístas y asesores, que muestras a continuación. El asistente interactivo reúne los documentos y fue registrado por IRI como recurso complementario.</aside></section>
+<section class="slide paper-cream" id="s-guia" data-id="guia" data-title="Guía" data-tr="wipe" aria-roledescription="diapositiva" aria-label="12 de 31">
+<p class="sticker" data-a="stamp">Lo que creamos · la Guía que escribieron ellos</p>
 <h2 class="t-lg" data-a="up" style="--d:1">Seis pasos antes de <span class="mark">legislar contra el crimen</span></h2>
 <div class="gd">
   <img class="gd-cover zoomable" data-a="drop" style="--d:2" src="assets/img/portada_guia.jpg" alt="Portada de la Guía de Buenas Prácticas Legislativas para combatir el crimen organizado transnacional">
@@ -1114,7 +855,81 @@ tr.shown td{animation:rowflash 1.2s ease-out}
 <img class="ill ill-pluma" data-a="right" style="--d:4" src="assets/img/c_pluma.webp" alt="">
 <p class="foot">Construida por los participantes el 4 de septiembre · entregada a la presidenta de la Comisión de Seguridad</p>
 <aside class="notes" hidden>Muestra la Guía impresa. Esta lámina tiene un mensaje que a la sociedad civil le encanta: el documento lo escribieron los propios legisladores y asesores, en dos grupos de trabajo; nosotros solo facilitamos. El grupo 1 armó los pasos 1 a 3 y el grupo 2 los pasos 4 a 6. Entre sus aportes estaban &quot;primar la calidad normativa sobre la cantidad&quot;, &quot;redactar con conceptos técnicos&quot; y &quot;considerar los aportes de la ciudadanía&quot;. Esta última frase es tu puente hacia los recursos: los propios asambleístas escribieron que necesitan los aportes de la ciudadanía, y por eso todo lo que construimos queda en sus manos.</aside></section>
-<section class="slide paper-black" id="s-materiales" data-id="materiales" data-title="Materiales" data-tr="wipe" aria-roledescription="diapositiva" aria-label="37 de 39">
+<section class="slide paper-black split" id="s-mtz_que" data-id="mtz_que" data-title="Matriz: qué es" data-tr="wipe" aria-roledescription="diapositiva" aria-label="13 de 31">
+<div class="split-text">
+  <p class="sticker" data-a="stamp">Lo más importante que creamos</p>
+  <h2 class="t-xl" data-a="up" style="--d:1">La Matriz de Evaluación <span class="mark mark-red">del Impacto Criminal</span></h2>
+  <p class="t-xlead cream-soft" data-step="1">Una herramienta creada en el programa, con Jimmy Encalada y los participantes, para revisar cualquier ley, reforma o proyecto contra el crimen organizado</p>
+</div>
+<figure class="polaroid tilt-r" data-a="drop" style="--d:3"><span class="tape"></span><img class="zoomable" src="assets/img/portada_caja.jpg" alt="Portada de la Caja de Herramientas de Evaluación del Impacto Criminal, que contiene la Matriz"><figcaption>Caja de Herramientas y Matriz · 2026</figcaption></figure>
+<aside class="notes" hidden>Presenta la Matriz como el corazón de lo que se construyó: nació en el programa, a partir de las preguntas que se repetían en cada sesión, y la ordenó Jimmy Encalada con los participantes.</aside></section>
+<section class="slide paper-red center-v" id="s-mtz_para" data-id="mtz_para" data-title="Matriz: para qué sirve" data-tr="wipe" aria-roledescription="diapositiva" aria-label="14 de 31">
+<p class="sticker inv" data-a="stamp">Para qué sirve</p>
+<h2 class="t-xl ink" data-a="up" style="--d:1">Para distinguir lo que la ley dice de <span class="mark mark-ink">lo que realmente se aplica</span></h2>
+<p class="t-xlead ink rol-p" data-step="1">Con evidencia de cada artículo, permite localizar los vacíos y saber si el problema está en el diseño de la ley, en su implementación o en ambos</p>
+<aside class="notes" hidden>Deja que la frase se lea en silencio. Esta es la idea que debe quedar: una ley puede estar bien escrita y no aplicarse, y la Matriz sirve para ver exactamente dónde está la falla.</aside></section>
+<section class="slide paper-cream" id="s-matriz" data-id="matriz" data-title="Matriz: criterios" data-tr="wipe" aria-roledescription="diapositiva" aria-label="15 de 31">
+<p class="sticker" data-a="stamp">Los cinco criterios de la Matriz</p>
+<h2 class="t-lg" data-a="up" style="--d:1">Cinco preguntas a <span class="mark">cualquier ley</span></h2>
+<div class="mx">
+  <img class="mx-cover zoomable" data-a="drop" style="--d:2" src="assets/img/portada_caja.jpg" alt="Portada de la Caja de Herramientas de Evaluación del Impacto Criminal, documento que contiene la Matriz">
+  <div class="table-wrap mx-table" data-a="up" style="--d:3"><table class="tbl light">
+  <tr><th>Criterio</th><th>Pregunta central</th></tr>
+  <tr data-step="1"><td>1. Ecosistema criminal</td><td>¿Interviene la red completa o solo a sus ejecutores?</td></tr>
+  <tr data-step="2"><td>2. Capacidad institucional</td><td>¿Quién actúa, con qué competencias y cómo se coordina?</td></tr>
+  <tr data-step="3"><td>3. Trazabilidad financiera</td><td>¿Permite seguir el dinero y al beneficiario final?</td></tr>
+  <tr data-step="4"><td>4. Afectación económica</td><td>¿Altera los costos y ganancias del negocio criminal?</td></tr>
+  <tr data-step="5"><td>5. Legitimidad y adaptación</td><td>¿Evita abusos, se evalúa y aprende de sus resultados?</td></tr>
+  </table></div>
+</div>
+<p class="foot">Matriz de Evaluación del Impacto Criminal (MIC) y su Caja de Herramientas · Programa de Formación en Integridad Legislativa 2026</p>
+<aside class="notes" hidden>Recorre los cinco criterios sin detenerte en cada fila: cada uno es una pregunta que cualquier ley tiene que poder responder. La idea que debe quedar es que la matriz separa lo que la norma dice de lo que realmente puede aplicarse.</aside></section>
+<section class="slide paper-cream" id="s-lectura" data-id="lectura" data-title="Cómo se califica" data-tr="wipe" aria-roledescription="diapositiva" aria-label="16 de 31">
+<p class="sticker" data-a="stamp">Cómo se califica</p>
+<h2 class="t-lg" data-a="up" style="--d:1">Cuatro lecturas <span class="mark">sobre 30 puntos</span></h2>
+<div class="bands">
+<div class="band b1" data-step="1"><p class="band-r">0–7</p><h3 class="band-h">Ley principalmente declarativa</h3><p class="t-body">capacidad muy limitada para combatir el crimen organizado transnacional</p></div><div class="band b2" data-step="2"><p class="band-r">8–18</p><h3 class="band-h">Respuesta fragmentaria</h3><p class="t-body">interviene algunos componentes, pero mantiene vacíos importantes</p></div><div class="band b3" data-step="3"><p class="band-r">19–25</p><h3 class="band-h">Marco potencialmente funcional</h3><p class="t-body">condicionado por capacidades, coordinación y aplicación efectiva</p></div><div class="band b4" data-step="4"><p class="band-r">26–30</p><h3 class="band-h">Marco integral, operativo y adaptable</h3><p class="t-body">con capacidad significativa para reducir la actuación criminal</p></div>
+</div>
+<div class="band-bar" aria-hidden="true"><i style="--a:0;--b:7"></i><i style="--a:7;--b:18"></i><i style="--a:18;--b:25"></i><i style="--a:25;--b:30"></i></div>
+<p class="foot">Valoración global de la Matriz de Evaluación del Impacto Criminal</p>
+<aside class="notes" hidden>Muestra los cuatro rangos de izquierda a derecha, uno por clic. No hace falta leer cada descripción completa: nombra el rango y su lectura. Recuerda que cada criterio se califica por lo que la ley dice y por lo que realmente se aplica, y que una misma calificación puede esconder problemas distintos. Anuncia que ahora van a ver cómo la aplicaron los asesores en un caso.</aside></section>
+<section class="slide paper-black" id="s-slytherin" data-id="slytherin" data-title="Slytherin" data-tr="wipe" aria-roledescription="diapositiva" aria-label="17 de 31">
+<p class="sticker" data-a="stamp">El ejemplo del laboratorio</p>
+<p class="ex-stamp" data-a="stamp" style="--d:2">Ejemplo</p>
+<h2 class="t-md2" data-a="up" style="--d:1">Lo que encontraron los asesores en la <span class="mark mark-red">ley de Slytherin</span></h2>
+<p class="t-body muted" data-a="up" style="--d:2">Un país ficticio con 94 homicidios por cada 100.000 habitantes, una «Ley Nacional contra el Crimen Organizado» de 30 artículos, y grupos de trabajo de la Asamblea evaluándola.</p>
+<div class="table-wrap" data-a="up" style="--d:3"><table class="tbl dark">
+<tr><th>Criterio</th><th>El vacío que identificaron</th></tr>
+<tr data-step="1"><td>1. Ecosistema criminal</td><td>Define la organización criminal, pero es ambigua con facilitadores e intermediarios.</td></tr>
+<tr data-step="2"><td>2. Capacidad institucional</td><td>Crea un sistema nacional y equipos conjuntos, sin presupuesto ni forma de resolver choques de competencias.</td></tr>
+<tr data-step="3"><td>3. Trazabilidad financiera</td><td>Crea una base nacional de información sin interoperabilidad entre la unidad financiera, tributos y aduanas.</td></tr>
+<tr data-step="4"><td>4. Afectación económica</td><td>Prioriza la cárcel y no prevé extinción de dominio ni decomiso sin condena</td></tr>
+<tr data-step="5"><td>5. Legitimidad</td><td>Permite operaciones urgentes con notificación al juez hasta cinco días después.</td></tr>
+</table></div>
+<div class="meter" data-step="6" aria-hidden="true"><div class="m-bands"><i style="--a:0;--b:7"></i><i style="--a:7;--b:18"></i><i style="--a:18;--b:25"></i><i style="--a:25;--b:30"></i></div><b class="m-pin" style="--v:12">12</b><span class="m-0">0</span><span class="m-30">30</span></div>
+<p class="t-body sly-read" data-step="6"><b class="yellow">12 de 30 · respuesta fragmentaria:</b> bien escrita en el papel e inaplicable en la práctica</p>
+<p class="foot">Promedio de los grupos de trabajo · Informe final del programa</p>
+<aside class="notes" hidden>Esta es la prueba de que funciona. Cuenta el caso como una historia: un país costero, la droga llamada &quot;piedra filosofal&quot;, carteles extranjeros contra bandas locales y un presidente que declara la guerra al crimen. Ponerle humor ayudó a que los asesores se soltaran a criticar una ley sin sentirse en una pelea partidaria. Lo que encontraron se parece muchísimo a las leyes reales: buenas intenciones en el papel y vacíos en la aplicación. Remata: &quot;Y esto lo encontraron asesores legislativos en una tarde. Imaginen lo que pueden encontrar ustedes con un proyecto real.&quot;</aside></section>
+<section class="slide paper-black" id="s-testimonio" data-id="testimonio" data-title="Testimonio" data-tr="wipe" aria-roledescription="diapositiva" aria-label="18 de 31">
+<p class="sticker" data-a="stamp">Lo que nos dijo un asambleísta</p>
+<h2 class="t-lg" data-a="up" style="--d:1">«Solo podía pensar <span class="mark mark-red">en Ecuador</span>»</h2>
+<div class="tst">
+  <p class="t-lead cream-soft" data-step="1">Mientras leía la ley de Slytherin, uno de los asambleístas sintió que aquella ley imaginaria, con estructuras sin presupuesto y responsables sin definir, se parecía demasiado a las que discutían cada semana. Después nos contó que en su despacho estaban preparando un proyecto de ley y que la Matriz los llevó a revisarlo de nuevo</p>
+  <figure class="qt" data-step="2"><p class="qt-mark">“</p><p class="qt-t">«Los verbos rectores tienen que ser analizados desde muchas perspectivas, no solamente la jurídica, para no caer en lo punitivo, que en vez de dar una solución puede crear varios problemas»</p><p class="t-cap dim">Asambleísta participante del programa · Asamblea Nacional del Ecuador</p></figure>
+</div>
+<aside class="notes" hidden>Usa esta historia para mostrar que la Matriz no se quedó en el aula: un despacho volvió a revisar su propio proyecto de ley después del ejercicio. No hace falta nombrar al asambleísta.</aside></section>
+<section class="slide paper-black" id="s-app" data-id="app" data-title="La app de la Matriz" data-tr="wipe" aria-roledescription="diapositiva" aria-label="19 de 31">
+<p class="sticker" data-a="stamp">La Matriz en su celular</p>
+<div class="appw">
+  <div class="appw-t">
+    <h2 class="t-xl" data-a="up" style="--d:1">Pruébenla <span class="mark mark-red">ustedes</span></h2>
+    <p class="t-xlead cream-soft" data-a="up" style="--d:3">Escaneen el código y califiquen una ley o un proyecto que les preocupe, criterio por criterio</p>
+  </div>
+  <div class="appw-qr" data-a="pop" style="--d:4"><button type="button" class="qr-btn" aria-label="Ampliar código: app de la Matriz"><img class="qr" src="assets/img/qr_app.png" alt="Código QR de la app de la Matriz de Evaluación del Impacto Criminal"></button><a class="ui-btn" href="https://script.google.com/macros/s/AKfycbxGcH5LXGfE3LD9QCi_MweExL4lP9uuD0rqUAqXJ1ydzQ-0YWsZyLkUYiJKm3AGhDb0/exec" target="_blank" rel="noopener">Abrir la app ↗</a></div>
+</div>
+<img class="ill ill-celular" data-a="right" style="--d:6" src="assets/img/c_celular.webp" alt="">
+<aside class="notes" hidden>Pide que saquen el celular y escaneen el código. Si hay tiempo, elige con la sala una ley o un proyecto dominicano y pide que califiquen uno o dos criterios en vivo.</aside></section>
+<section class="slide paper-black" id="s-materiales" data-id="materiales" data-title="Materiales" data-tr="wipe" aria-roledescription="diapositiva" aria-label="20 de 31">
 <p class="sticker" data-a="stamp">Llévenselo todo</p>
 <h2 class="t-lg" data-a="up" style="--d:1">Todo lo que construimos es suyo, <span class="mark mark-red">escaneen y llévenselo</span></h2>
 <div class="mats">
@@ -1127,14 +942,124 @@ tr.shown td{animation:rowflash 1.2s ease-out}
 <img class="ill ill-celular" data-a="right" style="--d:7" src="assets/img/c_celular.webp" alt="">
 <p class="foot">Programa de Formación en Integridad Legislativa 2026 · Tinta Digital × IRI</p>
 <aside class="notes" hidden>Deja esta lámina en pantalla un buen rato, mientras la gente saca el celular. Di: &quot;Nada de esto es secreto ni es solo para legisladores. Úsenlo, adáptenlo, mejórenlo.&quot; Si llevas impresos, este es el momento de repartirlos. Antes de presentar, prueba los cuatro códigos con tu celular desde una cuenta que no sea la tuya, para confirmar que los archivos se abren sin pedir permiso.</aside></section>
-<section class="slide paper-red center-v" id="s-cierre" data-id="cierre" data-title="Cierre" data-tr="fade" aria-roledescription="diapositiva" aria-label="38 de 39">
+<section class="slide paper-black center-v" id="s-usar" data-id="usar" data-title="¿Cómo la usarían?" data-tr="wipe" aria-roledescription="diapositiva" aria-label="21 de 31">
+<p class="sticker" data-a="stamp">La pregunta para ustedes</p>
+<h2 class="t-lg" data-a="up" style="--d:1">¿Cómo podrían utilizar ustedes <span class="mark mark-red">esta matriz</span> para evaluar una propuesta de ley?</h2>
+<p class="t-xlead use-p" data-step="1">Vamos a probarlo con cinco preguntas, una por cada criterio</p>
+<div class="use-crit" data-step="2"><span>1 · Ecosistema criminal</span><span>2 · Capacidad institucional</span><span>3 · Trazabilidad financiera</span><span>4 · Afectación económica</span><span>5 · Legitimidad y adaptación</span></div>
+<p class="t-lead use-p dim" data-step="3">Cada respuesta habla de lo que realmente se aplica, lo que mejor se ve desde el territorio que ustedes conocen</p>
+<img class="ill ill-usar" data-a="right" style="--d:2" src="assets/img/ill_mano_senala.png" alt="">
+<aside class="notes" hidden>Lámina puente: después de mostrar la app, devuelve la pregunta a la sala y deja unos segundos de silencio. Luego explica que la dinámica que viene recorre los cinco criterios de la matriz, uno por pregunta, y que sus respuestas apuntan a lo que realmente se aplica, donde se mira si hay responsables, recursos y evidencia de que la ley se aplica. Pasa a las tarjetas.</aside></section>
+<section class="slide paper-cream" id="s-tarjetas" data-id="tarjetas" data-title="Tarjetas: instrucciones" data-tr="wipe" aria-roledescription="diapositiva" aria-label="22 de 31">
+<p class="sticker" data-a="stamp">Ahora ustedes · tarjetas arriba</p>
+<h2 class="t-lg" data-a="up" style="--d:1">Una tarjeta verde y una roja <span class="mark">para responder</span></h2>
+<div class="tj">
+  <div class="tcard green" data-a="drop" style="--d:2"><p class="tc-sym" aria-hidden="true">✓</p><p class="tc-w">Verde · Sí</p><p class="t-body">Levanten la tarjeta verde si su respuesta es sí</p></div>
+  <div class="tcard redc" data-a="drop" style="--d:3"><p class="tc-sym" aria-hidden="true">✕</p><p class="tc-w">Roja · No</p><p class="t-body">Levanten la tarjeta roja si su respuesta es no</p></div>
+  <div class="tj-how">
+    <p class="kicker red" data-a="fade" style="--d:4">Cómo participar</p>
+    <p class="t-lead" data-step="1">Leemos una pregunta, cada persona levanta una tarjeta y miramos juntos cómo respondió la sala</p>
+    <p class="t-lead" data-step="2">Después revelamos qué criterio de la matriz está detrás de la pregunta y qué aporta su mirada a ese puntaje</p>
+    <p class="t-body b consigna" data-step="3">Cinco preguntas · unos 10 minutos</p>
+    <div class="timer" data-a="up" style="--d:5" data-seconds="600" role="timer" aria-label="Temporizador de la actividad"><output>10:00</output><button type="button" class="ui-btn t-start">Iniciar</button><button type="button" class="ui-btn t-pause">Pausar</button><button type="button" class="ui-btn t-reset">Reiniciar</button></div>
+  </div>
+</div>
+<aside class="notes" hidden>Reparte una tarjeta verde y una roja a cada persona antes de empezar. Explica la regla una sola vez y déjala en pantalla: verde es sí y roja es no, durante toda la dinámica. En cada pregunta, léela en voz alta, cuenta tres segundos y pide que levanten la tarjeta al mismo tiempo. Describe lo que ves en la sala (por ejemplo, casi todo rojo) e invita a una o dos personas a contar por qué. Luego pulsa «Ver reflexión» (o la tecla R) y cierra con la idea en pantalla. Calcula unos dos minutos por pregunta para mantener el ritmo.</aside></section>
+<section class="slide paper-black" id="s-tarjeta1" data-id="tarjeta1" data-title="Tarjetas: Ecosistema criminal" data-tr="wipe" aria-roledescription="diapositiva" aria-label="23 de 31">
+<div class="qhead" data-a="fade"><p class="sticker">Tarjetas arriba · pregunta 1 de 5</p><span class="qdots" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></div>
+<h2 class="t-lg q-text" data-a="up" style="--d:1">¿Saben quiénes financian, transportan y protegen el negocio ilícito que más golpea a su comunidad?</h2>
+<div class="q-ui" data-a="up" style="--d:3">
+  <p class="chip green"><span aria-hidden="true">✓</span> Verde · Sí</p>
+  <p class="chip redc"><span aria-hidden="true">✕</span> Roja · No</p>
+  <button class="ui-btn reveal-btn" type="button" aria-expanded="false" aria-controls="rev1">Ver reflexión</button>
+</div>
+<div class="flip" id="rev1" hidden>
+  <p class="kicker red">Criterio 1 de la Matriz · Ecosistema criminal</p>
+  <p class="t-lead">Ese conocimiento es el primer criterio de la matriz, que mide si una ley alcanza a toda la red o solo al último eslabón. Si levantaron la verde, ustedes ya tienen el mapa con el que se califica una ley, y si levantaron la roja, la matriz les dice qué preguntar para construirlo.</p>
+</div>
+<img class="ill ill-q" data-a="right" style="--d:2" src="assets/img/ill_dedo2.png" alt="">
+<aside class="notes" hidden>Lee la pregunta, cuenta tres segundos y pide que todos levanten su tarjeta al mismo tiempo: verde para sí, roja para no. Comenta en voz alta cómo se ve la sala e invita a una o dos personas a explicar su respuesta. Después pulsa «Ver reflexión» o la tecla R y nombra el criterio de la matriz: Ecosistema criminal.</aside></section>
+<section class="slide paper-black" id="s-tarjeta2" data-id="tarjeta2" data-title="Tarjetas: Capacidad institucional" data-tr="wipe" aria-roledescription="diapositiva" aria-label="24 de 31">
+<div class="qhead" data-a="fade"><p class="sticker">Tarjetas arriba · pregunta 2 de 5</p><span class="qdots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></div>
+<h2 class="t-lg q-text" data-a="up" style="--d:1">¿Han visto una ley que le encarga una tarea a una institución que en su territorio no tiene gente ni presupuesto para cumplirla?</h2>
+<div class="q-ui" data-a="up" style="--d:3">
+  <p class="chip green"><span aria-hidden="true">✓</span> Verde · Sí</p>
+  <p class="chip redc"><span aria-hidden="true">✕</span> Roja · No</p>
+  <button class="ui-btn reveal-btn" type="button" aria-expanded="false" aria-controls="rev2">Ver reflexión</button>
+</div>
+<div class="flip" id="rev2" hidden>
+  <p class="kicker red">Criterio 2 de la Matriz · Capacidad institucional</p>
+  <p class="t-lead">La matriz califica cada criterio dos veces, primero cómo está escrita la ley y después si se puede aplicar en el mundo real. Esa segunda mitad se mide mejor desde donde ustedes trabajan, porque ahí se ve si la institución existe, actúa y se coordina con las demás.</p>
+</div>
+<img class="ill ill-q" data-a="right" style="--d:2" src="assets/img/ill_mano_senala.png" alt="">
+<aside class="notes" hidden>Lee la pregunta, cuenta tres segundos y pide que todos levanten su tarjeta al mismo tiempo: verde para sí, roja para no. Comenta en voz alta cómo se ve la sala e invita a una o dos personas a explicar su respuesta. Después pulsa «Ver reflexión» o la tecla R y nombra el criterio de la matriz: Capacidad institucional.</aside></section>
+<section class="slide paper-black" id="s-tarjeta3" data-id="tarjeta3" data-title="Tarjetas: Trazabilidad financiera" data-tr="wipe" aria-roledescription="diapositiva" aria-label="25 de 31">
+<div class="qhead" data-a="fade"><p class="sticker">Tarjetas arriba · pregunta 3 de 5</p><span class="qdots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></div>
+<h2 class="t-lg q-text" data-a="up" style="--d:1">¿Alguna vez su organización o su medio siguió el rastro del dinero de un negocio ilícito?</h2>
+<div class="q-ui" data-a="up" style="--d:3">
+  <p class="chip green"><span aria-hidden="true">✓</span> Verde · Sí</p>
+  <p class="chip redc"><span aria-hidden="true">✕</span> Roja · No</p>
+  <button class="ui-btn reveal-btn" type="button" aria-expanded="false" aria-controls="rev3">Ver reflexión</button>
+</div>
+<div class="flip" id="rev3" hidden>
+  <p class="kicker red">Criterio 3 de la Matriz · Trazabilidad financiera</p>
+  <p class="t-lead">Jimmy Encalada lo resumió en el programa: si se puede perseguir el dinero, se puede perseguir la estructura. El tercer criterio pregunta si la ley facilita esa información, y quien ya cruzó contratos, registros o bases públicas sabe exactamente dónde se corta el rastro.</p>
+</div>
+<img class="ill ill-q" data-a="right" style="--d:2" src="assets/img/ill_dedo2.png" alt="">
+<aside class="notes" hidden>Lee la pregunta, cuenta tres segundos y pide que todos levanten su tarjeta al mismo tiempo: verde para sí, roja para no. Comenta en voz alta cómo se ve la sala e invita a una o dos personas a explicar su respuesta. Después pulsa «Ver reflexión» o la tecla R y nombra el criterio de la matriz: Trazabilidad financiera.</aside></section>
+<section class="slide paper-black" id="s-tarjeta4" data-id="tarjeta4" data-title="Tarjetas: Afectación económica" data-tr="wipe" aria-roledescription="diapositiva" aria-label="26 de 31">
+<div class="qhead" data-a="fade"><p class="sticker">Tarjetas arriba · pregunta 4 de 5</p><span class="qdots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></div>
+<h2 class="t-lg q-text" data-a="up" style="--d:1">¿Conocen algún caso en el que hubo condena y el negocio siguió funcionando igual?</h2>
+<div class="q-ui" data-a="up" style="--d:3">
+  <p class="chip green"><span aria-hidden="true">✓</span> Verde · Sí</p>
+  <p class="chip redc"><span aria-hidden="true">✕</span> Roja · No</p>
+  <button class="ui-btn reveal-btn" type="button" aria-expanded="false" aria-controls="rev4">Ver reflexión</button>
+</div>
+<div class="flip" id="rev4" hidden>
+  <p class="kicker red">Criterio 4 de la Matriz · Afectación económica</p>
+  <p class="t-lead">El cuarto criterio mide si la ley golpea la ganancia del crimen con decomiso, incentivos y sanciones. Cada caso que ustedes documentan de un negocio que sobrevivió a la condena es evidencia de que ese criterio no se está cumpliendo en la práctica.</p>
+</div>
+<img class="ill ill-q" data-a="right" style="--d:2" src="assets/img/ill_mano_senala.png" alt="">
+<aside class="notes" hidden>Lee la pregunta, cuenta tres segundos y pide que todos levanten su tarjeta al mismo tiempo: verde para sí, roja para no. Comenta en voz alta cómo se ve la sala e invita a una o dos personas a explicar su respuesta. Después pulsa «Ver reflexión» o la tecla R y nombra el criterio de la matriz: Afectación económica.</aside></section>
+<section class="slide paper-black" id="s-tarjeta5" data-id="tarjeta5" data-title="Tarjetas: Legitimidad y adaptación" data-tr="wipe" aria-roledescription="diapositiva" aria-label="27 de 31">
+<div class="qhead" data-a="fade"><p class="sticker">Tarjetas arriba · pregunta 5 de 5</p><span class="qdots" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+<h2 class="t-lg q-text" data-a="up" style="--d:1">¿Su organización ha podido saber si una ley contra el crimen se revisó después de aprobada para ver si funcionó?</h2>
+<div class="q-ui" data-a="up" style="--d:3">
+  <p class="chip green"><span aria-hidden="true">✓</span> Verde · Sí</p>
+  <p class="chip redc"><span aria-hidden="true">✕</span> Roja · No</p>
+  <button class="ui-btn reveal-btn" type="button" aria-expanded="false" aria-controls="rev5">Ver reflexión</button>
+</div>
+<div class="flip" id="rev5" hidden>
+  <p class="kicker red">Criterio 5 de la Matriz · Legitimidad y adaptación</p>
+  <p class="t-lead">El quinto criterio mira los controles y la capacidad de una ley para corregirse, y ahí el seguimiento de la sociedad civil y del periodismo es la pieza que casi siempre falta. Las cinco preguntas que respondieron son los cinco criterios de la matriz, y con la app que acaban de conocer pueden calificar con ella una ley que les preocupe.</p>
+</div>
+<img class="ill ill-q" data-a="right" style="--d:2" src="assets/img/ill_dedo2.png" alt="">
+<aside class="notes" hidden>Lee la pregunta, cuenta tres segundos y pide que todos levanten su tarjeta al mismo tiempo: verde para sí, roja para no. Comenta en voz alta cómo se ve la sala e invita a una o dos personas a explicar su respuesta. Después pulsa «Ver reflexión» o la tecla R y nombra el criterio de la matriz: Legitimidad y adaptación.</aside></section>
+<section class="slide paper-red center-v" id="s-rol" data-id="rol" data-title="Su rol" data-tr="wipe" aria-roledescription="diapositiva" aria-label="28 de 31">
+<p class="sticker inv" data-a="stamp">Y aquí entran ustedes</p>
+<h2 class="t-xxl ink" data-a="up" style="--d:1">Ustedes ven lo que <span class="mark mark-ink">los políticos no ven</span></h2>
+<p class="t-xlead ink rol-p" data-step="1">La matriz se hizo para legisladores, y en manos de la sociedad civil se convierte en <b>una forma de exigir con evidencia</b></p>
+<img class="ill ill-ojo" data-a="right" style="--d:2" src="assets/img/ill_mujer_roja.png" alt="">
+<aside class="notes" hidden>Lámina de pausa: dila lento y mira a la sala. &quot;Ustedes están en el territorio. Escuchan a las víctimas de la extorsión, ven a los jóvenes que recluta el crimen y siguen los expedientes judiciales que el Congreso olvida. Esa información, ese criterio, no lo tiene ningún diputado.&quot; Aquí puedes reconocer el trabajo que ya existe en la sala, por ejemplo el seguimiento ciudadano a los grandes casos de corrupción. &quot;Ustedes ya hacen esto. Lo que les traemos es un método común.&quot;</aside></section>
+<section class="slide paper-black" id="s-doblevia" data-id="doblevia" data-title="Dos direcciones" data-tr="wipe" aria-roledescription="diapositiva" aria-label="29 de 31">
+<p class="sticker" data-a="stamp">Dos direcciones</p>
+<h2 class="t-lg" data-a="up" style="--d:1">De la calle al Congreso<br>y del Congreso <span class="mark mark-red">a la calle</span></h2>
+<div class="dv">
+  <div class="dv-card" data-step="1"><p class="kicker red">Llevar la voz</p><h3 class="t-sm">Hacia quienes legislan</h3>
+    <ul class="ticks"><li>Lo que la gente percibe y vive en su territorio</li><li>Datos y casos que el Congreso no mira</li><li>Las aristas que nadie puso sobre la mesa</li></ul></div>
+  <div class="dv-arrows" aria-hidden="true"><span class="a1">→</span><img class="dv-sobre" src="assets/img/c_sobre.webp" alt=""><span class="a2">←</span></div>
+  <div class="dv-card" data-step="2"><p class="kicker yellow">Exigir cuentas</p><h3 class="t-sm">Hacia la ciudadanía</h3>
+    <ul class="ticks"><li>Preguntar lo que la ley no responde</li><li>Cuestionar con la evidencia en la mano</li><li>Traducir una ley para que la gente la entienda</li></ul></div>
+</div>
+<aside class="notes" hidden>Este es el corazón del rol de la sociedad civil. Primera dirección: ustedes son quienes pueden darles a los políticos las percepciones de la gente, los datos de territorio, las aristas que no ven. Segunda dirección: ustedes son quienes exigen, cuestionan y hacen que el poder vea lo que no quiere ver, y quienes le explican a la ciudadanía qué significa una ley. &quot;Para hacer las dos cosas necesitan un lenguaje común con los legisladores. La matriz es ese lenguaje.&quot; Y pasa al cierre.</aside></section>
+<section class="slide paper-red center-v" id="s-cierre" data-id="cierre" data-title="Cierre" data-tr="fade" aria-roledescription="diapositiva" aria-label="30 de 31">
 <img class="ill ill-sol" data-a="pop" style="--d:2" src="assets/img/c_sol.webp" alt="">
 <img class="logo-close" data-a="pop" src="assets/img/logo_tinta_stack_w.png" alt="Logo de Tinta Digital">
 <h2 class="t-xxl cream close-h" data-a="up" style="--d:1">La red ya se organizó<br><span class="ink">y ahora nos toca <span class="mark mark-cream">a nosotros</span></span></h2>
 <p class="t-xlead ink close-p" data-step="1">La próxima vez que investiguen, denuncien o publiquen, que llegue a la mesa donde se vota</p>
 <p class="foot ink">María Rosa Zury · www.tintadigital.la · @tintadigitaal · Con el apoyo del International Republican Institute (IRI)</p>
 <aside class="notes" hidden>Cierra en alto, con la misma idea del inicio. &quot;Al principio les dije que la red no espera. Ya se organizó: tiene contadores, abogados, empresas y gente en las instituciones. La pregunta es si nosotros vamos a organizarnos igual de bien.&quot; Invita a colaborar y a quedar en contacto. Agradece a IRI y devuélvele la palabra a Mauricio.</aside></section>
-<section class="slide paper-black final" id="s-final" data-id="final" data-title="Tinta Digital × IRI" data-tr="fade" aria-roledescription="diapositiva" aria-label="39 de 39">
+<section class="slide paper-black final" id="s-final" data-id="final" data-title="Tinta Digital × IRI" data-tr="fade" aria-roledescription="diapositiva" aria-label="31 de 31">
 <div class="logos-final" data-a="pop"><img class="lg-tinta" src="assets/img/logo_tinta_h_w.png" alt="Tinta Digital"><span class="lg-amp" aria-hidden="true">&amp;</span><img class="lg-iri" src="assets/img/logo_iri_w.png" alt="Instituto Republicano Internacional (IRI)"></div>
 <p class="big-handle" data-a="up" style="--d:2"><span>@</span>tintadigitaal</p>
 <p class="social-row" data-a="fade" style="--d:4">www.tintadigital.la</p>
@@ -1147,7 +1072,7 @@ tr.shown td{animation:rowflash 1.2s ease-out}
   <section id="notes" hidden aria-label="Notas para quien presenta"><h2>Notas para quien presenta</h2><div id="notes-body"></div></section>
   <nav id="bar" aria-label="Controles de la presentación">
     <button class="ctl" id="b-prev" type="button" aria-label="Diapositiva anterior">←<span class="lbl"> Anterior</span></button>
-    <span id="counter" aria-hidden="true">1 / 39</span>
+    <span id="counter" aria-hidden="true">1 / 31</span>
     <button class="ctl primary" id="b-next" type="button" aria-label="Diapositiva siguiente"><span class="lbl">Siguiente </span>→</button>
     <span id="steps" role="status"></span>
     <span id="sectitle"></span>
