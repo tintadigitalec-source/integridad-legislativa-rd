@@ -179,6 +179,8 @@ body.sala .wrap{max-width:1240px}
 .notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:12px;max-height:520px;overflow:auto;padding:6px}
 .notes p{margin:0;padding:12px 13px;background:#FFFBEF;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);font-size:15px;font-weight:700;line-height:1.35;transform:rotate(var(--rot,0deg))}
 .wait{font-weight:700;font-size:15px;margin:0}
+.big-n{font-family:var(--display);font-size:64px;line-height:1;margin:0 0 10px}
+.big-n small{font-size:26px;letter-spacing:.04em}
 .note{background:var(--paper);color:var(--ink);border:3px solid var(--ink);padding:14px 16px}
 .qrbox{display:flex;gap:14px;align-items:center;background:var(--paper);color:var(--ink);border:3px solid var(--ink);box-shadow:6px 6px 0 rgba(0,0,0,.5);padding:10px 16px 10px 10px}
 .qr{line-height:0}
@@ -560,8 +562,8 @@ function sala(){
 
 function simple(q,filas){const {c,n}=conteo(filas,q.id);return claves(q).map(k=>`<div class="row"><span class="lab">${esc(lab(q,k))}</span><div class="bar"><b style="width:${pct(c[k]||0,n)}%"></b></div><span class="pct">${pct(c[k]||0,n)}%</span></div>`).join("")}
 function comparado(q,porP){
-  const vis=Object.keys(porP).filter(p=>porP[p].length>=5);
-  if(!vis.length)return `<p class="wait">Esperando al menos 5 respuestas por grupo.</p>`;
+  const vis=Object.keys(porP).filter(p=>porP[p].length>=MINIMO());
+  if(!vis.length)return `<p class="wait">Esperando al menos ${MINIMO()} respuestas por grupo.</p>`;
   const cs=Object.fromEntries(vis.map(p=>[p,conteo(porP[p],q.id)]));
   return `<div class="legend">${vis.map(p=>`<span><i style="background:${PUBLICOS[p].color}"></i>${PUBLICOS[p].corto}</span>`).join("")}</div>`+
     claves(q).map(k=>`<div class="row"><span class="lab">${esc(lab(q,k))}</span><div class="bars">${vis.map(p=>`<div class="bar"><b style="width:${pct(cs[p].c[k]||0,cs[p].n)}%;background:${PUBLICOS[p].color}"></b></div>`).join("")}</div><span class="pct">${vis.map(p=>pct(cs[p].c[k]||0,cs[p].n)+"%").join("<br>")}</span></div>`).join("");
@@ -603,18 +605,28 @@ function preguntasSala(){
   return L;
 }
 
+/* Mínimo de respuestas para mostrar resultados (anonimato). El modo prueba lo baja a 1 solo en esta pantalla. */
+const MINIMO=()=>SALA.prueba?1:5;
+function espera(n){
+  const m=5, pct=Math.min(100,Math.round(n*100/m));
+  return `<div class="note wide espera"><p class="big-n">${n} <small>de ${m} manos</small></p>
+    <div class="bar" style="height:22px"><b style="width:${pct}%;background:var(--mustard)"></b></div>
+    <p class="wait" style="margin-top:12px">Los resultados aparecen cuando al menos ${m} personas entregan su mano, para cuidar el anonimato. Esta pantalla se actualiza sola cada 15 segundos.</p>
+    <button class="f" id="prueba" style="margin-top:14px">Ver igual (solo para probar)</button></div>`;
+}
+function activarPrueba(){const b=$("#prueba");if(b)b.onclick=()=>{SALA.prueba=true;pintar()}}
 function pintar(){
   const res=$("#res");if(!res)return;
   if(SALA.msg){res.innerHTML=`<div class="note"><p class="wait">${esc(SALA.msg)}</p></div>`;$("#stats").innerHTML="";return}
   const porP={sc:[],ej:[],dp:[]};SALA.datos.forEach(f=>{if(porP[f.p])porP[f.p].push(f)});
   $("#stats").innerHTML=`<span class="stat">${SALA.datos.length} manos entregadas</span>`+Object.entries(PUBLICOS).map(([k,v])=>`<span class="stat"><i style="background:${v.color}"></i>${v.corto}: ${porP[k].length}</span>`).join("");
   const f=SALA.f,filas=f==="todos"?SALA.datos:porP[f];
-  if(filas.length<5){res.innerHTML=`<div class="note"><p class="wait">Mostramos resultados cuando hay al menos 5 respuestas en este grupo, para cuidar el anonimato. Van ${filas.length}.</p></div>`;return}
+  if(filas.length<MINIMO()){res.innerHTML=espera(filas.length);activarPrueba();return}
   if(SALA.modo==="una"){
     const q=preguntasSala().find(x=>x.id===SALA.q)||preguntasSala()[1];
     let fl=filas, f2=f;
     if(q.solo&&f!==q.solo){fl=porP[q.solo];f2=q.solo}
-    if(fl.length<5){res.innerHTML=`<div class="note"><p class="wait">Esta pregunta aparece cuando haya al menos 5 respuestas. Van ${fl.length}.</p></div>`;return}
+    if(fl.length<MINIMO()){res.innerHTML=espera(fl.length);activarPrueba();return}
     const html=q.tipo==="palabra"?nube(fl):q.adiv?adivina(COMUNES.find(c=>c.id===q.id.split("·")[0]),fl):cuerpo(q,fl,porP,f2);
     res.innerHTML=`<div class="big wide">${panel(q.q,q.adiv?"sala":q.tema,html,true)}</div>`;return;
   }
