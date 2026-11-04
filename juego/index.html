@@ -279,10 +279,11 @@ const PUBLICOS={
   dp:{nombre:"Diputados y asesores del Congreso",corto:"Congreso",color:"#B3132B",tema:"capacidad",desc:"Quienes debaten y votan las leyes"}
 };
 const PNR="Prefiero no responder";
+const SEP=" | ";
 
 const COMUNES=[
-  {id:"c1",tema:"ecosistema",tipo:"escala",q:"Del 1 al 5, ¿qué tan presente siente el crimen organizado en su provincia o comunidad?",lo:"Nada presente",hi:"Muy presente",adivina:true},
-  {id:"c2",tema:"ecosistema",tipo:"opcion",q:"¿Qué economía ilícita cree que afecta más hoy a República Dominicana?",ops:["Narcotráfico y tránsito de drogas","Lavado de dinero","Contrabando","Trata y tráfico de personas","Corrupción en contrataciones públicas","Ciberdelitos y estafas","Extorsión y préstamos ilegales","Tráfico de armas","Otra"]},
+  {id:"c1",tema:"ecosistema",tipo:"escala",q:"Del 1 al 5, ¿qué tan presente siente el crimen organizado en su país?",lo:"Nada presente",hi:"Muy presente",adivina:true},
+  {id:"c2",tema:"ecosistema",tipo:"opcion",multi:true,q:"¿Qué crímenes cree que afectan más hoy a República Dominicana?",ops:["Narcotráfico y tránsito de drogas","Lavado de dinero","Contrabando","Trata y tráfico de personas","Corrupción en contrataciones públicas","Ciberdelitos y estafas","Extorsión y préstamos ilegales","Tráfico de armas","Otra"]},
   {id:"c3",tema:"capacidad",tipo:"opcion",q:"Cuando el país aprueba una ley contra el crimen, ¿llega con presupuesto, responsables y mecanismos para cumplirse?",ops:["Casi nunca","A veces","Casi siempre","No sé"]},
   {id:"c4",tema:"criterios",tipo:"abierta",q:"¿Cuál es el punto más débil del Estado dominicano frente al crimen organizado?"},
   {id:"c5",tema:"legitimidad",tipo:"escala",q:"Del 1 al 5, ¿cuánto confía en que las instituciones que conoce de cerca están libres de influencia del crimen organizado?",lo:"Nada",hi:"Totalmente",pnr:true,adivina:true},
@@ -393,7 +394,8 @@ function opcionesHTML(c){
     <div class="ends"><span>1 · ${esc(c.lo)}</span><span>5 · ${esc(c.hi)}</span></div>${c.pnr?`<div class="opts"><button class="opt pnr ${v===PNR?"sel":""}" data-v="${PNR}">${PNR}</button></div>`:""}`;
   if(c.tipo==="palabra") return `<input class="write one" id="w" maxlength="24" autocomplete="off" placeholder="Una palabra" value="${esc(v||"")}"><p class="hint"><span>La proyectaremos en una nube con las palabras de toda la sala.</span></p>`;
   if(c.tipo==="abierta") return `<textarea class="write" id="w" maxlength="400" placeholder="Escriba aquí con sus palabras">${esc(v&&v!==PNR?v:"")}</textarea><p class="hint"><span>No escriba nombres de personas, instituciones ni casos.</span><span id="cnt">${(v&&v!==PNR?v:"").length}/400</span></p>${c.pnr?`<div class="opts"><button class="opt pnr ${v===PNR?"sel":""}" data-v="${PNR}">${PNR}</button></div>`:""}`;
-  return `<div class="opts">${c.ops.map(o=>`<button class="opt ${v===o?"sel":""}" data-v="${esc(o)}">${esc(o)}</button>`).join("")}
+  const elegido=o=>c.multi?String(v||"").split(SEP).includes(o):v===o;
+  return `${c.multi?`<p class="hint" style="margin:-4px 0 0"><span>Puede elegir varias opciones.</span></p>`:""}<div class="opts">${c.ops.map(o=>`<button class="opt ${elegido(o)?"sel":""}" data-v="${esc(o)}" aria-pressed="${elegido(o)}">${esc(o)}</button>`).join("")}
     ${c.pnr?`<button class="opt pnr ${v===PNR?"sel":""}" data-v="${PNR}">${PNR}</button>`:""}</div>`;
 }
 function comentarioHTML(c){
@@ -434,6 +436,14 @@ function carta(){
   const back=$("#back"); back.addEventListener("click",flip); back.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();flip()}});
   const w=$("#w");
   card.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+    if(c.multi){
+      const set=new Set(String(S.a[c.id]||"").split(SEP).filter(Boolean));
+      set.has(b.dataset.v)?set.delete(b.dataset.v):set.add(b.dataset.v);
+      const lista=c.ops.filter(o=>set.has(o));
+      if(lista.length)S.a[c.id]=lista.join(SEP);else delete S.a[c.id];
+      b.classList.toggle("sel",set.has(b.dataset.v));b.setAttribute("aria-pressed",set.has(b.dataset.v));
+      $("#next").disabled=!lista.length;return;
+    }
     S.a[c.id]=c.tipo==="escala"&&b.dataset.v!==PNR?Number(b.dataset.v):b.dataset.v;
     card.querySelectorAll(".opt").forEach(x=>x.classList.toggle("sel",x===b));
     if(c.tipo==="abierta"&&w){w.value="";const k=$("#cnt");if(k)k.textContent="0/400"}
@@ -524,7 +534,7 @@ async function cargar(){
     SALA.datos=j.filas||[];return null;
   }catch(e){return "Sin conexión con la hoja de respuestas. Reintentamos solos en unos segundos."}
 }
-function conteo(filas,id){const c={};let n=0;filas.forEach(f=>{const v=f.a&&f.a[id];if(v===undefined||v==="")return;c[v]=(c[v]||0)+1;n++});return {c,n}}
+function conteo(filas,id){const c={};let n=0;filas.forEach(f=>{const v=f.a&&f.a[id];if(v===undefined||v==="")return;String(v).split(SEP).forEach(x=>{const k=typeof v==="number"?v:x;c[k]=(c[k]||0)+1});n++});return {c,n}}
 const claves=q=>q.tipo==="escala"?[1,2,3,4,5].concat(q.pnr?[PNR]:[]):q.ops.concat(q.pnr?[PNR]:[]);
 const pct=(a,b)=>b?Math.round(a*100/b):0;
 const lab=(q,k)=>q.tipo==="escala"&&k!==PNR?k+(k===1?" · "+q.lo:k===5?" · "+q.hi:""):k;
@@ -594,8 +604,9 @@ async function refrescar(){SALA.msg=await cargar();pintar()}
 function cuerpo(q,filas,porP,f){
   if(q.tipo==="abierta")return notas(filas,q.id);
   const barras=f==="todos"&&!q.adivina?comparado(q,porP):simple(q,filas);
+  const nota=q.multi?`<p class="small" style="margin:0 0 10px;font-weight:700">Cada persona pudo elegir varias opciones; el porcentaje es sobre el total de personas.</p>`:"";
   const com=filas.filter(r=>r.a&&r.a[q.id+"_x"]).length;
-  return barras+(com?`<details class="why" style="margin-top:12px"><summary>Lo que escribieron (${com})</summary><div style="margin-top:10px">${notas(filas,q.id+"_x")}</div></details>`:"");
+  return nota+barras+(com?`<details class="why" style="margin-top:12px"><summary>Lo que escribieron (${com})</summary><div style="margin-top:10px">${notas(filas,q.id+"_x")}</div></details>`:"");
 }
 
 function preguntasSala(){
