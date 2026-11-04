@@ -186,6 +186,7 @@ body.sala .wrap{max-width:1240px}
 .qr{line-height:0}
 .qr img,.qr canvas{width:112px;height:112px}
 .keyrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.keyrow input#clave{-webkit-text-security:disc}
 .keyrow input{border:2.5px solid var(--ink);padding:9px 12px;font:700 15px var(--body);width:190px;background:var(--paper);color:var(--ink)}
 .demo{background:var(--mustard);color:var(--ink);border:2px solid var(--ink);font-family:var(--display);font-size:16px;letter-spacing:.06em;padding:3px 10px 1px;align-self:flex-start}
 @media (prefers-reduced-motion:reduce){.card,.bar b,.btn,.door,body{transition:none}}
@@ -519,7 +520,7 @@ async function cargar(){
   if(!SALA.clave)return "Escriba la clave de sala para ver los resultados.";
   try{
     const j=await (await fetch(ENDPOINT+"?clave="+encodeURIComponent(SALA.clave)+"&t="+Date.now(),{credentials:"omit"})).json();
-    if(!j.ok)return j.error==="clave"?"La clave no coincide con la del Apps Script.":"No pudimos leer los resultados.";
+    if(!j.ok){if(j.error==="clave"){store.set("hallaras_clave","");return "Esa clave no es la de la sala. Revísela y vuelva a tocar «Ver resultados». Si el navegador la completó solo, bórrela y escríbala a mano.";}return "No pudimos leer los resultados.";}
     SALA.datos=j.filas||[];return null;
   }catch(e){return "Sin conexión con la hoja de respuestas. Reintentamos solos en unos segundos."}
 }
@@ -545,7 +546,7 @@ function sala(){
     <div class="keyrow"><label class="small" for="pq" style="font-weight:700">Pregunta en pantalla</label>
       <select id="pq" class="sel">${preguntasSala().map(q=>`<option value="${q.id}" ${SALA.q===q.id?"selected":""}>${esc(q.etq)}</option>`).join("")}</select>
       <button class="f" id="modo">${SALA.modo==="una"?"Ver todas":"Ver solo una"}</button></div>
-    ${ENDPOINT?`<div class="keyrow"><input id="clave" type="password" placeholder="Clave de sala" value="${esc(SALA.clave)}" aria-label="Clave de sala"><button class="f" id="usar">Ver resultados</button></div>`:`<span class="demo">Datos de ejemplo · modo demostración</span>`}
+    ${ENDPOINT?`<div class="keyrow"><form id="fclave" class="keyrow" style="margin:0" autocomplete="off"><input id="clave" type="text" name="clave-sala-hallaras" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" data-lpignore="true" data-1p-ignore placeholder="Clave de sala" value="${esc(SALA.clave)}" aria-label="Clave de sala"><button class="f" id="usar" type="submit">Ver resultados</button></form></div>`:`<span class="demo">Datos de ejemplo · modo demostración</span>`}
     <div class="filters" id="filtros">${[["todos","Los tres públicos"]].concat(Object.entries(PUBLICOS).map(([k,v])=>[k,v.corto])).map(([k,l])=>`<button class="f ${SALA.f===k?"on":""}" data-f="${k}">${l}</button>`).join("")}</div>
     <div class="stats" id="stats"></div>
     <div class="grid" id="res"><p class="wait">Cargando respuestas…</p></div>
@@ -553,7 +554,7 @@ function sala(){
   </section>`;
   try{new QRCode($("#qr"),{text:location.href.split("#")[0],width:224,height:224,colorDark:"#141019",colorLight:"#F3E8CC"})}catch(e){$("#qr").parentElement.hidden=true}
   $("#filtros").querySelectorAll(".f").forEach(b=>b.onclick=()=>{SALA.f=b.dataset.f;$("#filtros").querySelectorAll(".f").forEach(x=>x.classList.toggle("on",x===b));pintar()});
-  if($("#usar"))$("#usar").onclick=()=>{SALA.clave=$("#clave").value.trim();store.set("hallaras_clave",SALA.clave);refrescar()};
+  if($("#fclave"))$("#fclave").onsubmit=e=>{e.preventDefault();SALA.clave=$("#clave").value.trim().toLowerCase().replace(/\s+/g,"");$("#clave").value=SALA.clave;store.set("hallaras_clave",SALA.clave);$("#res").innerHTML=`<p class="wait">Buscando respuestas…</p>`;refrescar()};
   $("#jugar").onclick=()=>{location.hash=""};
   $("#pq").onchange=e=>{SALA.q=e.target.value;SALA.modo="una";$("#modo").textContent="Ver todas";pintar()};
   $("#modo").onclick=()=>{SALA.modo=SALA.modo==="una"?"todas":"una";$("#modo").textContent=SALA.modo==="una"?"Ver todas":"Ver solo una";pintar()};
