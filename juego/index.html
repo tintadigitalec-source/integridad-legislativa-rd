@@ -264,13 +264,13 @@ const ROMANO=n=>{const m=[[10,"X"],[9,"IX"],[5,"V"],[4,"IV"],[1,"I"]];let s="";f
 
 /* ---------- Temas: criterios de la Matriz y lo que levanta la app, según el documento enviado a IRI ---------- */
 const TEMAS={
-  ecosistema:{n:"Ecosistema criminal",d:"Criterio de la Matriz",c:"#5A2E8C"},
-  capacidad:{n:"Capacidad institucional",d:"Criterio de la Matriz",c:"#2B4C9B"},
-  legitimidad:{n:"Legitimidad y adaptación",d:"Criterio de la Matriz",c:"#2E6E5E"},
-  criterios:{n:"Los cinco criterios",d:"Criterio de la Matriz",c:"#B3132B"},
-  presiones:{n:"Presiones",d:"Lo que levanta la app",c:"#B4501A"},
-  influencia:{n:"Influencia indebida",d:"Lo que levanta la app",c:"#8E2D6B"},
-  autocensura:{n:"Autocensura",d:"Lo que levanta la app",c:"#1F6E8C"},
+  ecosistema:{n:"Ecosistema criminal",d:"",c:"#5A2E8C"},
+  capacidad:{n:"Capacidad institucional",d:"",c:"#2B4C9B"},
+  legitimidad:{n:"Legitimidad y adaptación",d:"",c:"#2E6E5E"},
+  criterios:{n:"Panorama del país",d:"",c:"#B3132B"},
+  presiones:{n:"Presiones",d:"",c:"#B4501A"},
+  influencia:{n:"Influencia indebida",d:"",c:"#8E2D6B"},
+  autocensura:{n:"Autocensura",d:"",c:"#1F6E8C"},
   sala:{n:"La sala",d:"Lo que cree que respondió la mayoría",c:"#A87A00"}
 };
 const PUBLICOS={
@@ -365,8 +365,8 @@ function codigos(){
   app.innerHTML=`<section class="screen">
     <div class="top"><span>Antes de jugar</span><b>Las cartas del mazo</b></div>
     <h2>Cada carta es un tema</h2>
-    <p class="lead">Los temas vienen de los criterios de la Matriz de Impacto Criminal y de lo que este juego busca escuchar.</p>
-    <div class="codes">${Object.entries(TEMAS).map(([k,T])=>`<div class="mini"><div class="frame"><div class="art">${escena(k,false)}</div><b>${esc(T.n)}</b><small>${esc(T.d)}</small></div></div>`).join("")}</div>
+    <p class="lead">Cada carta trae un tema distinto. Estos son los que encontrará en el mazo.</p>
+    <div class="codes">${Object.entries(TEMAS).map(([k,T])=>`<div class="mini"><div class="frame"><div class="art">${escena(k,false)}</div><b>${esc(T.n)}</b>${T.d?`<small>${esc(T.d)}</small>`:""}</div></div>`).join("")}</div>
     <button class="btn" id="go">Elegir mi mesa</button>
     <button class="link" id="back">Volver</button>
   </section>`;
