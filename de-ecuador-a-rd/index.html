@@ -432,6 +432,17 @@ footer img{height:38px;width:auto}
 #escuchar .step h3,#escuchar .step p{color:#111}
 .live .ph img{aspect-ratio:4/5;object-fit:cover;width:100%}
 .live .ph figcaption{color:#444}
+.vplay{cursor:pointer}
+.vplay.on{aspect-ratio:16/9}
+.vplay iframe{display:block;width:100%;height:100%;border:0}
+/* film strip: fixed sizes so iOS computes width before images load */
+.strip{overflow:hidden}
+.track{display:flex;gap:18px;width:max-content;will-change:transform;-webkit-animation:roll2 60s linear infinite;animation:roll2 60s linear infinite;transform:translate3d(0,0,0)}
+.track img{height:clamp(160px,18vw,230px)!important;width:clamp(120px,13.5vw,172px)!important;object-fit:cover;flex:none}
+.track img:nth-child(7),.track img:nth-child(15){width:clamp(210px,24vw,306px)!important}
+@-webkit-keyframes roll2{from{-webkit-transform:translate3d(0,0,0)}to{-webkit-transform:translate3d(calc(-50% - 9px),0,0)}}
+@keyframes roll2{from{transform:translate3d(0,0,0)}to{transform:translate3d(calc(-50% - 9px),0,0)}}
+@media (prefers-reduced-motion:reduce){.track{animation:none}.strip{overflow-x:auto}}
 </style>
 
 <!-- 1. PORTADA -->
@@ -498,11 +509,12 @@ footer img{height:38px;width:auto}
   </div>
   <div class="wrap ecu-vid rv">
         <p class="says">La propia Asamblea lo contó así</p>
-        <a class="video" href="https://drive.google.com/file/d/1AJmCg5ESWXTcMyOolNXCGaIjQ7FP1MFE/view" target="_blank" rel="noopener" aria-label="Ver el video de la Escuela Legislativa sobre el programa (se abre en una pestaña nueva)">
+        <div class="video vplay" role="button" tabindex="0" data-src="https://drive.google.com/file/d/1AJmCg5ESWXTcMyOolNXCGaIjQ7FP1MFE/preview" aria-label="Reproducir el video de la Escuela Legislativa sobre el programa">
           <img src="img/poster_reportaje.jpg" alt="">
           <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
           <span class="vcap">▶ Video de la Escuela Legislativa de la Asamblea Nacional</span>
-        </a>
+        </div>
+        <script>document.querySelectorAll('.vplay').forEach(function(v){function go(){if(v.querySelector('iframe'))return;var f=document.createElement('iframe');f.src=v.dataset.src;f.allow='autoplay; fullscreen';f.allowFullscreen=true;f.title='Video de la Escuela Legislativa';v.innerHTML='';v.appendChild(f);v.classList.add('on')}v.addEventListener('click',go);v.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}})});</script>
   </div>
 </section>
 
